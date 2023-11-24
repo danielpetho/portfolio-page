@@ -1,0 +1,46 @@
+import { gql } from "graphql-request";
+
+const makeFiltersQueryWithRelay = (withCursor: boolean = false) => {
+  const fields = `
+            name
+            id
+            createdAt
+            instagramLink
+            snapchatLink
+            tiktokLink
+            webLink
+            preview {
+              url
+            }
+            slug
+            }`;
+
+const query = (inputVariables: string) => gql`
+ query Filters(${inputVariables}) {
+    pages: filtersConnection(
+      ${withCursor ? "after: $after" : ""}
+      first: $first
+      orderBy: createdAt_DESC
+    ) {
+      filters: edges {
+        cursor
+        filter: node {${fields}
+        }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      endCursor
+    }
+  }
+}`;
+
+  let variables = withCursor ? "$first: Int!, $after: String!" : "$first: Int!";
+
+  const q = query(variables);
+
+  console.log(q);
+
+  return q;
+};
+
+export { makeFiltersQueryWithRelay };
