@@ -20,8 +20,8 @@ async function FilterList(query: Query) {
   }
 
   return (
-    <div className="mb-12 md:mt-0">
-      <div className="grid grid-cols-3 gap-4">
+    <div className="my-12 mx-12 flex">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-14">
         {filters &&
           filters.map((filter: FilterPage) => {
             return (

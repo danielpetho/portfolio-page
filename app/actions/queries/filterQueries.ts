@@ -38,8 +38,6 @@ const query = (inputVariables: string) => gql`
 
   const q = query(variables);
 
-  console.log(q);
-
   return q;
 };
 

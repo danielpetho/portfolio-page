@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { archia } from "./utils/fonts";
 import "./globals.css";
-import { Analytics } from '@vercel/analytics/react';
-
-const space = Space_Grotesk({ subsets: ["latin"] });
+import { Analytics } from "@vercel/analytics/react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Daniel Petho",
@@ -16,9 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={space.className}>{children}</body>
-      <Analytics />
+    <html lang="en" className={archia.className}>
+      <body >
+        <Header />
+        {children}
+        <Footer />
+        <Analytics />
+      </body>
     </html>
   );
 }

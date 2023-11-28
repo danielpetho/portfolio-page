@@ -4,7 +4,6 @@ const fetchFilters = async (
   query: Query,
 ) => {
   try {
-    console.log(query.query);
     const response = await fetch(`${process.env.HYGRAPH_ENDPOINT}`, {
       method: "POST",
       headers: {
