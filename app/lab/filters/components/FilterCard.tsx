@@ -10,8 +10,8 @@ type FilterCardProps = {
 
 const FilterCard: React.FC<FilterCardProps> = ({ filter }) => {
   return (
-    <div className="flex flex-col cursor">
-      <div className="rounded-3xl">
+    <div className="flex flex-col cursor-pointer">
+      <div className="">
         <video
           src={filter.preview.url}
           autoPlay
