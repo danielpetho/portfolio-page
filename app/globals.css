@@ -13,6 +13,8 @@ body {
   background-color: #f2eff2;
 }
 
+/* Scrollbar */
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -20,14 +22,14 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f2eff2;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background-clip: padding-box;
   background: #333333;
-  border-right: 2px white solid;
+  border-right: 2px #f2eff2 solid;
   border-radius: 5px;
 }
 

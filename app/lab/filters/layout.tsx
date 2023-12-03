@@ -7,7 +7,7 @@ export default function Layout({
 }) {
   return (
     <Lenify>
-   {children}
-</Lenify>
+      {children}
+    </Lenify>
   );
 }

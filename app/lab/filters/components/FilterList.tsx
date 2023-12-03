@@ -23,10 +23,10 @@ async function FilterList(query: Query) {
     <div className="my-12 mx-12 flex">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-14">
         {filters &&
-          filters.map((filter: FilterPage) => {
+          filters.map((filter: FilterPage, idx: number) => {
             return (
               <div key={filter.filter.id}>
-                  <FilterCard filter={filter.filter} />
+                  <FilterCard filter={filter.filter} idx={idx} />
               </div>
             );
           })}
