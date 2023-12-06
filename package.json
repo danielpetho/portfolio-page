@@ -13,7 +13,6 @@
     "@hygraph/utils": "^1.2.1",
     "@react-three/drei": "^9.88.14",
     "@react-three/fiber": "^8.15.11",
-    "@react-three/postprocessing": "^2.15.11",
     "@studio-freight/lenis": "^1.0.29",
     "@studio-freight/tempus": "^0.0.38",
     "@types/three": "^0.158.2",

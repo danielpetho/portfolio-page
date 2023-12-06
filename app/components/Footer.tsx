@@ -4,12 +4,28 @@ import React from "react";
 import Link from "next/link";
 import Scene from "./R3F/Scene";
 
+
 const Footer: React.FC = () => {
   return (
     <footer className="text-white text-xl flex items-center flex-col bg-black h-screen justify-center w-full">
-      <div className="  max-w-[1920px] px-12 sm:px-16 md:px-20 lg:px-32 w-full h-full pt-16 ">
-        <div className="rounded-3xl overflow-hidden h-full">
-          <Scene />
+      <div className="max-w-[1920px] px-12 sm:px-16 md:px-20 lg:px-32 w-full h-full pt-16 ">
+        <div className="relative w-full h-full">
+          <div className="absolute top-0 left-0 z-10 h-full">
+            <div className="flex flex-col p-24 h-full w-full flex-grow justify-between">
+              <div>
+                <h2 className="text-9xl font-semibold ">
+                  Wanna create something cool together?
+                </h2>
+              </div>
+              <div className="flex flex-col my-4 gap-2 text-right">
+                <h3 className="text-4xl font-thin">Let's connect!</h3>
+                <h3 className="text-4xl font-semibold">hello@danielpetho.com</h3>
+              </div>
+            </div>
+          </div>
+          <div className="absolute top-0 left-0 rounded-[120px] overflow-hidden h-full w-full z-0">
+            <Scene />
+          </div>
         </div>
       </div>
 
