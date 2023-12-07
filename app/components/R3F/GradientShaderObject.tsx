@@ -3,9 +3,9 @@
 import { useMemo, useRef } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
 import { PlaneGeometry } from "three";
-import * as THREE from 'three';
+import * as THREE from "three";
 
-const fragmentShader = `varying vec2 vUv;
+const fragmentShader = /* glsl */ `varying vec2 vUv;
 varying vec3 vPosition;
 
 uniform vec3 resolution;
@@ -94,9 +94,9 @@ void main() {
 	gl_FragColor = vec4(thirdColor, 1.);
 }`;
 
+const vertexShader = /* glsl */ `
 
-
-const vertexShader = `varying vec2 vUv;
+varying vec2 vUv;
 varying vec3 vPosition;
 
 void main()	{
@@ -127,7 +127,7 @@ const GradientShaderObject = () => {
 
   return (
     <mesh ref={mesh} position={[0, 0, 5]}>
-      <sphereGeometry args={[2, 16, 16]}  />
+      <sphereGeometry args={[2, 16, 16]} />
       {/*<meshNormalMaterial wireframe={true}/>*/}
       <shaderMaterial
         fragmentShader={fragmentShader}
