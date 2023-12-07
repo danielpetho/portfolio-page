@@ -1,6 +1,6 @@
 import { makeFiltersQueryWithRelay } from "@/app/actions/queries/filterQueries";
 import FilterList from "./components/FilterList";
-import MaskedHeader from "@/app/components/Text/MaskedHeader";
+import MaskedHeader from "@/app/components/Text/MaskedText";
 
 async function Filters() {
   const QUERY = makeFiltersQueryWithRelay(false);
@@ -11,7 +11,7 @@ async function Filters() {
 
         <MaskedHeader
           phrases={["AR Filters"]}
-          tailwindClasses="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mx-12 font-semibold"
+          tailwindClasses="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mx-6 font-semibold"
           delay={0}
         />
 

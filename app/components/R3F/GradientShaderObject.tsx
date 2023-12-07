@@ -66,7 +66,7 @@ float remap( float minval, float maxval, float curval )
 void main() {
   vec2 fragCoord = gl_FragCoord.xy;
 
-  vec3 blue = vec3(55. / 255., 0. / 255., 255. / 255.);
+  vec3 blue = vec3(0. / 255., 0. / 255., 255. / 255.);
   vec3 darkBlue = vec3(0. / 255., 0. / 255., 132. / 255.);
 
   vec3 orange = vec3(248. / 255., 84. / 255., 8. / 255.);

@@ -37,10 +37,10 @@ const MaskedExternalLink: React.FC<MaskedExternalLinkProps> = ({
   return (
     <motion.div
       ref={body}
-      whileHover="hover"
       className={`${tailwindClasses} w-full flex flex-row flex-grow overflow-hidden`}
     >
-      <motion.div className="relative" variants={headerVariants}>
+      <motion.div className="relative" variants={headerVariants}           whileHover="hover"
+>
         <motion.span className="absolute left-0 -ml-8 mt-0.5 text-2xl " variants={arrowIconVariants}>
             <IoMdArrowForward />
         </motion.span>

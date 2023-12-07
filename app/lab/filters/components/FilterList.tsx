@@ -20,7 +20,7 @@ async function FilterList(query: Query) {
   }
 
   return (
-    <div className="my-12 mx-12 flex">
+    <div className="my-12 mx-6 flex">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-14">
         {filters &&
           filters.map((filter: FilterPage, idx: number) => {

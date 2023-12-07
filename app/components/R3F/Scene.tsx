@@ -35,7 +35,7 @@ const Scene: React.FC = () => {
       </EffectComposer>
         <OrbitControls />
 
-        <Perf position={"bottom-left"} />
+        {/*<Perf position={"bottom-left"} />*/}
       </Canvas>
     </>
   );
