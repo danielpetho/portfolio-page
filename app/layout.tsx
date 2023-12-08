@@ -4,6 +4,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { LayoutGroup } from "framer-motion";
 
 export const metadata = {
   metadataBase: new URL("https://www.danielpetho.com"),
@@ -25,7 +26,7 @@ export const metadata = {
       },
     ],*/
     locale: "en_US",
-  }
+  },
 };
 
 export default function RootLayout({
@@ -35,10 +36,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={archia.className}>
-      <body >
-        <Header />
-        {children}
-        <Footer />
+      <body>
+          <Header />
+          {children}
+          <Footer />
         <Analytics />
       </body>
     </html>

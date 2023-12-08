@@ -46,8 +46,8 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex  md:flex-row max-w-[1920px] px-6 sm:px-10 md:px-20 lg:px-24 bg-black pb-6 md:pb-16 lg:pb-8 pt-8 w-full justify-start md:justify-between">
-        <div className="flex flex-col xl:flex-row w-5/6">
+      <div className="flex  sm:flex-row max-w-[1920px] px-6 sm:px-10 md:px-20 lg:px-24 bg-black pb-6 md:pb-16 lg:pb-8 pt-8 w-full justify-start sm:justify-between">
+        <div className="flex flex-col lg:flex-row lg:w-5/6 xl:w-4/6">
           <MaskedExternalLink
             text={"Instagram"}
             link="https://instagram.com/nonzeroexitcode"
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
           />
         </div>
 
-        <div className="flex mt-12 md:pb-0 md:mt-0 w-full text-sm md:text-md items-end justify-end">
+        <div className="flex mt-12 md:pb-0 md:mt-0 text-sm md:text-md items-end justify-end lg:w-1/6 xl:w-2/6 w-full">
           <MaskedHeader phrases={["2023 Daniel Petho"]} tailwindClasses="text-white font-base" delay={0.9} />
         </div>
 
