@@ -1,3 +1,4 @@
+import * as THREE from "three";
 import { BlendFunction, Effect } from "postprocessing";
 import { Uniform } from "three";
 
@@ -18,7 +19,9 @@ export default class GrainEffect extends Effect {
   constructor({ strength = 12., blendFunction = BlendFunction.SOFT_LIGHT }) {
     super("GrainEffect", fragmentShader, {
       blendFunction,
-      uniforms: new Map([["strength", new Uniform(strength)]]),
+      uniforms: new Map([
+        ["strength", new Uniform(strength)]
+      ]),
     });
   }
 }

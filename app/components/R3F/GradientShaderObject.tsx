@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
 import { PlaneGeometry } from "three";
 import * as THREE from "three";
@@ -10,6 +10,7 @@ varying vec3 vPosition;
 
 uniform vec3 resolution;
 uniform float time;
+uniform vec2 mouse;
 
 float mod289(float x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
 vec4 mod289(vec4 x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
@@ -63,8 +64,17 @@ float remap( float minval, float maxval, float curval )
     return ( curval - minval ) / ( maxval - minval );
 } 
 
+float mouseSphere(vec2 uv, vec2 mouse, float radius, float strength) {
+  float dis = distance(uv, mouse);
+  float power = smoothstep(radius, 0., dis) * strength;
+  return power;
+}
+
 void main() {
   vec2 fragCoord = gl_FragCoord.xy;
+  vec2 uv = fragCoord.xy / resolution.xy;
+  vec2 aspectCorrect = vec2(1., resolution.y / resolution.x);
+  uv *= aspectCorrect;
 
   vec3 blue = vec3(0. / 255., 0. / 255., 255. / 255.);
   vec3 darkBlue = vec3(0. / 255., 0. / 255., 132. / 255.);
@@ -80,8 +90,8 @@ void main() {
   vec3 accentColor = mix(orange, pink, sin(time * 0.1 - 0.5) * 0.5 + 0.5);
   vec3 accentColor2 = mix(pink, orange, sin(time * 0.1 + 0.312) * 0.5 + 0.5);
 
-  float n = noise(vPosition * 0.9 + time * 0.1);
-  vec2 baseUv = rotate2D(n) * rotate2D(n) * (vPosition.xy + vec2(0., sin(time * 0.1) * 1.));
+  float n = noise(vPosition * 0.9 + time * 0.1 + 30.);
+  vec2 baseUv = rotate2D(n) * rotate2D(n) * rotate2D(mouseSphere(uv, mouse, 0.5, 2.) * n) * (vPosition.xy + vec2(0., sin(time * 0.1) * 1.));
   float basePattern = lines( baseUv, 0.5 );
   float secondPattern = lines(rotate2D(n + 100.) * baseUv, 0.3  + sin(time * 0.1) * 0.2);
   float thirdPattern = lines(rotate2D(n) * baseUv, 0.1);
@@ -106,6 +116,9 @@ void main()	{
 }`;
 
 const GradientShaderObject = () => {
+  const [targetMouse, setTargetMouse] = useState([0, 0]);
+  const [lastMouse, setLastMouse] = useState([0, 0]);
+
   const mesh = useRef<THREE.Mesh>(null);
 
   const { size } = useThree();
@@ -114,19 +127,38 @@ const GradientShaderObject = () => {
     () => ({
       time: { value: 0 },
       resolution: { value: [size.width, size.height, 1] },
+      mouse: { value: [0, 0] },
     }),
     []
   );
 
   useFrame((state, delta) => {
+    const mouse = [state.pointer.x, state.pointer.y];
+    const newMouse = [(mouse[0] + 1) / 2, (mouse[1] + 1) / 2];
+
+    setLastMouse(newMouse);
+
+    const easing = 0.01;
+
+    setTargetMouse([
+      targetMouse[0] + (newMouse[0] - targetMouse[0]) * easing,
+      targetMouse[1] + (newMouse[1] - targetMouse[1]) * easing,
+    ]);
+
     if (mesh.current && "uniforms" in mesh.current.material) {
       (mesh.current.material as THREE.ShaderMaterial).uniforms.time.value +=
         delta;
+      (mesh.current.material as THREE.ShaderMaterial).uniforms.mouse.value =
+        targetMouse;
     }
   });
 
   return (
-    <mesh ref={mesh} position={[0, 0, 5]}>
+    <mesh
+      ref={mesh}
+      position={[0, 0, 5]}
+      onPointerOver={(e) => console.log("over")}
+    >
       <sphereGeometry args={[2, 16, 16]} />
       {/*<meshNormalMaterial wireframe={true}/>*/}
       <shaderMaterial
