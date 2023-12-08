@@ -49,8 +49,8 @@ const MaskedExternalLink: React.FC<MaskedExternalLinkProps> = ({
           initial={{ opacity: 0, y: 50, filter: "blur(5px)" }}
           transition={{ duration: 0.5, ease: "easeInOut", delay: delay }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true }}
           href={link}
+          className="ml-1"
           target="_blank"
           rel="noopener noreferrer"
         >

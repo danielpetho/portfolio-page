@@ -23,12 +23,11 @@ const MaskedHeader: React.FC<MaskedHeaderProps> = ({
         phrases.length > 0 &&
         phrases.map((phrase: string, idx: number) => {
           return (
-            <div key={idx} className="overflow-hidden">
+            <div key={idx} className="overflow-visible">
               <motion.p
                 initial={{ opacity: 0,  filter: "blur(5px)" }}
                 transition={{ duration: 0.5, ease: "easeInOut", delay: delay }}
                 whileInView={{ opacity: 1, filter: "blur(0px)" }}
-                viewport={{ once: true }}
               >
                 {phrase}
               </motion.p>
