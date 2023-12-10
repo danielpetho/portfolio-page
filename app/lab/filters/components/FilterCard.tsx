@@ -66,6 +66,7 @@ const FilterCard: React.FC<FilterCardProps> = ({ filter, idx }) => {
           autoPlay
           muted
           loop
+          controls={false}
           variants={videoVariants}
         ></motion.video>
       </motion.div>

@@ -9,7 +9,7 @@ interface MaskedHeaderProps {
   delay: number;
 }
 
-const MaskedHeader: React.FC<MaskedHeaderProps> = ({
+const MaskedText: React.FC<MaskedHeaderProps> = ({
   phrases,
   tailwindClasses,
   delay,
@@ -38,4 +38,4 @@ const MaskedHeader: React.FC<MaskedHeaderProps> = ({
   );
 };
 
-export default MaskedHeader;
+export default MaskedText;

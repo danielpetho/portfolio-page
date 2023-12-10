@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        '3xl': '2900px',
+      },
       colors: {
         transparent: 'transparent',
         current: 'currentColor',

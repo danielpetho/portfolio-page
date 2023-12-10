@@ -1,27 +1,28 @@
 // Footer.tsx
-"use client" 
+"use client";
 
 import React from "react";
-import Link from "next/link";
 import Scene from "./R3F/Scene";
 import MaskedExternalLink from "./Text/MaskedExternalLink";
-import MaskedHeader from "./Text/MaskedText";
+import MaskedText from "./Text/MaskedText";
 
 const Footer: React.FC = () => {
-
   return (
-    <footer className="text-white text-xl flex items-center flex-col bg-black h-screen justify-center w-full">
-      <div className="max-w-7xl md:max-w-full px-6 md:px-20 w-full h-full pt-16 md:pt-20">
-        <div className="relative w-full h-full" onMouseMove={(e) => console.log(e)}>
-          <div className="absolute top-0 left-0 rounded-[50px] lg:rounded-[75px] xl:rounded-[100px] 2xl:rounded-[120px] overflow-hidden h-full w-full z-0">
+    <footer id="contact" className="text-white text-xl flex items-center flex-col bg-black h-screen justify-center w-full">
+        <div
+          className="relative w-full h-full py-8 md:pt-24 lg:pt-12 md:pb-12"
+          onMouseMove={(e) => console.log(e)}
+        >
+          <div className="absolute top-0 left-0 rounded-b-[50px] overflow-hidden h-full w-full z-0">
             <Scene />
           </div>
-          <div className="flex justify-center items-center text-center md:text-left w-full h-full">
-            <div className="flex flex-col p-10 sm:p-12 md:p-14 lg:p-16 xl:p-20 2xl:p-24 h-full w-full flex-grow md:justify-between justify-center text-white">
 
+          <div className="flex justify-center items-center text-center md:text-left w-full h-full">
+
+            <div className="flex flex-col p-10 sm:p-12 md:p-14 lg:p-16 xl:p-20 2xl:p-32 pt-16 sm:pt-20 md:pt-24 lg:pt-40 xl:pt-40 2xl:pt-48 h-full w-full flex-grow md:justify-between justify-center text-white">
               <div>
-                <h2 className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl 2xl:text-9xl font-semibold ">
-                  <MaskedHeader
+                <h2 className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl 2xl:text-9xl font-semibold">
+                  <MaskedText
                     delay={0.4}
                     tailwindClasses="text-white"
                     phrases={["Wanna create", "something cool", "together?"]}
@@ -29,22 +30,29 @@ const Footer: React.FC = () => {
                 </h2>
               </div>
 
-              <div className="flex flex-col mt-16 xl:gap-2  text-center justify-center items-center md:text-right md:justify-end md:items-end">
-                <MaskedHeader delay={0.5} phrases={["Let's connect!"]} tailwindClasses="text-lg sm:text-lg md:text-2xl xl:text-3xl 2xl:text-4xl font-thin md:w-max"/>
+              <div className="flex flex-col mt-16 xl:gap-2 text-center justify-center items-center md:text-right md:justify-end md:items-end">
+                <MaskedText
+                  delay={0.5}
+                  phrases={["Let's connect!"]}
+                  tailwindClasses="text-lg sm:text-lg md:text-2xl xl:text-3xl 2xl:text-4xl font-thin md:w-max"
+                />
                 <h3 className="text-lg sm:text-3xl md:text-4xl xl:text-5xl 2xl:text-5xl font-semibold flex-wrap md:w-max">
                   {" "}
                   <a href="mailto:hello@danielpetho.com" className="cursor">
-                    <MaskedHeader delay={0.6} phrases={["hello@danielpetho.com"]} tailwindClasses=""/>
+                    <MaskedText
+                      delay={0.6}
+                      phrases={["hello@danielpetho.com"]}
+                      tailwindClasses=""
+                    />
                   </a>
                 </h3>
               </div>
-
             </div>
           </div>
-        </div>
-      </div>
 
-      <div className="flex  sm:flex-row  px-6 sm:px-10 md:px-20 lg:px-24 bg-black pb-6 md:pb-16 lg:pb-8 pt-8 w-full justify-start sm:justify-between">
+        </div>
+
+      <div className="flex  sm:flex-row  px-10 sm:px-12 md:px-14 lg:px-16 xl:px-20 2xl:px-24 bg-black pb-6 md:pb-12 lg:pb-8 pt-8 w-full justify-start sm:justify-between">
         <div className="flex flex-col lg:flex-row w-3/6 lg:w-5/6 xl:w-4/6 2xl:w-3/6">
           <MaskedExternalLink
             text={"Instagram"}
@@ -73,7 +81,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="flex mt-12 md:pb-0 md:mt-0 text-sm md:text-md items-end justify-end lg:w-1/6 xl:w-2/6 w-3/6">
-          <MaskedHeader
+          <MaskedText
             phrases={["2023 Daniel Petho"]}
             tailwindClasses="text-white font-base"
             delay={0.9}

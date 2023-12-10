@@ -10,7 +10,9 @@ import {
   useAnimate,
 } from "framer-motion";
 import useDimension from "../hooks/useDimension";
-import MaskedHeader from "./Text/MaskedText";
+import MaskedText from "./Text/MaskedText";
+import Menu from "./Menu";
+import MenuButton from "./MenuButton";
 
 const Header = () => {
   const currentRoute = usePathname();
@@ -20,9 +22,16 @@ const Header = () => {
   const [footerPosition, setFooterPosition] = useState(0);
   const [reachedFooter, setReachedFooter] = useState(false);
   const [scope, animate] = useAnimate();
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
 
   const { scrollYProgress } = useScroll();
+
+  const handleButtonClick = () => {
+    console.log("clicked");
+
+    setShowMenu(!showMenu);
+    console.log(showMenu);
+  };
 
   useEffect(() => {
     if (documentHeight > 0) {
@@ -58,37 +67,33 @@ const Header = () => {
 
   return (
     <motion.header
-      className="fixed top-0 w-full bg-pale-white text-black z-10"
+      className="fixed top-0 left-0 w-full bg-pale-white text-black z-10"
       ref={scope}
     >
       <div className="flex justify-center items-center ">
-        <div className=" py-4 px-6 sm:px-10 md:px-24 flex w-full justify-between items-center h-16 md:h-20 ">
+        <div className="px-10 sm:px-12 md:px-14 lg:px-16 xl:px-20 2xl:px-32 3xl:px-48 flex w-full items-center justify-between h-24 md:h-28 lg:h-30 xl:h-36 2xl:h-40 3xl:h-64 ">
+          
           <div className="py-2 ">
             <Link
               href="/"
-              className="text-xl md:text-2xl  font-medium bg-transparent"
+              className="text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-6xl font-medium bg-transparent"
             >
-              <MaskedHeader
+              <MaskedText
                 delay={0}
                 phrases={["Daniel Petho"]}
                 tailwindClasses={""}
               />
             </Link>
           </div>
+          
+          <Menu showMenu={showMenu} />
 
-          <button
-            className="bg-transparent relative"
-            onClick={() => setShowMenu(!showMenu)}
-          >
-              <MaskedHeader
-                phrases={["Menu"]}
-                delay={0.1}
-                tailwindClasses={"text-xl font-medium flex w-full h-full"}
-              />
-              <p className="text-xl font-medium  w-full h-full absolute top-100">
-                Close
-              </p>
-          </button>
+          <div className="flex relative items-center justify-center text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-6xl">
+          <MenuButton
+            showMenu={showMenu}
+            handleButtonClick={handleButtonClick}
+          />
+          </div>
         </div>
       </div>
     </motion.header>

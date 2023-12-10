@@ -4,7 +4,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { LayoutGroup } from "framer-motion";
+import Lenify from "@/app/components/Lenify";
 
 export const metadata = {
   metadataBase: new URL("https://www.danielpetho.com"),
@@ -37,9 +37,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={archia.className}>
       <body>
+        <Lenify>
           <Header />
           {children}
           <Footer />
+        </Lenify>
+
         <Analytics />
       </body>
     </html>
