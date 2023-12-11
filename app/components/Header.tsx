@@ -71,7 +71,7 @@ const Header = () => {
       ref={scope}
     >
       <div className="flex justify-center items-center ">
-        <div className="px-10 sm:px-12 md:px-14 lg:px-16 xl:px-20 2xl:px-32 3xl:px-48 flex w-full items-center justify-between h-24 md:h-28 lg:h-30 xl:h-36 2xl:h-40 3xl:h-64 ">
+        <div className="px-10 sm:px-12 md:px-14 lg:px-16 xl:px-20 2xl:px-32 3xl:px-48 flex w-full items-center justify-between h-24 md:h-28 lg:h-30 xl:h-36 2xl:h-40 3xl:h-[16vh] ">
           
           <div className="py-2 ">
             <Link
@@ -86,7 +86,7 @@ const Header = () => {
             </Link>
           </div>
           
-          <Menu showMenu={showMenu} />
+          <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
 
           <div className="flex relative items-center justify-center text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-6xl">
           <MenuButton
