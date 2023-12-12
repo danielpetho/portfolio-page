@@ -11,8 +11,9 @@ import {
 } from "framer-motion";
 import useDimension from "../hooks/useDimension";
 import MaskedText from "./Text/MaskedText";
-import Menu from "./Menu";
-import MenuButton from "./MenuButton";
+import Menu from "./Menu/Menu";
+import MenuButton from "./Menu/MenuButton";
+import MobileMenu from "./Menu/MobileMenu";
 
 const Header = () => {
   const currentRoute = usePathname();
@@ -27,10 +28,7 @@ const Header = () => {
   const { scrollYProgress } = useScroll();
 
   const handleButtonClick = () => {
-    console.log("clicked");
-
     setShowMenu(!showMenu);
-    console.log(showMenu);
   };
 
   useEffect(() => {
@@ -40,8 +38,6 @@ const Header = () => {
   }, [documentHeight]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(footerPosition);
-    console.log(documentHeight);
     if (latest >= footerPosition) {
       setReachedFooter(true);
     } else {
@@ -87,12 +83,14 @@ const Header = () => {
           </div>
           
           <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
+          <MobileMenu showMenu={showMenu} setShowMenu={setShowMenu} />
 
           <div className="flex relative items-center justify-center text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-6xl">
           <MenuButton
             showMenu={showMenu}
             handleButtonClick={handleButtonClick}
           />
+          
           </div>
         </div>
       </div>

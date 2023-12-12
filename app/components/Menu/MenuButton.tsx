@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import MaskedText from "./Text/MaskedText";
+import MaskedText from "../Text/MaskedText";
 
 interface MenuButtonProps {
   showMenu: boolean;
@@ -30,7 +30,7 @@ const MenuButton = ({ showMenu, handleButtonClick }: MenuButtonProps) => {
           phrases={["Close"]}
           delay={0.1}
           tailwindClasses={
-            " text-black font-medium justify-end text-2xl items-center h-full flex pr-1 absolute right-0"
+            " text-black font-medium justify-end text-lg sm:text-2xl items-center h-full flex pr-1 absolute right-0"
           }
         />
       </motion.div>

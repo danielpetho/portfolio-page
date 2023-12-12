@@ -3,13 +3,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-interface MaskedHeaderProps {
+interface MaskedTextProps {
   phrases: string[];
   tailwindClasses: string;
   delay: number;
 }
 
-const MaskedText: React.FC<MaskedHeaderProps> = ({
+const MaskedText: React.FC<MaskedTextProps> = ({
   phrases,
   tailwindClasses,
   delay,

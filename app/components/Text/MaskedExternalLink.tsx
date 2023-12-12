@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { IoMdArrowForward } from "react-icons/io";
 
 interface MaskedExternalLinkProps {
@@ -18,7 +17,7 @@ const arrowIconVariants = {
   },
 };
 
-const headerVariants = {
+const textVariants = {
   hover: {
     x: 40,
     transition: { duration: 0.33, ease: [0.76, 0, 0.24, 1] },
@@ -31,18 +30,21 @@ const MaskedExternalLink: React.FC<MaskedExternalLinkProps> = ({
   tailwindClasses,
   delay,
 }) => {
-  const body = useRef(null);
-  const isInView = useInView(body, { once: true, margin: "75%" });
 
   return (
     <motion.div
-      ref={body}
       className={`${tailwindClasses} w-full flex flex-row flex-grow overflow-hidden`}
     >
-      <motion.div className="relative" variants={headerVariants}           whileHover="hover"
->
-        <motion.span className="absolute left-0 -ml-8 mt-0.5 text-2xl " variants={arrowIconVariants}>
-            <IoMdArrowForward />
+      <motion.div
+        className="relative"
+        variants={textVariants}
+        whileHover="hover"
+      >
+        <motion.span
+          className="absolute left-0 -ml-8 mt-0.5 text-2xl "
+          variants={arrowIconVariants}
+        >
+          <IoMdArrowForward />
         </motion.span>
 
         <motion.a
