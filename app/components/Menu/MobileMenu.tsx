@@ -1,14 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
-import Lenis from "@studio-freight/lenis";
 import SocialLinks from "./Navigation/SocialLinks";
 import InternalLinks from "./Navigation/InternalLinks";
 
 interface MenuProps {
   showMenu: boolean;
-  setShowMenu: (showMenu: boolean) => void;
+  linkHovered: string;
+  handleLinkClick: (link: string) => void;
+  onHoverLink: (link: string) => void;
+  onLeaveLink: () => void;
 }
 
 const menuVariants = {
@@ -28,19 +29,13 @@ const menuVariants = {
   },
 };
 
-const MobileMenu = ({ showMenu, setShowMenu }: MenuProps) => {
-  const lenisRef = useRef<Lenis | null>(null);
-
-  const handleContactMenuClick = () => {
-    const lenis = new Lenis();
-    lenisRef.current = lenis;
-
-    setShowMenu(false);
-
-    lenis.scrollTo("bottom", { duration: 1, lock: true });
-  };
-
-
+const MobileMenu = ({
+  showMenu,
+  linkHovered,
+  handleLinkClick,
+  onHoverLink,
+  onLeaveLink,
+}: MenuProps) => {
   return (
     <>
       <div className="absolute top-0 left-0 sm:hidden">
@@ -51,7 +46,13 @@ const MobileMenu = ({ showMenu, setShowMenu }: MenuProps) => {
           initial="closed"
         >
           <nav className="flex flex-col justify-between h-full text-black">
-            <InternalLinks isMenuOpen={showMenu} />
+            <InternalLinks
+              isMenuOpen={showMenu}
+              handleLinkClick={handleLinkClick}
+              hoverLink={onHoverLink}
+              leaveLink={onLeaveLink}
+              linkHovered={linkHovered}
+            />
             <SocialLinks isMenuOpen={showMenu} />
           </nav>
         </motion.div>

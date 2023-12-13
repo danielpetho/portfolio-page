@@ -1,14 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
-import Lenis from "@studio-freight/lenis";
+import { useState } from "react";
 import SocialLinks from "./Navigation/SocialLinks";
 import InternalLinks from "./Navigation/InternalLinks";
 
 interface MenuProps {
   showMenu: boolean;
-  setShowMenu: (showMenu: boolean) => void;
+  linkHovered: string;
+  handleLinkClick: (link: string) => void;
+  onHoverLink: (link: string) => void;
+  onLeaveLink: () => void;
 }
 
 const menuVariants = {
@@ -51,10 +53,14 @@ const bgBlurVariants = {
   },
 };
 
-const Menu = ({ showMenu, setShowMenu }: MenuProps) => {
+const Menu = ({
+  showMenu,
+  linkHovered,
+  handleLinkClick,
+  onHoverLink,
+  onLeaveLink,
+}: MenuProps) => {
   const [isBGBlurActive, setIsBGBlurActive] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const lenisRef = useRef<Lenis | null>(null);
 
   const handleAnimationStart = () => {
     if (showMenu && !isBGBlurActive) {
@@ -62,37 +68,13 @@ const Menu = ({ showMenu, setShowMenu }: MenuProps) => {
     } else if (!showMenu && isBGBlurActive) {
       setIsBGBlurActive(true);
     }
-
-    if (!showMenu && isMenuOpen) {
-      setIsMenuOpen(false);
-    }
   };
 
   const handleAnimationComplete = () => {
     if (!showMenu && isBGBlurActive) {
       setIsBGBlurActive(false);
     }
-
-    if (showMenu && !isMenuOpen) {
-      setIsMenuOpen(true);
-    } 
   };
-
-  const handleContactMenuClick = () => {
-    const lenis = new Lenis();
-    lenisRef.current = lenis;
-
-    setShowMenu(false);
-
-    lenis.scrollTo("bottom", { duration: 1, lock: true });
-  };
-
-  const handleUpdate = (latest: any) => {
-
-    if (!isMenuOpen && latest.opacity <= 0.1 && latest.opacity >= 0.09) {
-      //setIsMenuOpen(true);
-    }
-  }
 
   return (
     <div className="hidden sm:block">
@@ -105,7 +87,6 @@ const Menu = ({ showMenu, setShowMenu }: MenuProps) => {
         initial="closed"
         onAnimationComplete={handleAnimationComplete}
         onAnimationStart={handleAnimationStart}
-        onUpdate={handleUpdate}
       ></motion.div>
       <div className="absolute right-10 top-7">
         <motion.div
@@ -115,7 +96,13 @@ const Menu = ({ showMenu, setShowMenu }: MenuProps) => {
           initial="closed"
         >
           <nav className="flex flex-col justify-between h-full text-black">
-            <InternalLinks isMenuOpen={showMenu} />
+            <InternalLinks
+              isMenuOpen={showMenu}
+              linkHovered={linkHovered}
+              handleLinkClick={handleLinkClick}
+              hoverLink={onHoverLink}
+              leaveLink={onLeaveLink}
+            />
             <SocialLinks isMenuOpen={showMenu} />
           </nav>
         </motion.div>

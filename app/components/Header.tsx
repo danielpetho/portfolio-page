@@ -14,6 +14,7 @@ import MaskedText from "./Text/MaskedText";
 import Menu from "./Menu/Menu";
 import MenuButton from "./Menu/MenuButton";
 import MobileMenu from "./Menu/MobileMenu";
+import { useMyStore } from "../store/store";
 
 const Header = () => {
   const currentRoute = usePathname();
@@ -23,13 +24,35 @@ const Header = () => {
   const [footerPosition, setFooterPosition] = useState(0);
   const [reachedFooter, setReachedFooter] = useState(false);
   const [scope, animate] = useAnimate();
+
   const [showMenu, setShowMenu] = useState(false);
+  const [linkHovered, setLinkHovered] = useState("");
+
+  const { globalLenis } = useMyStore();
 
   const { scrollYProgress } = useScroll();
 
   const handleButtonClick = () => {
     setShowMenu(!showMenu);
   };
+
+  const handleLinkClick = (link: string) => {
+    setShowMenu(false);
+
+    if (link === "#contact") {
+      globalLenis?.scrollTo("bottom", { duration: 2, lock: true });
+    }
+  };
+
+  const onMouseEnterLink = (link: string) => {
+    setLinkHovered(link);
+    console.log(linkHovered);
+  };
+
+  const onMouseLeaveLink = () => {
+    setLinkHovered("");
+    console.log(linkHovered);
+  }
 
   useEffect(() => {
     if (documentHeight > 0) {
@@ -68,7 +91,6 @@ const Header = () => {
     >
       <div className="flex justify-center items-center ">
         <div className="px-10 sm:px-12 md:px-14 lg:px-16 xl:px-20 2xl:px-32 3xl:px-48 flex w-full items-center justify-between h-24 md:h-28 lg:h-30 xl:h-36 2xl:h-40 3xl:h-[16vh] ">
-          
           <div className="py-2 ">
             <Link
               href="/"
@@ -81,16 +103,27 @@ const Header = () => {
               />
             </Link>
           </div>
-          
-          <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
-          <MobileMenu showMenu={showMenu} setShowMenu={setShowMenu} />
+
+          <Menu
+            showMenu={showMenu}
+            handleLinkClick={handleLinkClick}
+            onHoverLink={onMouseEnterLink}
+            onLeaveLink={onMouseLeaveLink}
+            linkHovered={linkHovered}
+          />
+          <MobileMenu
+            showMenu={showMenu}
+            handleLinkClick={handleLinkClick}
+            onHoverLink={onMouseEnterLink}
+            onLeaveLink={onMouseLeaveLink}
+            linkHovered={linkHovered}
+          />
 
           <div className="flex relative items-center justify-center text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-6xl">
-          <MenuButton
-            showMenu={showMenu}
-            handleButtonClick={handleButtonClick}
-          />
-          
+            <MenuButton
+              showMenu={showMenu}
+              handleButtonClick={handleButtonClick}
+            />
           </div>
         </div>
       </div>

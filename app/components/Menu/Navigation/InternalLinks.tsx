@@ -1,10 +1,12 @@
-import Link from "next/link";
+"use client"
+
+import { motion } from "framer-motion";
 import InternalLinkText from "./InternalLinkText";
 
 const navLinks = [
   {
     text: "Home",
-    link: "/home",
+    link: "/",
   },
   {
     text: "Works",
@@ -16,7 +18,7 @@ const navLinks = [
   },
   {
     text: "Contact",
-    link: "/contact",
+    link: "#contact",
   },
   {
     text: "Tutorials / Blog",
@@ -35,22 +37,37 @@ const navLinks = [
 
 interface InternalLinksProps {
   isMenuOpen: boolean;
+  linkHovered: string;
+  handleLinkClick: (link: string) => void;
+  hoverLink: (link: string) => void;
+  leaveLink: () => void;
 }
 
-const InternalLinks = ({ isMenuOpen }: InternalLinksProps) => {
+const InternalLinks = ({
+  isMenuOpen,
+  linkHovered,
+  handleLinkClick,
+  hoverLink,
+  leaveLink,
+}: InternalLinksProps) => {
   return (
-    <ul className="flex flex-col justify-start items-start pt-24 sm:pl-14 pl-8 h-full ">
+    <motion.ul className="flex flex-col justify-start items-start pt-24 sm:pl-14 pl-8 h-full ">
       {navLinks.map((navLink, idx) => (
         <InternalLinkText
           key={idx}
+          idx={idx}
           text={navLink.text}
           link={navLink.link}
           isMenuOpen={isMenuOpen}
+          linkHovered={linkHovered}
+          handleLinkClick={handleLinkClick}
+          hoverLink={hoverLink}
+          leaveLink={leaveLink}
           delay={idx * 0.1 + 0.1}
           tailwindClasses={navLink.tailwindClasses}
         />
       ))}
-    </ul>
+    </motion.ul>
   );
 };
 
