@@ -12,6 +12,18 @@ const makeFiltersQueryWithRelay = (withCursor: boolean = false) => {
             preview {
               url
             }
+            previewImage {
+              url
+            }
+            snapCode {
+              url
+            }
+            instaCode {
+              url
+            }
+            tikCode {
+              url
+            }
             slug
             }`;
 
@@ -41,4 +53,34 @@ const query = (inputVariables: string) => gql`
   return q;
 };
 
-export { makeFiltersQueryWithRelay };
+const filterBySlugQuery = gql`
+  query FilterBySlug($slug: String!) {
+    filter: filter(where: { slug: $slug }) {
+      name
+      id
+      createdAt
+      instagramLink
+      snapchatLink
+      tiktokLink
+      webLink
+      preview {
+        url
+      }
+      previewImage {
+        url
+      }
+      snapCode {
+        url
+      }
+      instaCode {
+        url
+      }
+      tikCode {
+        url
+      }
+      slug
+    }
+  }
+`;
+
+export { makeFiltersQueryWithRelay, filterBySlugQuery };

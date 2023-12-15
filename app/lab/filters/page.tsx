@@ -12,7 +12,7 @@ async function Filters() {
         <MaskedText
           phrases={["AR Filters"]}
           tailwindClasses="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mx-6 font-semibold"
-          delay={0}
+          delay={0.0}
         />
 
 

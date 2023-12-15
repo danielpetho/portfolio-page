@@ -101,29 +101,7 @@ const FilterCard: React.FC<FilterCardProps> = ({ filter, idx }) => {
           </motion.h2>
         </motion.div>
 
-        {/*<div className="flex flex-row">
-          {filter.snapchatLink && (
-            <>
-              <a className="text-white rounded-full p-2 bg-black" href={filter.snapchatLink}>
-                <FaSnapchatGhost className="text-lg" />
-              </a>
-            </>
-          )}
-
-          {filter.instagramLink && (
-            <a href={filter.instagramLink}>
-              <FaInstagram />
-            </a>
-          )}
-
-          {filter.tiktokLink && (
-            <a href={filter.tiktokLink}>
-              <FaTiktok />
-            </a>
-          )}
-
-          {filter.webLink && <a href={filter.tiktokLink}></a>}
-        </div>*/}
+        
       </motion.div>
       </div>
     </motion.div>

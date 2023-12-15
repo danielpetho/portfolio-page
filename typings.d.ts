@@ -14,6 +14,18 @@ export type Filter = {
   preview: {
     url: string;
   };
+  previewImage: {
+    url: string;
+  };
+  snapCode: {
+    url: string;
+  };
+  instaCode: {
+    url: string;
+  };
+  tikCode: {
+    url: string;
+  };
   slug: string;
 };
 
