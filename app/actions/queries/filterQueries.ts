@@ -15,13 +15,13 @@ const makeFiltersQueryWithRelay = (withCursor: boolean = false) => {
             previewImage {
               url
             }
-            snapCode {
+            snapcode {
               url
             }
-            instaCode {
+            instacode {
               url
             }
-            tikCode {
+            tikcode {
               url
             }
             slug
@@ -69,13 +69,13 @@ const filterBySlugQuery = gql`
       previewImage {
         url
       }
-      snapCode {
+      snapcode {
         url
       }
-      instaCode {
+      instacode {
         url
       }
-      tikCode {
+      tikcode {
         url
       }
       slug

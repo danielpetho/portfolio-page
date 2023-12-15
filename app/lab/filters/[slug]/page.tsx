@@ -12,7 +12,7 @@ interface PageProps {
 async function Filter({ params: { slug } }: PageProps) {
   const filter = await fetchFilterBySlug(filterBySlugQuery, slug);
 
-  console.log(slug);
+  console.log(filter);
   return (
     <div className="h-screen w-screen flex sm:my-12 sm:mx-12 justify-center items-center ">
       {filter ? (

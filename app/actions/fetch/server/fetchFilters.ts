@@ -77,7 +77,7 @@ const fetchFilterBySlug = async (query: string, slug: string) => {
           slug: slug,
         },
       }),
-      next: { revalidate: 3600 }, // 1 hour
+      next: { revalidate: 36 }, // 1 hour
     });
 
     const { data } = await response.json();
