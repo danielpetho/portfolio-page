@@ -6,7 +6,8 @@ import { IoMdArrowForward } from "react-icons/io";
 interface MaskedExternalLinkProps {
   text: string;
   link: string;
-  tailwindClasses: string;
+  tailwindClasses?: string;
+  arrowSize?: string;
   delay: number;
 }
 
@@ -28,6 +29,7 @@ const MaskedExternalLink: React.FC<MaskedExternalLinkProps> = ({
   text,
   link,
   tailwindClasses,
+  arrowSize,
   delay,
 }) => {
 
@@ -41,7 +43,7 @@ const MaskedExternalLink: React.FC<MaskedExternalLinkProps> = ({
         whileHover="hover"
       >
         <motion.span
-          className="absolute left-0 -ml-8 mt-0.5 text-2xl "
+          className={`${arrowSize ? arrowSize : "text-2xl"} absolute left-0 -ml-8 mt-0.5`}	
           variants={arrowIconVariants}
         >
           <IoMdArrowForward />

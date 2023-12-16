@@ -40,10 +40,12 @@ const InternalLinkText = ({
       transition: { duration: 0.33, ease: "easeInOut", delay: 0 },
       transitionEnd: {
         y: 25,
+        display: "none",
       },
     },
     show: {
       opacity: 1,
+      display: "block",
       y: 0,
       filter: "blur(0px)",
       transition: { duration: 0.33, ease: "easeInOut", delay: delay },

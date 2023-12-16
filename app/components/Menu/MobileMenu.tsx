@@ -15,16 +15,22 @@ interface MenuProps {
 const menuVariants = {
   open: {
     opacity: 1,
+    w: "100vw",
     transition: {
       duration: 0.75,
       ease: [0.76, 0, 0.24, 1],
     },
+    display: "block",
+
   },
   closed: {
     opacity: 0,
     transition: {
       duration: 0.75,
       ease: [0.76, 0, 0.24, 1],
+    },
+    transitionEnd: {
+      display: "none",
     },
   },
 };
@@ -40,6 +46,7 @@ const MobileMenu = ({
     <>
       <div className="absolute top-0 left-0 sm:hidden">
         <motion.div
+        layout
           className="w-screen h-screen bg-pale-white shadow-2xl"
           variants={menuVariants}
           animate={showMenu ? "open" : "closed"}

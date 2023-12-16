@@ -1,7 +1,10 @@
 import { fetchFilterBySlug } from "@/app/actions/fetch/server/fetchFilters";
 import { filterBySlugQuery } from "@/app/actions/queries/filterQueries";
-import Image from "next/image";
-import { FaInstagram, FaSnapchatGhost, FaTiktok } from "react-icons/fa";
+import FilterLinks from "./FilterLinks";
+import Link from "next/link";
+import MaskedExternalLink from "@/app/components/Text/MaskedExternalLink";
+import { FaArrowLeft } from "react-icons/fa";
+import { IoMdArrowDropleft, IoMdArrowForward } from "react-icons/io";
 
 interface PageProps {
   params: {
@@ -14,75 +17,60 @@ async function Filter({ params: { slug } }: PageProps) {
 
   console.log(filter);
   return (
-    <div className="h-screen w-screen flex sm:my-12 sm:mx-12 justify-center items-center ">
-      {filter ? (
-        <div className="flex sm:flex-row flex-col justify-center items-center max-w-7xl ">
-          <div className="rounded-[25px] sm:rounded-[50px] h-1/3 sm:h-1/2 relative overflow-hidden w-2/4 sm:w-1/4 ">
-            <video
-              src={filter.preview.url}
-              className="rounded-[30px] h-1/3 sm:h-1/2"
-              autoPlay
-              muted
-              loop
-              controls={false}
-            ></video>
-          </div>
-          <div className="flex flex-col w-2/3 px-12 py-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-medium">{filter.name}</h1>
-            <p className="text-lg sm:text-xl md:text-2xl font pt-2 pl-0.5">Try it out:</p>
-            <div className="flex flex-row pt-4 pl-0.5">
-              {filter.snapchatLink && (
-                <>
-                <div className="sm:hidden">
-                  <a
-                    className="text-white rounded-full p-2 bg-black sm:"
-                    href={filter.snapchatLink}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <FaSnapchatGhost className="text-lg" />
-                  </a>
-                </div>
-                
-                <div className="hidden sm:flex flex-col justify-content items-center">
-                    <Image
-                        src={filter.snapcode.url}
-                        fill={true}
-                        alt="Snapcode"
-                    />
-                    <p>Snapchat</p>
-                </div>
-                
-              </>
-              )}
+    <div className="sm:h-screen w-screen flex flex-col sm:my-12 my-24 justify-center items-center">
+      <div className="sm:max-w-7xl flex flex-col text-left items-start justify-center">
+        <div className="text-slate-500">
+          <IoMdArrowForward className="inline-block mr-2 rotate-180 mb-0.5" />
+          <Link href="/lab/filters">All filters</Link>
+        </div>
+        <div className="flex justify-center items-center w-full md:w-[80vw] lg:w-[60vw] xl:w-[50vw] 2xl:w-[35vw] 3xl:w-[30vw]">
+          {filter ? (
+            <div className="flex sm:flex-row flex-col justify-center w-full items-center  md:bg-pale-white md:shadow-xl md:rounded-[50px] p-6 sm:p-14">
+              <div className="rounded-[25px] sm:rounded-[30px] relative overflow-hidden w-full sm:w-2/5 ">
+                <video
+                  src={filter.preview.url}
+                  className="rounded-[30px] "
+                  autoPlay
+                  muted
+                  loop
+                  controls={false}
+                ></video>
+              </div>
 
-              {filter.instagramLink && (
-                <a href={filter.instagramLink} rel="noreferrer" target="_blank">
-                  <FaInstagram />
-                </a>
-              )}
-
-              {filter.tiktokLink && (
-                <a href={filter.tiktokLink} rel="noreferrer" target="_blank">
-                  <FaTiktok />
-                </a>
-              )}
-
-              {filter.webLink && (
-                <a
-                  href={filter.tiktokLink}
-                  rel="noreferrer"
-                  target="_blank"
-                ></a>
-              )}
+              <div className="flex flex-col sm:w-3/5 w-full sm:pl-12 h-full">
+                <h1 className="text-3xl md:text-4xl font-semibold">
+                  {filter.name}
+                </h1>
+                <ul className="flex flex-row pt-4 gap-2">
+                  {filter.snapchatLink && (
+                    <p className="border border-black rounded-full px-3 py-1.5">
+                      Snapchat
+                    </p>
+                  )}
+                  {filter.instagramLink && (
+                    <p className="border border-black rounded-full px-3 py-1.5">
+                      Instagram
+                    </p>
+                  )}
+                  {filter.tiktokLink && (
+                    <p className="border border-black rounded-full px-3 py-1.5">
+                      TikTok
+                    </p>
+                  )}
+                </ul>
+                <p className="text-lg sm:text-xl md:text-xl font pt-12 pl-0.5">
+                  Try it out:
+                </p>
+                <FilterLinks filter={filter} />
+              </div>
             </div>
-          </div>
+          ) : (
+            <div>
+              <h1>404</h1>
+            </div>
+          )}
         </div>
-      ) : (
-        <div>
-          <h1>404</h1>
-        </div>
-      )}
+      </div>
     </div>
   );
 }
