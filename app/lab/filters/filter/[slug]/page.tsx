@@ -1,10 +1,8 @@
 import { fetchFilterBySlug } from "@/app/actions/fetch/server/fetchFilters";
 import { filterBySlugQuery } from "@/app/actions/queries/filterQueries";
-import FilterLinks from "./FilterLinks";
+import FilterLinks from "../../components/FilterLinks";
 import Link from "next/link";
-import MaskedExternalLink from "@/app/components/Text/MaskedExternalLink";
-import { FaArrowLeft } from "react-icons/fa";
-import { IoMdArrowDropleft, IoMdArrowForward } from "react-icons/io";
+import {  IoMdArrowForward } from "react-icons/io";
 
 interface PageProps {
   params: {
@@ -15,7 +13,6 @@ interface PageProps {
 async function Filter({ params: { slug } }: PageProps) {
   const filter = await fetchFilterBySlug(filterBySlugQuery, slug);
 
-  console.log(filter);
   return (
     <div className="sm:h-screen w-screen flex flex-col sm:my-12 my-24 justify-center items-center">
       <div className="sm:max-w-7xl flex flex-col text-left items-start justify-center">
