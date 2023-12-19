@@ -26,7 +26,7 @@ async function FilterList(query: Query) {
           filters.map((filter: FilterPage, idx: number) => {
             return (
               <div key={filter.filter.id}>
-                <Link href={`/lab/filters/filter/${filter.filter.slug}`}>
+                <Link href={`/lab/filters/filter/${filter.filter.slug}`} scroll={false}>
                   <FilterCard filter={filter.filter} idx={idx} />
                 </Link>
               </div>

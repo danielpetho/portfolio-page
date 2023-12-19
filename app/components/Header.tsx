@@ -46,12 +46,10 @@ const Header = () => {
 
   const onMouseEnterLink = (link: string) => {
     setLinkHovered(link);
-    console.log(linkHovered);
   };
 
   const onMouseLeaveLink = () => {
     setLinkHovered("");
-    console.log(linkHovered);
   }
 
   useEffect(() => {
