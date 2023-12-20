@@ -10,7 +10,7 @@ const FilterModal = ({ filter }: { filter: Filter }) => {
   const router = useRouter();
 
   useEffect(() => {
-    document.body.classList.add("overflow-y-hidden");
+    //document.body.classList.add("overflow-y-hidden");
     return () => {};
   }, []);
 

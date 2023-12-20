@@ -80,7 +80,7 @@ const Menu = ({
   };
 
   return (
-    <div className="hidden sm:block">
+    <div className="hidden sm:flex">
       <motion.div
         className={` ${
           isBGBlurActive ? "w-screen h-screen absolute" : "hidden w-0 h-0"

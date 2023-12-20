@@ -9,9 +9,12 @@
 
 }
 
+html {
+
+}
+
 body {
   background-color: #f2eff2;
-  overflow: hidden; /* Hide scrollbars */
 }
 
 /* Scrollbar */
