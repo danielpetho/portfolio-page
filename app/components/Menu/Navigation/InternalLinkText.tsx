@@ -36,7 +36,6 @@ const InternalLinkText = ({
   const headerVariants = {
     hidden: {
       opacity: 0,
-      filter: "blur(8px)",
       transition: { duration: 0.33, ease: "easeInOut", delay: 0 },
       transitionEnd: {
         y: 25,
@@ -47,7 +46,6 @@ const InternalLinkText = ({
       opacity: 1,
       display: "block",
       y: 0,
-      filter: "blur(0px)",
       transition: { duration: 0.33, ease: "easeInOut", delay: delay },
     },
   };

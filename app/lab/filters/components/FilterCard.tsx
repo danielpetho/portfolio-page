@@ -71,8 +71,8 @@ const FilterCard: React.FC<FilterCardProps> = ({ filter, idx }) => {
       <div className="overflow-hidden">
       <motion.div
         className="flex flex-row flex-1 mt-3 w-full justify-start items-start"
-        initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
-        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0  }}
         viewport={{ once: true }}
         transition={{
           duration: 0.5,

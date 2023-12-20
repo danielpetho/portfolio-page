@@ -11,7 +11,6 @@ const Footer: React.FC = () => {
     <footer id="contact" className="text-white text-xl flex items-center flex-col bg-black h-screen justify-center w-full">
         <div
           className="relative w-full h-full py-8 md:pt-24 lg:pt-12 md:pb-12"
-          //onMouseMove={}
         >
           <div className="absolute top-0 left-0 rounded-b-[50px] overflow-hidden h-full w-full z-0">
             <Scene />

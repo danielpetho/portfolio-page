@@ -26,6 +26,7 @@ const Header = () => {
   const [scope, animate] = useAnimate();
 
   const [showMenu, setShowMenu] = useState(false);
+  const [isMenuTransitioning, setIsMenuTransitioning] = useState(false);
   const [linkHovered, setLinkHovered] = useState("");
 
   const { globalLenis } = useMyStore();
@@ -33,7 +34,9 @@ const Header = () => {
   const { scrollYProgress } = useScroll();
 
   const handleButtonClick = () => {
-    setShowMenu(!showMenu);
+    if (!isMenuTransitioning) {
+      setShowMenu(!showMenu);
+    }
   };
 
   const handleLinkClick = (link: string) => {
@@ -50,7 +53,7 @@ const Header = () => {
 
   const onMouseLeaveLink = () => {
     setLinkHovered("");
-  }
+  };
 
   useEffect(() => {
     if (documentHeight > 0) {
@@ -111,6 +114,7 @@ const Header = () => {
           />
           <MobileMenu
             showMenu={showMenu}
+            setIsMenuTransitioning={setIsMenuTransitioning}
             handleLinkClick={handleLinkClick}
             onHoverLink={onMouseEnterLink}
             onLeaveLink={onMouseLeaveLink}

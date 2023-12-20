@@ -32,7 +32,6 @@ const SocialLinkText: React.FC<SocialLinkTextProps> = ({
     },
     hidden: {
       opacity: 0,
-      filter: "blur(8px)",
       transitionEnd: {
         display: "none",
       },
@@ -42,7 +41,6 @@ const SocialLinkText: React.FC<SocialLinkTextProps> = ({
       opacity: 1,
       display: "block",
       y: 0,
-      filter: "blur(0px)",
       transition: { duration: 0.33, ease: "easeInOut", delay: delay },
     },
   };
