@@ -40,7 +40,6 @@ export default function RootLayout({
         <Lenify>
           <Header />
           {children}
-          <Footer />
         </Lenify>
 
         <Analytics />

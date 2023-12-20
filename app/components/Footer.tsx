@@ -87,18 +87,6 @@ const Footer: React.FC = () => {
             delay={0.9}
           />
         </div>
-
-        {/*<div className="flex flex-col">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/projects">Projects</Link>
-        </div>
-
-        <div className="flex flex-col">
-          <Link href="/tutorials">Tutorials / Blog</Link>
-          <Link href="/lab">Experiments</Link>
-          <Link href="/lab/filters">AR Filters</Link>
-        </div>*/}
       </div>
     </footer>
   );
