@@ -54,7 +54,7 @@ const Header = () => {
 
   useEffect(() => {
     if (documentHeight > 0) {
-      setFooterPosition((documentHeight - 80) / documentHeight);
+      setFooterPosition((documentHeight - 160) / documentHeight);
     }
   }, [documentHeight]);
 
