@@ -35,8 +35,13 @@ const Header = () => {
   const [isMenuTransitioning, setIsMenuTransitioning] = useState(false);
   const [linkHovered, setLinkHovered] = useState("");
 
-  const { globalLenis, isMobileView, setIsClientBrowser, setIsClientMobile } =
-    useMyStore();
+  const {
+    globalLenis,
+    isMobileView,
+    isClientMobile,
+    setIsClientBrowser,
+    setIsClientMobile,
+  } = useMyStore();
 
   const { scrollYProgress } = useScroll();
 
@@ -55,10 +60,12 @@ const Header = () => {
   };
 
   const onMouseEnterLink = (link: string) => {
+    if (isClientMobile) return;
     setLinkHovered(link);
   };
 
   const onMouseLeaveLink = () => {
+    if (isClientMobile) return;
     setLinkHovered("");
   };
 
@@ -117,7 +124,7 @@ const Header = () => {
             </Link>
           </div>
 
-          {(isMobileView) ? (
+          {isMobileView ? (
             <MobileMenu
               showMenu={showMenu}
               setIsMenuTransitioning={setIsMenuTransitioning}

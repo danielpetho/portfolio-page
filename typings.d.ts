@@ -17,13 +17,13 @@ export type Filter = {
   previewImage: {
     url: string;
   };
-  snapcode: {
+  snapcode?: {
     url: string;
   };
-  instacode: {
+  instacode?: {
     url: string;
   };
-  tikcode: {
+  tikcode?: {
     url: string;
   };
   slug: string;

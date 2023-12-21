@@ -1,12 +1,13 @@
 "use client";
 
-import { FaSnapchatGhost, FaInstagram, FaTiktok } from "react-icons/fa";
-import { motion, useScroll, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 import { IoMdArrowForward } from "react-icons/io";
 
 import { Filter } from "@/typings";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useMyStore } from "@/app/store/store";
+import Image from "next/image";
 
 type FilterCardProps = {
   filter: Filter;
@@ -43,63 +44,100 @@ const arrowIconVariants = {
 };
 
 const FilterCard: React.FC<FilterCardProps> = ({ filter, idx }) => {
-  const cardRef = useRef(null)
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const cardRef = useRef(null);
+  const { isClientMobile } = useMyStore();
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoInView = useInView(videoRef, { margin: "50% 0px 50% 0px" });
+
+  useEffect(() => {
+    if (videoRef && videoRef.current) {
+      videoRef.current.addEventListener("loadeddata", () => {
+        setVideoLoaded(true);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (videoInView) {
+      videoRef.current?.play();
+    } else {
+      videoRef.current?.pause();
+    }
+  }, [videoInView]);
 
   return (
     <motion.div
       ref={cardRef}
-      className="flex flex-col cursor-pointer"
+      className="flex flex-col cursor-pointer w-full h-full jusify-center"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 + idx * 0.1 }}
       viewport={{ once: true, amount: 0.2 }}
-      whileHover="hover"
+      whileHover={!isClientMobile ? "hover" : ""}
     >
       <motion.div
-        className="relative overflow-hidden"
+        className="relative flex flex-row overflow-hidden  h-[70vh] sm:h-[70vh] max-h-[540px] md:h-[60vh] lg:h-[50vh] 2xl:h-[45vh] 3xl:h-[24vh] justify-center items-center"
         initial={{ borderRadius: "30px 30px" }}
         variants={videoContainerVariants}
       >
-        <motion.video
-          src={filter.preview.url}
+        <motion.div
           initial={{ scale: 1 }}
-          muted  
           variants={videoVariants}
-        ></motion.video>
+          className="relative w-[100vw] h-full"
+        >
+          <video
+            ref={videoRef}
+            src={filter.preview.url}
+            className="w-full h-full object-cover z-10"
+            muted
+            loop
+            autoPlay
+            playsInline
+          />
+
+          {!videoLoaded && (
+            <Image
+              fill
+              alt={filter.name}
+              src={filter.previewImage.url}
+              style={{
+                objectFit: "cover",
+                zIndex: -1 // cover, contain, none
+              }}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          )}
+        </motion.div>
       </motion.div>
 
       <div className="overflow-hidden">
-      <motion.div
-        className="flex flex-row flex-1 mt-3 w-full justify-start items-start"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0  }}
-        viewport={{ once: true }}
-        transition={{
-          duration: 0.5,
-          ease: "easeInOut",
-          delay: 0.1 + idx * 0.1,
-        }}
-      >
-
-        <motion.div 
-        className="relative font-medium w-full text-xl overflow-hidden flex flex-row items-center"
+        <motion.div
+          className="flex flex-row flex-1 mt-3 w-full justify-start items-start"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+            delay: 0.1 + idx * 0.1,
+          }}
         >
+          <motion.div className="relative font-medium w-full text-xl overflow-hidden flex flex-row items-center">
+            <motion.span
+              className="absolute left-0 w-full h-full -ml-9 mt-1 text-2xl"
+              initial={{ color: "#f2eff2" }}
+              variants={arrowIconVariants}
+            >
+              <IoMdArrowForward />
+            </motion.span>
 
-          <motion.span
-            className="absolute left-0 w-full h-full -ml-9 mt-1 text-2xl"
-            initial={{ color: "#f2eff2" }}
-            variants={arrowIconVariants}
-          >
-            <IoMdArrowForward />
-          </motion.span>
-
-          <motion.h2 className="ml-1" variants={headerVariants}>
-            {filter.name}
-          </motion.h2>
+            <motion.h2 className="ml-1" variants={headerVariants}>
+              {filter.name}
+            </motion.h2>
+          </motion.div>
         </motion.div>
-
-        
-      </motion.div>
       </div>
     </motion.div>
   );

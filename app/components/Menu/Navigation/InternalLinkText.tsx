@@ -18,7 +18,6 @@ interface InternalLinkTextProps {
 }
 
 const InternalLinkText = ({
-  idx,
   text,
   link,
   isMenuOpen,
@@ -80,8 +79,6 @@ const InternalLinkText = ({
     } else {
       setShouldPlayHoverAnimation(false);
     }
-
-    console.log(shouldPlayHoverAnimation)
 
   }, [linkHovered]);
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { useMyStore } from "@/app/store/store";
 import { motion } from "framer-motion";
 import { IoMdArrowForward } from "react-icons/io";
 
@@ -33,6 +34,8 @@ const MaskedExternalLink: React.FC<MaskedExternalLinkProps> = ({
   delay,
 }) => {
 
+  const { isClientMobile} = useMyStore();
+
   return (
     <motion.div
       className={`${tailwindClasses} w-full flex flex-row flex-grow overflow-hidden`}
@@ -40,7 +43,7 @@ const MaskedExternalLink: React.FC<MaskedExternalLinkProps> = ({
       <motion.div
         className="relative"
         variants={textVariants}
-        whileHover="hover"
+        whileHover={!isClientMobile ? "hover" : ""}
       >
         <motion.span
           className={`${arrowSize ? arrowSize : "text-2xl"} absolute left-0 -ml-8 mt-0.5`}	

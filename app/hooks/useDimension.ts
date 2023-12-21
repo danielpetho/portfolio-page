@@ -21,8 +21,10 @@ const useDimension = () => {
       });
 
       if (window.innerWidth < 640) {
+        console.log("mobile view");
         setIsMobileView(true);
       } else {
+        console.log("desktop view");
         setIsMobileView(false);
       }
 
