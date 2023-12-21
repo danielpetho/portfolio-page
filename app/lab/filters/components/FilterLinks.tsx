@@ -1,4 +1,3 @@
-import MaskedExternalLink from "@/app/components/Text/MaskedExternalLink";
 import { Filter } from "@/typings";
 import Image from "next/image";
 import { FaInstagram, FaSnapchatGhost, FaTiktok } from "react-icons/fa";

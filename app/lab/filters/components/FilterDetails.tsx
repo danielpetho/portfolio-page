@@ -23,10 +23,10 @@ const FilterDetails = ({
     <>
       {filter ? (
         <div className="flex  sm:flex-row flex-col justify-center w-full  sm:bg-pale-white sm:shadow-xl sm:rounded-[50px] p-6 sm:p-12">
-          <div className="rounded-[25px] sm:rounded-[30px] relative overflow-hidden w-full sm:w-2/5 ">
+          <div className="rounded-[25px] sm:rounded-[30px] relative overflow-hidden w-full max-h-[600px] sm:h-full sm:w-2/5 ">
             <video
               src={filter.preview.url}
-              className="rounded-[30px] "
+              className="rounded-[30px] object-cover w-full h-full"
               autoPlay
               muted
               loop
@@ -38,7 +38,7 @@ const FilterDetails = ({
             <h1 className="text-3xl md:text-4xl font-semibold">
               {filter.name}
             </h1>
-            <ul className="flex-row pt-4 gap-3 hidden sm:flex">
+            <ul className="flex-row pt-4 gap-3 flex">
               {filter.snapchatLink && (
                 <p className="border border-black rounded-full px-4 py-1.5">
                   Snapchat
@@ -62,7 +62,7 @@ const FilterDetails = ({
           </div>
 
           {modal && (
-            <div className="" onClick={handleModalClose}>
+            <div className="hidden sm:block" onClick={handleModalClose}>
               <IoMdClose className="text-3xl cursor-pointer" />
             </div>
           )}

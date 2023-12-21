@@ -1,3 +1,4 @@
+import { Query } from "@/typings";
 import { gql } from "graphql-request";
 
 const makeFiltersQueryWithRelay = (withCursor: boolean = false) => {
