@@ -21,7 +21,7 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0px;
 }
 
 /* Track */
@@ -33,8 +33,8 @@ body {
 ::-webkit-scrollbar-thumb {
   background-clip: padding-box;
   background: #333333;
-  border-right: 2px #f2eff2 solid;
-  border-radius: 5px;
+  border-right: 0px #f2eff2 solid;
+  border-radius: 0px;
 }
 
 /* Handle on hover */

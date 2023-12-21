@@ -1,6 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -29,7 +35,8 @@ const Header = () => {
   const [isMenuTransitioning, setIsMenuTransitioning] = useState(false);
   const [linkHovered, setLinkHovered] = useState("");
 
-  const { globalLenis } = useMyStore();
+  const { globalLenis, isMobileView, setIsClientBrowser, setIsClientMobile } =
+    useMyStore();
 
   const { scrollYProgress } = useScroll();
 
@@ -54,6 +61,11 @@ const Header = () => {
   const onMouseLeaveLink = () => {
     setLinkHovered("");
   };
+
+  useEffect(() => {
+    setIsClientBrowser(isBrowser);
+    setIsClientMobile(isMobile);
+  }, [isMobile, isBrowser]);
 
   useEffect(() => {
     if (documentHeight > 0) {
@@ -105,21 +117,24 @@ const Header = () => {
             </Link>
           </div>
 
-          <Menu
-            showMenu={showMenu}
-            handleLinkClick={handleLinkClick}
-            onHoverLink={onMouseEnterLink}
-            onLeaveLink={onMouseLeaveLink}
-            linkHovered={linkHovered}
-          />
-          <MobileMenu
-            showMenu={showMenu}
-            setIsMenuTransitioning={setIsMenuTransitioning}
-            handleLinkClick={handleLinkClick}
-            onHoverLink={onMouseEnterLink}
-            onLeaveLink={onMouseLeaveLink}
-            linkHovered={linkHovered}
-          />
+          {(isMobileView) ? (
+            <MobileMenu
+              showMenu={showMenu}
+              setIsMenuTransitioning={setIsMenuTransitioning}
+              handleLinkClick={handleLinkClick}
+              onHoverLink={onMouseEnterLink}
+              onLeaveLink={onMouseLeaveLink}
+              linkHovered={linkHovered}
+            />
+          ) : (
+            <Menu
+              showMenu={showMenu}
+              handleLinkClick={handleLinkClick}
+              onHoverLink={onMouseEnterLink}
+              onLeaveLink={onMouseLeaveLink}
+              linkHovered={linkHovered}
+            />
+          )}
 
           <div className="flex relative items-center justify-center text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-6xl">
             <MenuButton

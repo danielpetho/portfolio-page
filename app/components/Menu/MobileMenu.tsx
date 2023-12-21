@@ -57,10 +57,10 @@ const MobileMenu = ({
 
   return (
     <>
-      <div className="absolute top-0 left-0 sm:hidden">
+      <div className="absolute top-0 left-0 right-0 w-screen h-screen sm:hidden">
         <motion.div
           layout
-          className={` ${"top-0 left-0 absolute sm:hidden w-screen h-screen bg-pale-white"}`}
+          className={` ${"top-0 left-0 right-0 absolute sm:hidden w-screen h-screen bg-pale-white"}`}
           variants={menuVariants}
           animate={showMenu ? "open" : "closed"}
           initial="closed"

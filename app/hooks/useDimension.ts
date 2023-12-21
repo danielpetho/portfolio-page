@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useMyStore } from "../store/store";
 
 const useDimension = () => {
   const [dimension, setDimension] = useState({
@@ -8,6 +9,8 @@ const useDimension = () => {
     documentHeight: 0,
   });
 
+  const { setIsMobileView } = useMyStore();
+
   useEffect(() => {
     const handleResize = () => {
       setDimension({
@@ -16,6 +19,13 @@ const useDimension = () => {
         documentWidth: window.document.body.offsetWidth,
         documentHeight: window.document.body.offsetHeight
       });
+
+      if (window.innerWidth < 640) {
+        setIsMobileView(true);
+      } else {
+        setIsMobileView(false);
+      }
+
     };
 
     window.addEventListener('resize', handleResize);
