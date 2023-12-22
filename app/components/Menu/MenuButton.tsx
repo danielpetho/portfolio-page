@@ -26,13 +26,13 @@ const MenuButton = ({ showMenu, handleButtonClick }: MenuButtonProps) => {
             " font-medium flex justify-end items-center w-full pr-1 h-full"
           }
         />
-        <MaskedText
-          phrases={["Close"]}
-          delay={0.1}
-          tailwindClasses={
+        <p
+          className={
             " text-black font-medium justify-end text-lg sm:text-2xl items-center h-full flex pr-1 absolute right-0"
           }
-        />
+        >
+          Close
+        </p>
       </motion.div>
     </button>
   );

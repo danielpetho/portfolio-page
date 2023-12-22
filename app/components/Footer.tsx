@@ -24,22 +24,22 @@ const Footer: React.FC = () => {
                   <MaskedText
                     delay={0.4}
                     tailwindClasses="text-white"
-                    phrases={["Wanna create", "something cool", "together?"]}
+                    phrases={["✦ Wanna create", "something cool ✴", " together?"]}
                   />
                 </h2>
               </div>
 
               <div className="flex flex-col mt-16 xl:gap-2 text-center justify-center items-center md:text-right md:justify-end md:items-end">
                 <MaskedText
-                  delay={0.5}
-                  phrases={["Let's connect!"]}
+                  delay={0.6}
+                  phrases={["Let's connect"]}
                   tailwindClasses="text-lg sm:text-lg md:text-2xl xl:text-3xl 2xl:text-4xl font-thin md:w-max"
                 />
                 <h3 className="text-lg sm:text-3xl md:text-4xl xl:text-5xl 2xl:text-5xl font-semibold flex-wrap md:w-max">
                   {" "}
                   <a href="mailto:hello@danielpetho.com" className="cursor">
                     <MaskedText
-                      delay={0.6}
+                      delay={0.7}
                       phrases={["hello@danielpetho.com"]}
                       tailwindClasses=""
                     />

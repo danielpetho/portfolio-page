@@ -22,6 +22,7 @@ const config: Config = {
         "white": "#f8f8f8",
         "pale-white": "#f2eff2",
         "black": "#0d0d0d",
+        "pale-black": "#a19896",
         "gray": "#e1dcda"
       },
     },

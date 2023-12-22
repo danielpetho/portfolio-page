@@ -61,9 +61,9 @@ const FilterCard: React.FC<FilterCardProps> = ({ filter, idx }) => {
 
   useEffect(() => {
     if (videoInView) {
-      videoRef.current?.play();
+      if (videoRef.current?.paused) videoRef.current?.play();
     } else {
-      videoRef.current?.pause();
+      if (!videoRef.current?.paused) videoRef.current?.pause();
     }
   }, [videoInView]);
 
@@ -104,7 +104,7 @@ const FilterCard: React.FC<FilterCardProps> = ({ filter, idx }) => {
               src={filter.previewImage.url}
               style={{
                 objectFit: "cover",
-                zIndex: -1 // cover, contain, none
+                zIndex: -1, // cover, contain, none
               }}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
