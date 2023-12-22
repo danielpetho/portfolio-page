@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
         </div>
 
       <div className="flex  sm:flex-row  px-10 sm:px-12 md:px-14 lg:px-16 xl:px-20 2xl:px-24 bg-black pb-6 md:pb-12 lg:pb-8 pt-8 w-full justify-start sm:justify-between">
-        <div className="flex text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-[5vw] flex-col lg:flex-row w-3/6 lg:w-5/6 xl:w-4/6 2xl:w-3/6">
+        <div className="flex text-sm sm:text-lg md:text-xl lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-6xl flex-col lg:flex-row w-3/6 lg:w-5/6 xl:w-4/6 2xl:w-3/6">
           <MaskedExternalLink
             text={"Instagram"}
             link="https://instagram.com/nonzeroexitcode"

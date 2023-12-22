@@ -57,17 +57,15 @@ const FilterLinks = ({ filter }: { filter: Filter }) => {
               href={filter.instagramLink}
               rel="noreferrer"
               target="_blank"
-              className="flex justify-center items-center flex-col"
+              className="flex justify-start items-start h-full w-[80px] sm:w-[80px] md:w-[120px] lg:w-[120px] xl:w-[120px] 2xl:w-[150px] 3xl:w-[3vw] flex-col "
             >
-              <div className="rounded-xl overflow-hidden ">
+              <div className="rounded-xl relative w-full pt-[100%]">
 
               <Image
                 src={filter.instacode.url}
-                width={120}
-                height={120}
+                fill
                 alt="Instagram QR Code"
-                className=""
-              />
+                className="w-full h-full object-cover top-0 left-0 right-0"              />
               </div>
               <p className="pt-2 font-medium">Instagram</p>
             </a>
@@ -93,14 +91,14 @@ const FilterLinks = ({ filter }: { filter: Filter }) => {
               href={filter.tiktokLink}
               rel="noreferrer"
               target="_blank"
-              className="flex justify-center items-center flex-col"
+              className="flex justify-start items-start h-full w-[80px] sm:w-[80px] md:w-[120px] lg:w-[120px] xl:w-[120px] 2xl:w-[150px] 3xl:w-[3vw] flex-col "
             >
-              <div className="rounded-xl overflow-hidden">
+              <div className="rounded-xl relative w-full pt-[100%]">
               <Image
                 src={filter.tikcode.url}
-                width={120}
-                height={120}
+                fill
                 alt="Tiktok QR Code"
+                className="w-full h-full object-cover top-0 left-0 right-0"
               />
               </div>
               <p className="pt-2 font-medium">Instagram</p>
