@@ -24,7 +24,6 @@ async function FiltersPage() {
         />
 
         <div className="mt-4 mb-12 flex">
-          {/* @ts-expect-error Server Component */}
           <FilterList filters={filters}/>
         </div>
       </div>

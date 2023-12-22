@@ -4,7 +4,7 @@ import { FaInstagram, FaSnapchatGhost, FaTiktok } from "react-icons/fa";
 
 const FilterLinks = ({ filter }: { filter: Filter }) => {
   return(
-    <div className="flex flex-row pt-4 text-sm pl-0.5">
+    <div className="flex flex-row pt-4 text-sm pl-0.5 h-full w-full">
       {filter.snapchatLink && (
         <>
           <div className="sm:hidden">
@@ -18,22 +18,22 @@ const FilterLinks = ({ filter }: { filter: Filter }) => {
             </a>
           </div>
 
-          <div className="hidden sm:flex flex-col justify-content mr-8 items-center hover:scale-110 transform transition duration-300 ease-in-out">
+          <div className="hidden sm:flex flex-col w-full justify-center mr-8 items-start  hover:scale-110 transform transition duration-300 ease-in-out">
             <a
               href={filter.snapchatLink}
               rel="noreferrer"
               target="_blank"
-              className="flex justify-center items-center flex-col"
+              className="flex justify-start items-start h-full w-[80px] sm:w-[80px] md:w-[120px] lg:w-[120px] xl:w-[120px] 2xl:w-[150px] 3xl:w-[3vw] flex-col "
             >
-              <div className="rounded-xl overflow-hidden">
+              <div className="rounded-xl relative w-full pt-[100%]">
               <Image
                 src={filter.snapcode.url}
-                width={120}
-                height={120}
+                fill
                 alt="Snapcode"
+                className="w-full h-full object-cover top-0 left-0 right-0"
               />
               </div>
-              <p className="pt-2 font-medium">Snapchat</p>
+              <p className="pt-2 items-center justify-center flex font-medium">Snapchat</p>
             </a>
           </div>
         </>
