@@ -43,7 +43,7 @@ const FilterLinks = ({ filter }: { filter: Filter }) => {
             href={filter.instagramLink}
             rel="noreferrer"
             target="_blank"
-            className="flex justify-start items-center h-full hover:sm:scale-110  transform transition duration-300 ease-in-out w-[80px] sm:w-[80px] md:w-[120px] lg:w-[120px] xl:w-[120px] 2xl:w-[150px] 3xl:w-[3vw] flex-col "
+            className="flex justify-start items-center h-full hover:sm:scale-110  transform transition duration-300 ease-in-out w-[150px] sm:w-[80px] md:w-[120px] lg:w-[120px] xl:w-[120px] 2xl:w-[150px] 3xl:w-[3vw] flex-col "
           >
             <div className="rounded-xl relative w-full pt-[100%]">
               <BlurImage
@@ -67,7 +67,7 @@ const FilterLinks = ({ filter }: { filter: Filter }) => {
             href={filter.tiktokLink}
             rel="noreferrer"
             target="_blank"
-            className="flex justify-start items-start h-full hover:sm:scale-110  transform transition duration-300 ease-in-out w-[80px] sm:w-[80px] md:w-[120px] lg:w-[120px] xl:w-[120px] 2xl:w-[150px] 3xl:w-[3vw] flex-col "
+            className="flex justify-start items-start h-full hover:sm:scale-110  transform transition duration-300 ease-in-out w-[150px] sm:w-[80px] md:w-[120px] lg:w-[120px] xl:w-[120px] 2xl:w-[150px] 3xl:w-[3vw] flex-col "
           >
             <div className="rounded-xl relative w-full pt-[100%]">
               <BlurImage
