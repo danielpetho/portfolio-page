@@ -24,7 +24,7 @@ const useDimension = () => {
         console.log("mobile view");
         setIsMobileView(true);
       } else {
-        console.log("desktop view");
+        console.log("desktop view 2");
         setIsMobileView(false);
       }
 

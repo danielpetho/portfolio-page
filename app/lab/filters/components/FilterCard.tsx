@@ -8,6 +8,7 @@ import { Filter } from "@/typings";
 import { useEffect, useRef, useState } from "react";
 import { useMyStore } from "@/app/store/store";
 import Image from "next/image";
+import { BlurImage } from "@/app/components/Placeholder/BlurImage";
 
 type FilterCardProps = {
   filter: Filter;
@@ -54,14 +55,16 @@ const FilterCard: React.FC<FilterCardProps> = ({ filter, idx }) => {
   useEffect(() => {
     if (videoRef && videoRef.current) {
       videoRef.current.addEventListener("loadeddata", () => {
+        console.log("loadeddata", idx)
         setVideoLoaded(true);
       });
     }
   }, []);
 
   useEffect(() => {
+
     if (videoInView) {
-      if (videoRef.current?.paused) videoRef.current?.play();
+      if (videoRef.current?.paused) videoRef.current?.play()
     } else {
       if (!videoRef.current?.paused) videoRef.current?.pause();
     }
@@ -98,16 +101,8 @@ const FilterCard: React.FC<FilterCardProps> = ({ filter, idx }) => {
           />
 
           {!videoLoaded && (
-            <Image
-              fill
-              alt={filter.name}
-              src={filter.previewImage.url}
-              style={{
-                objectFit: "cover",
-                zIndex: -1, // cover, contain, none
-              }}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
+            <BlurImage src={filter.previewImage.url} alt={filter.name} sizes={"(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"} imageStyles={"object-cover -z-10"} />
+
           )}
         </motion.div>
       </motion.div>
