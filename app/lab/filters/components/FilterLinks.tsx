@@ -18,7 +18,7 @@ const FilterLinks = ({ filter }: { filter: Filter }) => {
                src={filter.snapcode.url}
                 alt="Snapcode"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                imageStyles={"w-full h-full object-cover top-0 left-0 right-0 hover:filter-none"}
+                imageStyles={"object-cover"}
                 />
               {/*<Image
                 src={filter.snapcode.url}
@@ -50,7 +50,7 @@ const FilterLinks = ({ filter }: { filter: Filter }) => {
                 src={filter.instacode.url}
                 alt="Instagram QR Code"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                imageStyles={"w-full h-full object-cover top-0 left-0 right-0 rounded-xl"}
+                imageStyles={"object-cover rounded-xl"}
                 />
           
             </div>
@@ -74,7 +74,7 @@ const FilterLinks = ({ filter }: { filter: Filter }) => {
                 src={filter.tikcode.url}
                 alt="TikTok QR Code"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                imageStyles={"w-full h-full object-cover top-0 left-0 right-0"}
+                imageStyles={"object-cover "}
                 />
             </div>
             <p className="pt-2 items-center justify-center flex text-xs text-pale-black">

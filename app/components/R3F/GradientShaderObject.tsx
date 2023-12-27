@@ -2,8 +2,8 @@
 
 import { useMemo, useRef, useState } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
-import { PlaneGeometry } from "three";
 import * as THREE from "three";
+import { useMyStore } from "@/app/store/store";
 
 const fragmentShader = /* glsl */ `varying vec2 vUv;
 varying vec3 vPosition;
@@ -11,6 +11,7 @@ varying vec3 vPosition;
 uniform vec3 resolution;
 uniform float time;
 uniform vec2 mouse;
+uniform float strength;
 
 float mod289(float x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
 vec4 mod289(vec4 x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
@@ -91,7 +92,7 @@ void main() {
   vec3 accentColor2 = mix(pink, orange, sin(time * 0.1 + 0.312) * 0.5 + 0.5);
 
   float n = noise(vPosition * 0.9 + time * 0.1 + 30.);
-  vec2 baseUv = rotate2D(n) * rotate2D(n) * rotate2D(mouseSphere(uv, mouse, 0.3, 2.) * n) * (vPosition.xy + vec2(0., sin(time * 0.1) * 1.));
+  vec2 baseUv = rotate2D(n) * rotate2D(n) * rotate2D(mouseSphere(uv, mouse, 0.3, strength) * n) * (vPosition.xy + vec2(0., sin(time * 0.1) * 1.));
   float basePattern = lines( baseUv, 0.5 );
   float secondPattern = lines(rotate2D(n + 100.) * baseUv, 0.3  + sin(time * 0.1) * 0.2);
   float thirdPattern = lines(rotate2D(n) * baseUv, 0.1);
@@ -115,9 +116,17 @@ void main()	{
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.);
 }`;
 
-const GradientShaderObject = () => {
+interface GradientShaderObjectProps {
+  mousePosition: { x: number; y: number };
+}
+
+const GradientShaderObject: React.FC<GradientShaderObjectProps> = ({mousePosition}) => {
   const [targetMouse, setTargetMouse] = useState([0, 0]);
   const [lastMouse, setLastMouse] = useState([0, 0]);
+
+  const {
+    isClientMobile,
+  } = useMyStore();
 
   const mesh = useRef<THREE.Mesh>(null);
 
@@ -128,13 +137,15 @@ const GradientShaderObject = () => {
       time: { value: 0 },
       resolution: { value: [size.width, size.height, 1] },
       mouse: { value: [0, 0] },
+      strength: { value: 0. },
     }),
     []
   );
 
   useFrame((state, delta) => {
-    const mouse = [state.pointer.x, state.pointer.y];
-    const newMouse = [(mouse[0] + 1) / 2, (mouse[1] + 1) / 2];
+    const newMouse = [mousePosition.x, 1. - mousePosition.y]; 
+    //[state.pointer.x, state.pointer.y];
+    //const newMouse = [(mouse[0] + 1) / 2, (mouse[1] + 1) / 2];
 
     setLastMouse(newMouse);
 
@@ -150,6 +161,7 @@ const GradientShaderObject = () => {
         delta;
       (mesh.current.material as THREE.ShaderMaterial).uniforms.mouse.value =
         targetMouse;
+      (mesh.current.material as THREE.ShaderMaterial).uniforms.strength.value = isClientMobile ? 0. : 2.
     }
   });
 

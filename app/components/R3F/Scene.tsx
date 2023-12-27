@@ -2,34 +2,24 @@
 
 import { Suspense, useRef } from "react";
 
-import * as THREE from "three";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Stats, OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import { Perf } from "r3f-perf";
 import GradientShaderObject from "./GradientShaderObject";
 import { EffectComposer } from "@react-three/postprocessing";
-import { BlendFunction } from "postprocessing";
 import Grain from "./Grain";
 
-function Rig() {
-  const { camera, mouse } = useThree();
-  const vec = new THREE.Vector3();
-  return useFrame(() => {
-    camera.position.lerp(
-      vec.set(mouse.x * 0.5, mouse.y * 0.25, camera.position.z),
-      0.02
-    );
-  });
+interface SceneProps {
+  mousePosition: { x: number; y: number };
 }
 
-const Scene: React.FC = () => {
+const Scene: React.FC<SceneProps> = ({ mousePosition }) => {
   const grainEffectRef = useRef();
 
   return (
     <>
       <Canvas>
         <Suspense fallback={null}>
-          <GradientShaderObject />
+          <GradientShaderObject mousePosition={mousePosition} />
           <EffectComposer disableNormalPass>
             <Grain ref={grainEffectRef} />
           </EffectComposer>
