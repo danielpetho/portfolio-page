@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { useMyStore } from "@/app/store/store";
 import { useInView } from "framer-motion";
 import Image from "next/image";
+import BlurImage from "@/app/components/Placeholder/BlurImage";
 
 const FilterDetails = ({
   filter,
@@ -60,16 +61,13 @@ const FilterDetails = ({
             ></video>
 
             {!videoLoaded && (
-              <Image
-                fill
+              <BlurImage
+               src={filter.previewImage.url}
                 alt={filter.name}
-                src={filter.previewImage.url}
-                style={{
-                  objectFit: "cover",
-                  zIndex: -1, // cover, contain, none
-                }}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+                imageStyles={"object-cover -z-10"}
+                priority={true}
+                />
             )}
           </div>
 

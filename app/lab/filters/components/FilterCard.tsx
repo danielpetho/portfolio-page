@@ -8,7 +8,7 @@ import { Filter } from "@/typings";
 import { useEffect, useRef, useState } from "react";
 import { useMyStore } from "@/app/store/store";
 import Image from "next/image";
-import { BlurImage } from "@/app/components/Placeholder/BlurImage";
+import BlurImage from "@/app/components/Placeholder/BlurImage";
 
 type FilterCardProps = {
   filter: Filter;
@@ -101,7 +101,7 @@ const FilterCard: React.FC<FilterCardProps> = ({ filter, idx }) => {
           />
 
           {!videoLoaded && (
-            <BlurImage src={filter.previewImage.url} alt={filter.name} sizes={"(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"} imageStyles={"object-cover -z-10"} />
+            <BlurImage src={filter.previewImage.url} alt={filter.name} sizes={"(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"} imageStyles={"object-cover -z-10"} priority={ idx == 0 } />
 
           )}
         </motion.div>
