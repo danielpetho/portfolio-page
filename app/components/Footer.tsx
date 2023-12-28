@@ -3,8 +3,9 @@
 import React, { useEffect, useState } from "react";
 import Scene from "./R3F/Scene";
 import MaskedExternalLink from "./Text/MaskedExternalLink";
-import MaskedText from "./Text/MaskedText";
+import BlurredText from "./Text/BlurredText";
 import useElementSize from '../hooks/useElementSize';
+import StarIcon from "./Text/StarIcon";
 
 const Footer: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -37,28 +38,36 @@ const Footer: React.FC = () => {
 
           <div className="flex flex-col p-10 sm:p-12 md:p-14 lg:p-16 xl:p-20 2xl:p-32 pt-16 sm:pt-20 md:pt-24 lg:pt-40 xl:pt-40 2xl:pt-48 h-full w-full flex-grow md:justify-between justify-center text-white">
             <div>
-              <h2 className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl 2xl:text-9xl font-semibold">
-                <MaskedText
-                  delay={0.4}
-                  tailwindClasses="text-white"
-                  phrases={["✦ Wanna create", "something cool ✴", " together?"]}
-                />
+              <h2 className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl 2xl:text-9xl font-semibold text-white">
+                <span className="flex flex-row">
+                  <StarIcon delay={0.4} text="✷" once={false} tailwindClasses="text-white pr-5" />
+                  <BlurredText delay={0.4} tailwindClasses="text-white" text="Wanna create" once={false} />
+                </span>
+                <span className="flex flex-row">
+                  <BlurredText delay={0.5} tailwindClasses="text-white" text="something cool" once={false} />
+                  <StarIcon delay={0.6} text="✹" once={false} tailwindClasses="text-white pl-5" />
+                </span>
+                <span className="flex flex-row">
+                  <BlurredText delay={0.6} tailwindClasses="text-white" text="together?" once={false} />
+                </span>
               </h2>
             </div>
 
             <div className="flex flex-col mt-16 xl:gap-2 text-center justify-center items-center md:text-right md:justify-end md:items-end">
-              <MaskedText
-                delay={0.6}
-                phrases={["Let's connect"]}
-                tailwindClasses="text-lg sm:text-lg md:text-2xl xl:text-3xl 2xl:text-4xl font-thin md:w-max"
-              />
+              <span className="flex flex-row text-lg sm:text-lg md:text-2xl xl:text-3xl 2xl:text-4xl font-thin md:w-max">
+                <StarIcon delay={0.6} text="✦" once={false} tailwindClasses="text-white z-0 pr-3" />
+                <BlurredText delay={0.6} tailwindClasses="" text="Let's connect" once={false} />
+                <StarIcon delay={0.6} text="✦" once={false} tailwindClasses="text-white z-0 pl-3" />
+              </span>
+
               <h3 className="text-lg sm:text-3xl md:text-4xl xl:text-5xl 2xl:text-5xl font-semibold flex-wrap md:w-max">
                 {" "}
                 <a href="mailto:hello@danielpetho.com" className="cursor">
-                  <MaskedText
+                  <BlurredText
                     delay={0.7}
-                    phrases={["hello@danielpetho.com"]}
+                    text={"hello@danielpetho.com"}
                     tailwindClasses=""
+                    once={false}
                   />
                 </a>
               </h3>
@@ -97,10 +106,11 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="flex mt-12 md:pb-0 md:mt-0 text-xs sm:text-sm md:text-md items-end justify-end lg:w-1/6 xl:w-2/6 w-3/6">
-          <MaskedText
-            phrases={["2023 Daniel Petho"]}
+          <BlurredText
+            text={"©2023 Daniel Petho"}
             tailwindClasses="text-white font-base items-end justify-end"
             delay={0.9}
+            once={false}
           />
         </div>
       </div>

@@ -16,7 +16,7 @@ import {
   useAnimate,
 } from "framer-motion";
 import useDimension from "../hooks/useDimension";
-import MaskedText from "./Text/MaskedText";
+import BlurredText from "./Text/BlurredText";
 import Menu from "./Menu/Menu";
 import MenuButton from "./Menu/MenuButton";
 import MobileMenu from "./Menu/MobileMenu";
@@ -116,10 +116,11 @@ const Header = () => {
               href="/"
               className="text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-6xl font-medium bg-transparent"
             >
-              <MaskedText
+              <BlurredText
                 delay={0}
-                phrases={["Daniel Petho"]}
+                text={"Daniel Petho"}
                 tailwindClasses={""}
+                once={true}
               />
             </Link>
           </div>

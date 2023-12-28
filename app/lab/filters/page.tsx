@@ -1,6 +1,6 @@
 import { makeFiltersQueryWithRelay } from "@/app/actions/queries/filterQueries";
 import FilterList from "./components/FilterList";
-import MaskedText from "@/app/components/Text/MaskedText";
+import BlurredText from "@/app/components/Text/BlurredText";
 import { fetchFilters } from "@/app/actions/fetch/server/fetchFilters";
 import { Query } from "@/typings";
 
@@ -17,10 +17,11 @@ async function FiltersPage() {
   return (
     <section className="my-44 flex justify-center flex-grow">
       <div className="flex flex-col w-full max-w-7xl justify-center">
-        <MaskedText
-          phrases={["AR Filters"]}
+        <BlurredText
+          text={"AR Filters"}
           tailwindClasses="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mx-6 font-semibold"
           delay={0.0}
+          once={true}
         />
 
         <div className="mt-4 mb-12 flex">

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import MaskedText from "../Text/MaskedText";
+import BlurredText from "../Text/BlurredText";
 
 interface MenuButtonProps {
   showMenu: boolean;
@@ -19,12 +19,13 @@ const MenuButton = ({ showMenu, handleButtonClick }: MenuButtonProps) => {
         className="relative w-full h-full justify-end items-center"
         animate={{ top: showMenu ? "-100%" : "0" }}
       >
-        <MaskedText
-          phrases={["Menu"]}
+        <BlurredText
+          text={"Menu"}
           delay={0.1}
           tailwindClasses={
             " font-medium flex justify-end items-center w-full pr-1 h-full"
           }
+          once={true}
         />
         <p
           className={
