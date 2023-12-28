@@ -21,6 +21,7 @@ import Menu from "./Menu/Menu";
 import MenuButton from "./Menu/MenuButton";
 import MobileMenu from "./Menu/MobileMenu";
 import { useMyStore } from "../store/store";
+import RandomStaggeredText from "./Text/RandomStaggeredText";
 
 const Header = () => {
   const currentRoute = usePathname();
@@ -116,12 +117,18 @@ const Header = () => {
               href="/"
               className="text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-6xl font-medium bg-transparent"
             >
-              <BlurredText
-                delay={0}
-                text={"Daniel Petho"}
-                tailwindClasses={""}
-                once={true}
-              />
+              <span className="flex flex-row">
+                <RandomStaggeredText
+                  revealDelay={0}
+                  hoverDelay={0.1}
+                  hoverDuration={0.5}
+                  hoverStagger={0.02}
+                  text={"Daniel\u2009Petho"}
+                  tailwindClasses={""}
+                  once={true}
+                />
+
+              </span>
             </Link>
           </div>
 

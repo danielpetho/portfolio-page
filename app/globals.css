@@ -10,7 +10,7 @@
 }
 
 html {
-
+  overflow-x: hidden;
 }
 
 body {
@@ -32,13 +32,11 @@ body {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background-clip: padding-box;
-  background: #333333;
+
   border-right: 0px #f2eff2 solid;
   border-radius: 0px;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  transition: background-color 0.5s ease;
-  background: #888888;
+.contact-text {
+  filter: url(#distort);
 }

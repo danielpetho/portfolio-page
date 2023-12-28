@@ -161,7 +161,7 @@ const GradientShaderObject: React.FC<GradientShaderObjectProps> = ({mousePositio
         delta;
       (mesh.current.material as THREE.ShaderMaterial).uniforms.mouse.value =
         targetMouse;
-      (mesh.current.material as THREE.ShaderMaterial).uniforms.strength.value = isClientMobile ? 0. : 2.
+      (mesh.current.material as THREE.ShaderMaterial).uniforms.strength.value = isClientMobile ? 0. : 1.
     }
   });
 
