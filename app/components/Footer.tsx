@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
                 </span>
                 <span className="flex flex-row">
                   <BlurredText delay={0.5} tailwindClasses="text-white " text={"something\u2009"} once={false} />
-                  <RandomStaggeredText revealDelay={0.5} hoverDelay={0} hoverDuration={0.7} hoverStagger={0.05} tailwindClasses="text-white  rounded-full" text={"cool"} once={false}  />
+                  <RandomStaggeredText revealDelay={0.5} hoverDelay={0} hoverDuration={0.7} hoverStagger={0.05} tailwindClasses="text-white  rounded-full font-bold" text={"awesome"} once={false}  />
                   {<StarIcon delay={0.6} text="✹" once={false} tailwindClasses="text-white hidden pl-5" />}
                 </span>
                 <span className="flex flex-row">
