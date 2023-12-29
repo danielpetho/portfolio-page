@@ -15,16 +15,16 @@ async function FiltersPage() {
   const pageInfo = result?.pageInfo;
 
   return (
-    <section className="my-44 flex justify-center flex-grow">
+    <section className="my-44 flex justify-center flex-grow ">
       <div className="flex flex-col w-full max-w-7xl justify-center">
         <BlurredText
           text={"AR Filters"}
-          tailwindClasses="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mx-6 font-semibold"
+          tailwindClasses="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mx-6 font-semibold "
           delay={0.0}
           once={true}
         />
 
-        <div className="mt-4 mb-12 flex">
+        <div className="mt-4 mb-12 flex ">
           <FilterList filters={filters}/>
         </div>
       </div>

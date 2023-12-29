@@ -3,7 +3,7 @@ import { archia } from "./utils/fonts";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import Lenify from "@/app/components/Lenify";
 
 export const metadata = {
@@ -36,7 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={archia.className}>
-      <body>
+      <body className="">
         <Lenify>
           <Header />
           {children}

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FilterPage } from "@/typings";
 import FilterCard from "./FilterCard";
 import { useMyStore } from "@/app/store/store";
+import { useScroll, motion, useTransform } from "framer-motion";
 
 type FilterListProps = {
   filters: FilterPage[];
@@ -17,6 +18,16 @@ const FilterList: React.FC<FilterListProps> = (props) => {
 
   const { isMobileView } = useMyStore();
 
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["end end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0.3, 1], [0, 200]);
+
+
   if (filters && filters.length === 0) {
     return (
       <div>
@@ -26,7 +37,7 @@ const FilterList: React.FC<FilterListProps> = (props) => {
   }
 
   return (
-    <div className="my-12 mx-6 flex">
+    <motion.div className="my-12 mx-6 flex" ref={containerRef} style={{ y }}>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-14">
         {filters &&
           filters.length > 0 &&
@@ -53,7 +64,7 @@ const FilterList: React.FC<FilterListProps> = (props) => {
           <MoreFiltersButton currentCursor={pageInfo.endCursor} size={first} />
         )*/}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
