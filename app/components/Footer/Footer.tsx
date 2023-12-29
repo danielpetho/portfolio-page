@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
     offset: ["start end", "start start"]
   });
 
-  const opac = useTransform(scrollYProgress, [0, 1], [0.0, 1]);
+  const opac = useTransform(scrollYProgress, [0, .5], [0.0, 1]);
   const radius = useTransform(scrollYProgress, [0.7, 1.], [50, 0] );
   const y = useTransform(bottomScrollYProgress, [0.3, 1], [0, -bottomHeight]);
 
@@ -37,18 +37,11 @@ const Footer: React.FC = () => {
 
   };
 
-  useEffect(() => {
-    scrollYProgress.on("change", v => {
-      console.log(radius.get());
-    });
-  }, []);
-
-
-
   return (
     <motion.footer id="contact" className="text-white text-xl flex w-screen  items-center flex-col h-screen justify-center bg-gradient-to-b from-transparent to-black "
       onMouseMove={handleMouseMove}
       ref={footerRef}
+      style={{ opacity: opac } }
     >
       <motion.div className="w-full h-full">
         <Contact mousePosition={mousePosition} scrollProgress={radius}  />
