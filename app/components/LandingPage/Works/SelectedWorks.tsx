@@ -9,7 +9,7 @@ const SelectedWorks = () => {
 
             <div className="flex flex-col pt-[12vh]">
                 {selectedWorks.works.map((work: SelectedWorkType, idx: number) => (
-                    <div key={idx} className="flex flex-col">
+                    <div key={idx} className="flex">
                         <SelectedWork id={idx} work={work} />
                     </div>
                 ))}

@@ -4,7 +4,7 @@
             "id": 0,
             "title": "Augmented Reality at DEPARTD",
             "year": "2023 - 2024",
-            "imgUrl": "/images/works/vodafone-dataviz.png",
+            "imgUrl": "/images/works/vodafone.gif",
             "imgAlt": "alt",
             "link": "/works/augmented-reality-at-departd",
             "internalLink": true
@@ -13,7 +13,7 @@
             "id": 1,
             "title": "Vodafone Hungary Dataviz x XORXOR",
             "year": "2022",
-            "imgUrl": "/images/works/vodafone-dataviz.png",
+            "imgUrl": "/images/works/vodafone.gif",
             "imgAlt": "alt",
             "link": "https://xorxor.hu/projects/vodafone-dataviz.html",
             "internalLink": false
@@ -22,7 +22,7 @@
             "id": 2,
             "title": "Medence Group x XORXOR",
             "year": "2022",
-            "imgUrl": "/images/works/vodafone-dataviz.png",
+            "imgUrl": "/images/works/vodafone.gif",
             "imgAlt": "alt",
             "link": "https://xorxor.hu/projects/Skanzen.html",
             "internalLink": false
@@ -31,7 +31,7 @@
             "id": 3,
             "title": "Skanzen Transylvania x XORXOR",
             "year": "2021 - 2022",
-            "imgUrl": "/images/works/vodafone-dataviz.png",
+            "imgUrl": "/images/works/vodafone.gif",
             "imgAlt": "alt",
             "link": "https://xorxor.hu/projects/skanzen-transylvania.html",
             "internalLink": false
@@ -40,7 +40,7 @@
             "id": 4,
             "title": "That Awesome Work",
             "year": "2022",
-            "imgUrl": "/images/works/vodafone-dataviz.png",
+            "imgUrl": "/images/works/vodafone.gif",
             "imgAlt": "alt",
             "internalLink": true,
             "link": "/works/that-awesome-work"
@@ -49,7 +49,7 @@
             "id": 5,
             "title": "Extrawelt - Gazelle Flip",
             "year": "2022",
-            "imgUrl": "/images/works/vodafone-dataviz.png",
+            "imgUrl": "/images/works/vodafone.gif",
             "imgAlt": "alt",
             "internalLink": true,
             "link": "/works/extrawelt-gazelle-flip"

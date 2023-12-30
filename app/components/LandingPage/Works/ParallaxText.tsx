@@ -22,7 +22,6 @@ function ParallaxText({ idx, children, baseVelocity = 100, tailwindClasses }: Pa
     const baseX = useMotionValue(0);
     const [textWidth, setTextWidth] = useState(4); // Default to 4 repeats
  
-    console.log(children.length)
 
     const { scrollY } = useScroll();
     const scrollVelocity = useVelocity(scrollY);
@@ -41,7 +40,8 @@ function ParallaxText({ idx, children, baseVelocity = 100, tailwindClasses }: Pa
      * have to replace for wrapping that works for you or dynamically
      * calculate
      */
-    const x = useTransform(baseX, (v) => `${wrap(-0, -100, v)}%`);
+    //const x = useTransform(baseX, (v) => `${wrap(-15, -30, v)}%`);
+    const x = useTransform(baseX, (v) => `${-v}%`);
 
     useEffect(() => {
         
@@ -54,7 +54,7 @@ function ParallaxText({ idx, children, baseVelocity = 100, tailwindClasses }: Pa
             //console.log("x.get(): ", x.get());
             //console.log("baseX.get(): ", baseX.get());
         }
-        let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+        let moveBy = 0.//directionFactor.current * baseVelocity * (delta / 1000);
 
 
         /**
@@ -67,7 +67,7 @@ function ParallaxText({ idx, children, baseVelocity = 100, tailwindClasses }: Pa
             directionFactor.current = 1;
         }
 
-        moveBy += directionFactor.current * moveBy * velocityFactor.get();
+        moveBy += /*directionFactor.current * moveBy **/ velocityFactor.get() * 0.02;
 
         baseX.set(baseX.get() + moveBy);
     });
@@ -81,7 +81,6 @@ function ParallaxText({ idx, children, baseVelocity = 100, tailwindClasses }: Pa
      */
     return (
         <motion.div className={`${tailwindClasses}`} style={{ x }}>
-            <span>{children} </span>
             <span>{children} </span>
             <span>{children} </span>
             <span>{children} </span>
