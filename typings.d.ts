@@ -34,3 +34,12 @@ export type Query = {
   first: number;
   after: string;
 };
+
+export type SelectedWorkType = {
+  title: string;
+  imgUrl: string;
+  imgAlt: string;
+  link: string;
+  year: string;
+  internalLink: boolean;
+}
