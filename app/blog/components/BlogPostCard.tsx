@@ -8,6 +8,7 @@ import { BlogPost } from "@/typings";
 import { useRef } from "react";
 import { useMyStore } from "@/app/store/store";
 import BlurImage from "@/app/components/Placeholder/BlurImage";
+import formatDate from "@/app/utils/formatValues";
 
 type BlogPostCardProps = {
   blogPost: BlogPost;
@@ -75,7 +76,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ blogPost, idx }) => {
 
       <div className="overflow-hidden">
         <motion.div
-          className="flex flex-row flex-1 mt-3 w-full justify-start items-start"
+          className="flex flex-col flex-1 mt-3 w-full justify-start items-start"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -85,6 +86,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ blogPost, idx }) => {
             delay: 0.05 + idx * 0.05,
           }}
         >
+          <p className="text-pale-black ml-1 mt-2 text-sm">{formatDate(blogPost.date)}</p>
           <motion.div className="relative font w-full text-2xl overflow-hidden flex flex-row items-center">
             <motion.span
               className="absolute left-0 w-full h-full -ml-9 mt-1.5 text-2xl"

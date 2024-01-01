@@ -99,7 +99,7 @@ const Header = () => {
     } else {
       animate(
         scope.current,
-        { backgroundColor: "#f2eff2", color: "#000000" },
+        { backgroundColor: "#f8f6f8", color: "#000000" },
         { duration: 0.5, ease: "easeInOut" }
       );
     }

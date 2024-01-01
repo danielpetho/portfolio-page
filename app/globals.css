@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  background-color: #f2eff2;
+  background-color: #f8f6f8;
 }
 
 /* Scrollbar */
@@ -26,14 +26,14 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f2eff2;
+  background: #f8f6f8;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background-clip: padding-box;
 
-  border-right: 0px #f2eff2 solid;
+  border-right: 0px #f8f6f8 solid;
   border-radius: 0px;
 }
 

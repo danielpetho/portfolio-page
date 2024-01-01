@@ -20,12 +20,19 @@ async function BlogPostsPage() {
       <div className="flex flex-col w-full max-w-7xl justify-center">
         <BlurredText
           text={"Tutorials / Blog"}
-          tailwindClasses="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mx-6 font-semibold "
+          tailwindClasses="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mx-6 font-bold "
           delay={0.0}
           once={true}
         />
 
-        <div className="mt-4 mb-12 flex ">
+        <BlurredText
+          text={"Sharing my learnings, tutorials, and thoughts."}
+          tailwindClasses="mt-8 text-2xl sm:text-3xl md:text-4xl lg:text-4xl mx-6 text-pale-black"
+          delay={0.0}
+          once={true}
+        />
+
+        <div className="mt-20 mb-12 flex ">
           <BlogPostList blogPosts={posts}/>
         </div>
       </div>

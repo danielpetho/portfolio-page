@@ -20,7 +20,7 @@ const config: Config = {
         "pink": "#ff9ec5",
         "orange": "#f85408",
         "white": "#f8f8f8",
-        "pale-white": "#f2eff2",
+        "pale-white": "#f8f6f8",
         "black": "#0d0d0d",
         "pale-black": "#a19896",
         "gray": "#e1dcda"

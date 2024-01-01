@@ -118,7 +118,7 @@ const FilterCard: React.FC<FilterCardProps> = ({ filter, idx }) => {
             delay: 0.05 + idx * 0.05,
           }}
         >
-          <motion.div className="relative font-medium w-full text-xl overflow-hidden flex flex-row items-center">
+          <motion.div className="relative font w-full text-xl overflow-hidden flex flex-row items-center">
             <motion.span
               className="absolute left-0 w-full h-full -ml-9 mt-1 text-2xl"
               initial={{ color: "#f2eff2" }}
