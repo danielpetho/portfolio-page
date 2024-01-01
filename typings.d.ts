@@ -29,6 +29,29 @@ export type Filter = {
   slug: string;
 };
 
+export type BlogPostPage = {
+  cursor: string;
+  blogPost: BlogPost;
+};
+
+export type BlogPost = {
+  title: string;
+  id: string;
+  createdAt: string;
+  date: string;
+  external: boolean;
+  externalLink: string;
+  keywords: string[];
+  content: {
+    raw: raw | string;
+  };
+  slug: string;
+  thumbnail: {
+    url: string;
+  };
+};
+
+
 export type Query = {
   query: string;
   first: number;

@@ -41,7 +41,7 @@ const SelectedWorkImage = () => {
         >
             {showSelectedWorkImage &&
                 <motion.div
-                    className="fixed opacity-1 w-[20vw] h-[11vw] z-[25]"
+                    className="fixed opacity-1 w-[20vw] min-w-[360px] min-h-[200px] h-[11vw] z-[25]"
                     animate={{ y: 0, opacity: 1 }}
                     initial={{ y: 0, opacity: 0 }}
                     transition={{ duration: .33, ease: "easeOut" }}

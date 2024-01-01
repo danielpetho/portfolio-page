@@ -1,6 +1,6 @@
 import { Query } from "@/typings";
 
-const fetchFilters = async (query: Query) => {
+const fetchBlogPosts = async (query: Query) => {
   try {
     const response = await fetch(`${process.env.HYGRAPH_ENDPOINT}`, {
       method: "POST",
@@ -32,7 +32,7 @@ const fetchFilters = async (query: Query) => {
   }
 };
 
-const fetchFilterCount = async (query: string) => {
+const fetchBlogPostsCount = async (query: string) => {
   try {
     const response = await fetch(`${process.env.HYGRAPH_ENDPOINT}`, {
       method: "POST",
@@ -61,7 +61,7 @@ const fetchFilterCount = async (query: string) => {
   }
 };
 
-const fetchFilterBySlug = async (query: string, slug: string) => {
+const fetchBlogPostBySlug = async (query: string, slug: string) => {
   try {
     const response = await fetch(`${process.env.HYGRAPH_ENDPOINT}`, {
       method: "POST",
@@ -94,4 +94,4 @@ const fetchFilterBySlug = async (query: string, slug: string) => {
   }
 };
 
-export { fetchFilters, fetchFilterCount, fetchFilterBySlug };
+export { fetchBlogPosts, fetchBlogPostsCount, fetchBlogPostBySlug };

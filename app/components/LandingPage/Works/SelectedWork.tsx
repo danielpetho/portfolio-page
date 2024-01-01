@@ -111,7 +111,7 @@ const SelectedWork = ({ id, work }: SelectedWorkProps) => {
                 <Link href={work.link}>
                     <div className="hidden md:block cursor-pointer text-pale-black hover:text-black duration-500 transform ease-in-out ">
                         <SelectedWorkComponent id={id} work={work} />
-                        <hr className="mx-[5vw] h-[1px] bg-black" />
+                        {id !== 5 &&<hr className="mx-[5vw] h-[1px] bg-black" />}
 
                     </div>
                     <div className="md:hidden flex w-full">
@@ -122,7 +122,7 @@ const SelectedWork = ({ id, work }: SelectedWorkProps) => {
                 <a href={work.link} target="_blank">
                     <div className="hidden md:block cursor-pointer text-pale-black hover:text-black duration-500 transform ease-in-out ">
                         <SelectedWorkComponent id={id} work={work} />
-                        <hr className="mx-[5vw] h-[1px] bg-black" />
+                        {id !== 5 && <hr className="mx-[5vw] h-[1px] bg-black" /> }
                     </div>
                     <div className="md:hidden flex w-full">
                         <SelectedWorkMobileComponent id={id} work={work} />
