@@ -16,7 +16,6 @@ import {
   useAnimate,
 } from "framer-motion";
 import useDimension from "../hooks/useDimension";
-import BlurredText from "./Text/BlurredText";
 import Menu from "./Menu/Menu";
 import MenuButton from "./Menu/MenuButton";
 import MobileMenu from "./Menu/MobileMenu";
