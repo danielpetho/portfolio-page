@@ -13,10 +13,6 @@ const navLinks = [
     link: "/works",
   },
   {
-    text: "About",
-    link: "/about",
-  },
-  {
     text: "Contact",
     link: "#contact",
   },

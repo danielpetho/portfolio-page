@@ -2,7 +2,8 @@
     "works": [
         {
             "id": 0,
-            "title": "Augmented Reality at DEPARTD",
+            "title": "Social AR",
+            "contractor": "at DEPARTD",
             "year": "2023 - 2024",
             "imgUrl": "/images/works/vodafone.gif",
             "imgAlt": "alt",
@@ -11,7 +12,8 @@
         },
         {
             "id": 1,
-            "title": "Vodafone Hungary Dataviz x XORXOR",
+            "title": "Vodafone Lobby",
+            "contractor": "XORXOR",
             "year": "2022",
             "imgUrl": "/images/works/vodafone.gif",
             "imgAlt": "alt",
@@ -20,27 +22,30 @@
         },
         {
             "id": 2,
-            "title": "Medence Group x XORXOR",
+            "title": "Medence Group",
+            "contractor": "XORXOR",
             "year": "2022",
-            "imgUrl": "/images/works/vodafone.gif",
+            "imgUrl": "/images/works/medence_landing.PNG",
             "imgAlt": "alt",
             "link": "https://xorxor.hu/projects/Skanzen.html",
             "internalLink": false
         },
         {
             "id": 3,
-            "title": "Skanzen Transylvania x XORXOR",
+            "title": "Skanzen Transylvania",
+            "contractor": "XORXOR",
             "year": "2021 - 2022",
-            "imgUrl": "/images/works/vodafone.gif",
+            "imgUrl": "/images/works/skanzen.jpg",
             "imgAlt": "alt",
-            "link": "https://xorxor.hu/projects/skanzen-transylvania.html",
+            "link": "https://xorxor.hu/projects/Skanzen.html",
             "internalLink": false
         },
         {
             "id": 4,
             "title": "That Awesome Work",
+            "contractor": "",
             "year": "2022",
-            "imgUrl": "/images/works/vodafone.gif",
+            "imgUrl": "/images/works/thatawesomework.PNG",
             "imgAlt": "alt",
             "internalLink": true,
             "link": "/works/that-awesome-work"
@@ -48,8 +53,9 @@
         {
             "id": 5,
             "title": "Extrawelt - Gazelle Flip",
+            "contractor": "",
             "year": "2022",
-            "imgUrl": "/images/works/vodafone.gif",
+            "imgUrl": "/images/works/extrawelt.gif",
             "imgAlt": "alt",
             "internalLink": true,
             "link": "/works/extrawelt-gazelle-flip"

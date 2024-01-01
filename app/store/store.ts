@@ -11,6 +11,11 @@ type Store = {
 
   globalLenis: Lenis | null;
   setLenis: (lenis: Lenis) => void;
+
+  showSelectedWorkImage: boolean;
+  setShowSelectedWorkImage: (show: boolean) => void;
+  selectedWorkImageIndex: number;
+  setSelectedWorkImageIndex: (index: number) => void;
 };
 
 export const useMyStore = create<Store>((set) => ({
@@ -24,4 +29,11 @@ export const useMyStore = create<Store>((set) => ({
   setIsClientBrowser: (isBrowser: boolean) =>
     set({ isClientBrowser: isBrowser }),
   setIsMobileView: (isMobileView: boolean) => set({ isMobileView: isMobileView }),
+
+  showSelectedWorkImage: false,
+  setShowSelectedWorkImage: (show: boolean) =>
+    set({ showSelectedWorkImage: show }),
+  selectedWorkImageIndex: 0,
+  setSelectedWorkImageIndex: (index: number) =>
+    set({ selectedWorkImageIndex: index }),
 }));

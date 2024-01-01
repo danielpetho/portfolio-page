@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Header from "./components/Header";
 import Footer from "./components/Footer/Footer";
 import Lenify from "@/app/components/Lenify";
+import SelectedWorkImage from "./components/LandingPage/Works/SelectedWorkImage";
 
 export const metadata = {
   metadataBase: new URL("https://www.danielpetho.com"),
@@ -40,6 +41,7 @@ export default function RootLayout({
         <Lenify>
           <Header />
           {children}
+
           <Footer />
         </Lenify>
 

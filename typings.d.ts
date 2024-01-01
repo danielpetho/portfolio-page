@@ -41,5 +41,6 @@ export type SelectedWorkType = {
   imgAlt: string;
   link: string;
   year: string;
+  contractor: string;
   internalLink: boolean;
 }

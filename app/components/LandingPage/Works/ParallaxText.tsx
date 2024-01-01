@@ -13,15 +13,16 @@ import { wrap } from "@motionone/utils";
 import { useEffect, useRef, useState } from "react";
 
 interface ParallaxProps {
-    children: string;
+    text: string;
+    complementaryText?: string;
     baseVelocity: number;
     tailwindClasses: string;
     idx: number;
 }
-function ParallaxText({ idx, children, baseVelocity = 100, tailwindClasses }: ParallaxProps) {
+function ParallaxText({ idx, text, complementaryText, baseVelocity = 100, tailwindClasses }: ParallaxProps) {
     const baseX = useMotionValue(0);
     const [textWidth, setTextWidth] = useState(4); // Default to 4 repeats
- 
+
 
     const { scrollY } = useScroll();
     const scrollVelocity = useVelocity(scrollY);
@@ -33,7 +34,7 @@ function ParallaxText({ idx, children, baseVelocity = 100, tailwindClasses }: Pa
         clamp: false
     });
 
-    
+
 
     /**
      * This is a magic wrapping for the length of the text - you
@@ -44,7 +45,7 @@ function ParallaxText({ idx, children, baseVelocity = 100, tailwindClasses }: Pa
     const x = useTransform(baseX, (v) => `${-v}%`);
 
     useEffect(() => {
-        
+
     }, [x]);
 
     const directionFactor = useRef<number>(1);
@@ -67,7 +68,7 @@ function ParallaxText({ idx, children, baseVelocity = 100, tailwindClasses }: Pa
             directionFactor.current = 1;
         }
 
-        moveBy += /*directionFactor.current * moveBy **/ velocityFactor.get() * 0.02;
+        moveBy += /*directionFactor.current * moveBy **/ velocityFactor.get() * 0.025;
 
         baseX.set(baseX.get() + moveBy);
     });
@@ -81,9 +82,9 @@ function ParallaxText({ idx, children, baseVelocity = 100, tailwindClasses }: Pa
      */
     return (
         <motion.div className={`${tailwindClasses}`} style={{ x }}>
-            <span>{children} </span>
-            <span>{children} </span>
-            <span>{children} </span>
+            <span className="flex justify-start items-start gap-3">{text} {complementaryText && <span className="text-[2vw] pt-[1vh]">({complementaryText})</span>}</span>
+            <span className="flex justify-start items-start gap-3">{text} {complementaryText && <span className="text-[2vw] pt-[1vh]">({complementaryText})</span>}</span>
+            <span className="flex justify-start items-start gap-3">{text} {complementaryText && <span className="text-[2vw] pt-[1vh]">({complementaryText})</span>}</span>
         </motion.div>
     );
 }
