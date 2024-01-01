@@ -80,7 +80,7 @@ const FilterCard: React.FC<FilterCardProps> = ({ filter, idx }) => {
       whileHover={!isClientMobile ? "hover" : ""}
     >
       <motion.div
-        className="relative flex flex-row overflow-hidden  h-[70vh] sm:h-[70vh] max-h-[540px] md:h-[60vh] lg:h-[50vh] 2xl:h-[45vh] 3xl:h-[24vh] justify-center items-center"
+        className="relative flex flex-row overflow-hidden  h-[70vh] sm:h-[70vh] max-h-[540px] md:h-[60vh] lg:h-[40vh] 2xl:h-[40vh] 3xl:h-[24vh] justify-center items-center"
         initial={{ borderRadius: "30px 30px" }}
         variants={videoContainerVariants}
       >

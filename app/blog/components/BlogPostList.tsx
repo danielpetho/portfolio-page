@@ -33,8 +33,8 @@ const BlogPostList: React.FC<BlogPostListProps> = (props) => {
   }
 
   return (
-    <motion.div className="my-12 mx-6 flex" ref={containerRef} style={{ y }}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-14">
+    <motion.div className="my-12 mx-[5vw] flex" ref={containerRef} style={{ y }}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-x-8 gap-y-14">
         {blogPosts &&
           blogPosts.length > 0 &&
           blogPosts.map((blogPost: BlogPostPage, idx: number) => {

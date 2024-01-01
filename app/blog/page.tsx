@@ -17,17 +17,17 @@ async function BlogPostsPage() {
 
   return (
     <section className="my-44 flex justify-center flex-grow ">
-      <div className="flex flex-col w-full max-w-7xl justify-center">
+      <div className="flex flex-col w-full max-w-[1920px]  justify-center">
         <BlurredText
           text={"Tutorials / Blog"}
-          tailwindClasses="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mx-6 font-bold "
+          tailwindClasses="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mx-6 font-bold mx-[5vw] "
           delay={0.0}
           once={true}
         />
 
         <BlurredText
           text={"Sharing my learnings, tutorials, and thoughts."}
-          tailwindClasses="mt-8 text-2xl sm:text-3xl md:text-4xl lg:text-4xl mx-6 text-pale-black"
+          tailwindClasses="mt-8 text-2xl sm:text-3xl md:text-4xl lg:text-4xl mx-6 text-pale-black mx-[5vw]"
           delay={0.0}
           once={true}
         />

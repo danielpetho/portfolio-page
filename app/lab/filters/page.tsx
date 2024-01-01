@@ -16,10 +16,10 @@ async function FiltersPage() {
 
   return (
     <section className="my-44 flex justify-center flex-grow ">
-      <div className="flex flex-col w-full max-w-7xl justify-center">
+      <div className="flex flex-col w-full max-w-[1920px] justify-center">
         <BlurredText
           text={"AR Filters"}
-          tailwindClasses="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mx-6 font-semibold "
+          tailwindClasses="text-6xl mx-[5vw] sm:text-7xl md:text-8xl lg:text-9xl mx-6 font-semibold "
           delay={0.0}
           once={true}
         />

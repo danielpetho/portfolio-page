@@ -37,7 +37,7 @@ const SelectedWorkImage = () => {
     }, []); // The empty dependency array ensures that this effect runs
 
     return (
-        <div className="hidden sm:block z-100 absolute top-0 left-0 w-full h-full"
+        <div className="hidden sm:block z-100 absolute top-0 left-0 "
         >
             {showSelectedWorkImage &&
                 <motion.div

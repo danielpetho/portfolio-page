@@ -110,7 +110,7 @@ const Header = () => {
       ref={scope}
     >
       <div className="flex justify-center items-center ">
-        <div className="px-10 sm:px-12 md:px-14 lg:px-16 xl:px-20 2xl:px-32 3xl:px-48 flex w-full items-center justify-between h-24 md:h-28 lg:h-30 xl:h-36 2xl:h-40 3xl:h-[16vh] ">
+        <div className="px-[5vw] flex w-full items-center justify-between h-[8vh] sm:h-14 md:h-28 lg:h-30 xl:h-36 2xl:h-40 3xl:h-[16vh] ">
           <div className="py-2 ">
             <Link
               href="/"
