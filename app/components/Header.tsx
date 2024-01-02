@@ -2,20 +2,11 @@
 
 import { useState, useEffect } from "react";
 import {
-  BrowserView,
-  MobileView,
   isBrowser,
   isMobile,
 } from "react-device-detect";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useAnimate,
-} from "framer-motion";
-import useDimension from "../hooks/useDimension";
+
 import Menu from "./Menu/Menu";
 import MenuButton from "./Menu/MenuButton";
 import MobileMenu from "./Menu/MobileMenu";
@@ -23,14 +14,6 @@ import { useMyStore } from "../store/store";
 import RandomStaggeredText from "./Text/RandomStaggeredText";
 
 const Header = () => {
-  const currentRoute = usePathname();
-  const { viewportWidth, viewportHeight, documentWidth, documentHeight } =
-    useDimension();
-
-  const [footerPosition, setFooterPosition] = useState(0);
-  const [reachedFooter, setReachedFooter] = useState(false);
-  const [scope, animate] = useAnimate();
-
   const [showMenu, setShowMenu] = useState(false);
   const [isMenuTransitioning, setIsMenuTransitioning] = useState(false);
   const [linkHovered, setLinkHovered] = useState("");
@@ -43,7 +26,6 @@ const Header = () => {
     setIsClientMobile,
   } = useMyStore();
 
-  const { scrollYProgress } = useScroll();
 
   const handleButtonClick = () => {
     if (!isMenuTransitioning) {
@@ -74,40 +56,10 @@ const Header = () => {
     setIsClientMobile(isMobile);
   }, [isMobile, isBrowser]);
 
-  /*useEffect(() => {
-    if (documentHeight > 0) {
-      setFooterPosition((documentHeight - 160) / documentHeight);
-    }
-  }, [documentHeight]);
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest >= footerPosition) {
-      setReachedFooter(true);
-    } else {
-      setReachedFooter(false);
-    }
-  });
-
-  useEffect(() => {
-    if (reachedFooter) {
-      animate(
-        scope.current,
-        { backgroundColor: "#00000000", color: "#ffffff" },
-        { duration: 0.5, ease: "easeInOut" }
-      );
-    } else {
-      animate(
-        scope.current,
-        { backgroundColor: "#f8f6f8", color: "#000000" },
-        { duration: 0.5, ease: "easeInOut" }
-      );
-    }
-  }, [reachedFooter]);*/
 
   return (
-    <motion.header
+    <header
       className="fixed top-0 left-0 w-full bg-pale-white text-black z-10"
-      ref={scope}
     >
       <div className="flex justify-center items-center ">
         <div className="px-[5vw] flex w-full items-center justify-between h-[8vh] sm:h-[10vh] md:h-[14vh] ">
@@ -158,7 +110,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 };
 

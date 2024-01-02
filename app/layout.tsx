@@ -38,6 +38,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={archia.className}>
       <body className="">
+        <div id="__next"></div>
+
         <Lenify>
           <Header />
           {children}
