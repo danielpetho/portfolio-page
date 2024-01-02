@@ -25,7 +25,7 @@
             "title": "Medence Group",
             "contractor": "XORXOR",
             "year": "2022",
-            "imgUrl": "/images/works/medence_landing.PNG",
+            "imgUrl": "/images/works/medence_group.gif",
             "imgAlt": "alt",
             "link": "https://xorxor.hu/projects/Skanzen.html",
             "internalLink": false
@@ -35,7 +35,7 @@
             "title": "Skanzen Transylvania",
             "contractor": "XORXOR",
             "year": "2021 - 2022",
-            "imgUrl": "/images/works/skanzen.jpg",
+            "imgUrl": "/images/works/skanzen.gif",
             "imgAlt": "alt",
             "link": "https://xorxor.hu/projects/Skanzen.html",
             "internalLink": false
@@ -45,7 +45,7 @@
             "title": "That Awesome Work",
             "contractor": "",
             "year": "2022",
-            "imgUrl": "/images/works/thatawesomework.PNG",
+            "imgUrl": "/images/works/thatawesomework.gif",
             "imgAlt": "alt",
             "internalLink": true,
             "link": "/works/that-awesome-work"
