@@ -28,9 +28,9 @@ const Contact: React.FC<ContactProps> = ({ mousePosition, scrollProgress }) => {
 
             <div className="flex justify-center items-center text-center md:text-left w-full h-full " >
 
-                <div className="flex flex-col p-[10vh] h-full w-full flex-grow md:justify-between justify-center text-white">
+                <div className="flex flex-col sm:p-[10vh] h-full w-full flex-grow md:justify-between justify-center text-white">
                     <div>
-                        <div className="text-3xl text-center sm:text-left flex flex-col justify-center items-center md:items-start sm:text-5xl md:text-5xl lg:text-7xl xl:text-7xl 2xl:text-8xl font ">
+                        <div className="text-2xl text-center sm:text-left flex flex-col justify-center items-center md:items-start sm:text-5xl md:text-5xl lg:text-7xl xl:text-7xl 2xl:text-8xl font ">
                             <span className="flex flex-row">
                                 {/* <StarIcon delay={0.4} text="✷" once={false} tailwindClasses="text-white pr-5" />*/}
                                 <BlurredText delay={0.4} tailwindClasses="" text="Wanna create" once={false} />
@@ -46,17 +46,17 @@ const Contact: React.FC<ContactProps> = ({ mousePosition, scrollProgress }) => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col gap-4 text-center justify-center mt-16 mt:mt-0 items-center md:text-right md:justify-end md:items-end">
+                    <div className="flex flex-col gap-4 w-full text-center justify-center mt-16 mt:mt-0 items-center md:text-right md:justify-end md:items-end">
                         {/*} <a href="https://calendly.com/danielpetho/30min" target="_blank" rel="noopener noreferrer">*/}
-                       <LetsTalkButton />
+                        <LetsTalkButton tailwindClasses="flex flex-row hover:bg-pale-white hover:text-black transform duration-200 ease-in cursor-pointer text-lg sm:text-2xl md:text-3xl xl:text-5xl 2xl:text-6xl font-medium rounded-full border-2 border-white  px-5 py-2.5 sm:px-10 sm:py-5" text="Let's talk" delay={0.7} once={false} />
                         {/*</a>*/}
 
 
-                        <span className="flex flex-row text-[2vw] sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl  font-medium">
+                        <span className="flex flex-row text-[3vw] sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl  font-medium">
                             <BlurredText delay={0.7} tailwindClasses="font-thin " text={"or drop a line at\u2009\u2009"} once={false} />
                             <a href="mailto:hello@danielpetho.com" className="cursor">
                                 <RandomStaggeredText
-                                    revealDelay={0.7}
+                                    revealDelay={0.8}
                                     hoverDelay={0.}
                                     hoverDuration={0.5}
                                     hoverStagger={0.01}

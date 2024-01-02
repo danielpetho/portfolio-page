@@ -1,7 +1,6 @@
 "use client";
 
-import { animate, motion, inView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 interface StarIconProps {
     text: string;
