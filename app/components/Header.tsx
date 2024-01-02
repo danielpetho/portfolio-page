@@ -74,7 +74,7 @@ const Header = () => {
     setIsClientMobile(isMobile);
   }, [isMobile, isBrowser]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (documentHeight > 0) {
       setFooterPosition((documentHeight - 160) / documentHeight);
     }
@@ -102,7 +102,7 @@ const Header = () => {
         { duration: 0.5, ease: "easeInOut" }
       );
     }
-  }, [reachedFooter]);
+  }, [reachedFooter]);*/
 
   return (
     <motion.header
@@ -110,7 +110,7 @@ const Header = () => {
       ref={scope}
     >
       <div className="flex justify-center items-center ">
-        <div className="px-[5vw] flex w-full items-center justify-between h-[8vh] sm:h-14 md:h-28 lg:h-30 xl:h-36 2xl:h-40 3xl:h-[16vh] ">
+        <div className="px-[5vw] flex w-full items-center justify-between h-[8vh] sm:h-[10vh] md:h-[14vh] ">
           <div className="py-2 ">
             <Link
               href="/"

@@ -38,12 +38,12 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <motion.footer id="contact" className="text-white text-xl flex w-screen  items-center flex-col h-screen justify-center bg-gradient-to-b from-transparent to-black "
+    <motion.footer id="contact" className="text-white text-[1vw] flex w-screen  items-center flex-col h-screen justify-center"
       onMouseMove={handleMouseMove}
       ref={footerRef}
       style={{ opacity: opac } }
     >
-      <motion.div className="w-full h-full">
+      <motion.div className="w-full px-[5vw] h-full mt-[9vh] sm:mt-[10vh] md:h-[76vh] md:mt-[14vh]">
         <Contact mousePosition={mousePosition} scrollProgress={radius}  />
       </motion.div>
       <motion.div className="w-full" ref={bottomRef}>

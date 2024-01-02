@@ -16,7 +16,6 @@ const Scene: React.FC<SceneProps> = ({ mousePosition }) => {
   const grainEffectRef = useRef();
 
   return (
-    <>
       <Canvas>
         <Suspense fallback={null}>
           <GradientShaderObject mousePosition={mousePosition} />
@@ -27,7 +26,6 @@ const Scene: React.FC<SceneProps> = ({ mousePosition }) => {
 
         {/*<Perf position={"bottom-left"} />*/}
       </Canvas>
-    </>
   );
 };
 
