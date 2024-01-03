@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import SocialLinks from "./Navigation/SocialLinks";
 import InternalLinks from "./Navigation/InternalLinks";
-import { useState } from "react";
 
 interface MenuProps {
   showMenu: boolean;

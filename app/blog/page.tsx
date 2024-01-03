@@ -1,7 +1,7 @@
-import { makeBlogPostsQueryWithRelay } from "@/app/actions/queries/blogPostQueries";
+import { makeBlogPostsQueryWithRelay } from "@/src/actions/queries/blogPostQueries";
 import BlogPostList from "./components/BlogPostList";
 import BlurredText from "@/app/components/Text/BlurredText";
-import { fetchBlogPosts } from "@/app/actions/fetch/server/fetchBlogPosts";
+import { fetchBlogPosts } from "@/src/actions/fetch/server/fetchBlogPosts";
 import { Query } from "@/typings";
 
 async function BlogPostsPage() {

@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import React, { useState, useEffect, MouseEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useMyStore } from "@/app/store/store";
+import { useMyStore } from "@/src/store/store";
 
 type SelectedWorkProps = {
     id: number,

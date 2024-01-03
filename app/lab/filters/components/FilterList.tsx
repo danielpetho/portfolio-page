@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { FilterPage } from "@/typings";
 import FilterCard from "./FilterCard";
-import { useMyStore } from "@/app/store/store";
+import { useMyStore } from "@/src/store/store";
 import { useScroll, motion, useTransform } from "framer-motion";
 
 type FilterListProps = {

@@ -10,7 +10,7 @@ import Link from "next/link";
 import Menu from "./Menu/Menu";
 import MenuButton from "./Menu/MenuButton";
 import MobileMenu from "./Menu/MobileMenu";
-import { useMyStore } from "../store/store";
+import { useMyStore } from "../../src/store/store";
 import RandomStaggeredText from "./Text/RandomStaggeredText";
 
 const Header = () => {

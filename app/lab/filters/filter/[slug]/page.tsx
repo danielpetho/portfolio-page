@@ -1,6 +1,5 @@
-import { fetchFilterBySlug } from "@/app/actions/fetch/server/fetchFilters";
-import { filterBySlugQuery } from "@/app/actions/queries/filterQueries";
-import FilterLinks from "../../components/FilterLinks";
+import { fetchFilterBySlug } from "@/src/actions/fetch/server/fetchFilters";
+import { filterBySlugQuery } from "@/src/actions/queries/filterQueries";
 import Link from "next/link";
 import {  IoMdArrowForward } from "react-icons/io";
 import FilterDetails from "../../components/FilterDetails";

@@ -1,6 +1,6 @@
 "use client"
 
-import getBase64 from "@/app/actions/fetch/client/getBase64";
+import getBase64 from "@/src/actions/fetch/client/getBase64";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 

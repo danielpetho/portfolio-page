@@ -1,5 +1,5 @@
-import { fetchFilterBySlug } from "@/app/actions/fetch/server/fetchFilters";
-import { filterBySlugQuery } from "@/app/actions/queries/filterQueries";
+import { fetchFilterBySlug } from "@/src/actions/fetch/server/fetchFilters";
+import { filterBySlugQuery } from "@/src/actions/queries/filterQueries";
 import FilterModal from "./FilterModal";
 
 interface PageProps {

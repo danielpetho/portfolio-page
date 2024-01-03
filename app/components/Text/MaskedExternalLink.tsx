@@ -1,6 +1,6 @@
 "use client";
 
-import { useMyStore } from "@/app/store/store";
+import { useMyStore } from "@/src/store/store";
 import { motion } from "framer-motion";
 import { IoMdArrowForward } from "react-icons/io";
 

@@ -1,4 +1,4 @@
-import selectedWorks from '@/app/data/selectedWorks.json'
+import selectedWorks from '@/src/data/selectedWorks.json'
 import { SelectedWorkType } from '@/typings'
 import SelectedWork from './SelectedWork'
 

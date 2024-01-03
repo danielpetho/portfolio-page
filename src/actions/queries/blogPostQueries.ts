@@ -1,4 +1,3 @@
-import { Query } from "@/typings";
 import { gql } from "graphql-request";
 
 const makeBlogPostsQueryWithRelay = (withCursor: boolean = false) => {

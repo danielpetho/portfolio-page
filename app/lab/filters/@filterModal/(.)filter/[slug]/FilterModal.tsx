@@ -5,7 +5,6 @@ import FilterDetails from "../../../components/FilterDetails";
 import { Filter } from "@/typings";
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useMyStore } from "@/app/store/store";
 
 const FilterModal = ({ filter }: { filter: Filter }) => {
   const router = useRouter();

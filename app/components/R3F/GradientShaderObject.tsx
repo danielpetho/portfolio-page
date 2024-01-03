@@ -3,7 +3,7 @@
 import { useMemo, useRef, useState } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { useMyStore } from "@/app/store/store";
+import { useMyStore } from "@/src/store/store";
 
 const fragmentShader = /* glsl */ `varying vec2 vUv;
 varying vec3 vPosition;
@@ -169,9 +169,8 @@ const GradientShaderObject: React.FC<GradientShaderObjectProps> = ({mousePositio
     <mesh
       ref={mesh}
       position={[0, 0, 5]}
-      onPointerOver={(e) => console.log("over")}
     >
-      <sphereGeometry args={[2, 16, 16]} />
+      <sphereGeometry args={[2, 32, 32]} />
       {/*<meshNormalMaterial wireframe={true}/>*/}
       <shaderMaterial
         fragmentShader={fragmentShader}

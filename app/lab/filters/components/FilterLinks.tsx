@@ -1,6 +1,5 @@
 import BlurImage from "@/app/components/Placeholder/BlurImage";
 import { Filter } from "@/typings";
-import Image from "next/image";
 
 const FilterLinks = ({ filter }: { filter: Filter }) => {
   return (
@@ -20,15 +19,6 @@ const FilterLinks = ({ filter }: { filter: Filter }) => {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 imageStyles={"object-cover"}
                 />
-              {/*<Image
-                src={filter.snapcode.url}
-                fill
-                alt="Snapcode"
-                className="w-full h-full object-cover top-0 left-0 right-0  hover:filter-none"
-                placeholder="empty"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-
-              />*/}
             </div>
             <p className="pt-2 items-center justify-center flex text-xs text-pale-black">
               Snapchat

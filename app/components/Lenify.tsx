@@ -6,7 +6,7 @@ import Lenis from "@studio-freight/lenis";
 import { useContext, useLayoutEffect, useRef } from "react";
 import router from "next/router";
 import { createContext } from "react";
-import { useMyStore } from "../store/store";
+import { useMyStore } from "../../src/store/store";
 
 export const lenisCTX = createContext<Lenis | null>(null);
 

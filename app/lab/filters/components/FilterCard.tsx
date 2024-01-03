@@ -6,7 +6,7 @@ import { IoMdArrowForward } from "react-icons/io";
 
 import { Filter } from "@/typings";
 import { useEffect, useRef, useState } from "react";
-import { useMyStore } from "@/app/store/store";
+import { useMyStore } from "@/src/store/store";
 import BlurImage from "@/app/components/Placeholder/BlurImage";
 
 type FilterCardProps = {

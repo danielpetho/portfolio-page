@@ -1,9 +1,9 @@
 "use client"
 
-import { useMyStore } from "@/app/store/store";
+import { useMyStore } from "@/src/store/store";
 import Image from "next/image";
 import { MouseEvent, useEffect, useState } from "react";
-import selectedWorks from '@/app/data/selectedWorks.json'
+import selectedWorks from '@/src/data/selectedWorks.json'
 import { motion } from "framer-motion";
 
 interface Position {

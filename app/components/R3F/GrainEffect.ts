@@ -1,4 +1,3 @@
-import * as THREE from "three";
 import { BlendFunction, Effect } from "postprocessing";
 import { Uniform } from "three";
 

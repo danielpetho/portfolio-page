@@ -6,9 +6,9 @@ import { IoMdArrowForward } from "react-icons/io";
 
 import { BlogPost } from "@/typings";
 import { useRef } from "react";
-import { useMyStore } from "@/app/store/store";
+import { useMyStore } from "@/src/store/store";
 import BlurImage from "@/app/components/Placeholder/BlurImage";
-import formatDate from "@/app/utils/formatValues";
+import formatDate from "@/src/utils/formatValues";
 
 type BlogPostCardProps = {
   blogPost: BlogPost;

@@ -1,7 +1,7 @@
-import { makeFiltersQueryWithRelay } from "@/app/actions/queries/filterQueries";
+import { makeFiltersQueryWithRelay } from "@/src/actions/queries/filterQueries";
 import FilterList from "./components/FilterList";
 import BlurredText from "@/app/components/Text/BlurredText";
-import { fetchFilters } from "@/app/actions/fetch/server/fetchFilters";
+import { fetchFilters } from "@/src/actions/fetch/server/fetchFilters";
 import { Query } from "@/typings";
 
 async function FiltersPage() {

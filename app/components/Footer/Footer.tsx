@@ -1,10 +1,11 @@
 "use client"
 
 import React, { useEffect, useRef, useState } from "react";
-import useElementSize from '../../hooks/useElementSize';
+import useElementSize from '@/src/hooks/useElementSize';
 import Contact from "./Contact";
 import Bottom from "./Bottom";
 import { useTransform, motion, useScroll } from "framer-motion";
+import FooterScene from "../R3F/FooterScene";
 
 const Footer: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -17,16 +18,7 @@ const Footer: React.FC = () => {
   });
 
   const bottomRef = useRef<HTMLDivElement>(null);
-  const { width: bottomWidth, height: bottomHeight } = useElementSize(bottomRef);
-
-  const { scrollYProgress: bottomScrollYProgress } = useScroll({
-    target: bottomRef,
-    offset: ["start end", "start start"]
-  });
-
   const opac = useTransform(scrollYProgress, [0, .5], [0.0, 1]);
-  const radius = useTransform(scrollYProgress, [0.7, 1.], [50, 0] );
-  const y = useTransform(bottomScrollYProgress, [0.3, 1], [0, -bottomHeight]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { clientX, clientY } = e;
@@ -38,13 +30,14 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <motion.footer id="contact" className="text-white text-[1vw] flex w-screen  items-center flex-col h-screen justify-center"
+    <motion.footer id="contact" className="text-white text-[1vw]  flex w-screen items-center flex-col h-screen justify-center"
       onMouseMove={handleMouseMove}
       ref={footerRef}
       style={{ opacity: opac } }
     >
+
       <motion.div className="w-full px-[5vw] h-full mt-[9vh] sm:mt-[10vh] md:h-[76vh] md:mt-[14vh]">
-        <Contact mousePosition={mousePosition} scrollProgress={radius}  />
+        <Contact mousePosition={mousePosition}  />
       </motion.div>
       <motion.div className="w-full" ref={bottomRef}>
         <Bottom />

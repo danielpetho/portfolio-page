@@ -5,9 +5,7 @@ import { Filter } from "@/typings";
 import FilterLinks from "@/app/lab/filters/components/FilterLinks";
 import { IoMdClose } from "react-icons/io";
 import { useEffect, useRef, useState } from "react";
-import { useMyStore } from "@/app/store/store";
 import { useInView } from "framer-motion";
-import Image from "next/image";
 import BlurImage from "@/app/components/Placeholder/BlurImage";
 
 const FilterDetails = ({
@@ -20,8 +18,6 @@ const FilterDetails = ({
   const router = useRouter();
 
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const cardRef = useRef(null);
-  const { isClientMobile } = useMyStore();
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoInView = useInView(videoRef, { margin: "50% 0px 50% 0px" });

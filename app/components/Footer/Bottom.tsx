@@ -36,12 +36,12 @@ const Bottom: React.FC = () => {
                 />
             </div>
 
-            <div className="flex mt-12 md:pb-0 md:mt-0 text-xs sm:text-sm md:text-md items-end justify-end lg:w-1/6 xl:w-2/6 w-3/6">
+            <div className="flex mt-12 md:pb-0 md:mt-0 text-xs sm:text-sm md:text-md lg:text-md xl:text-md 2xl:text-lg 3xl:text-[1vw] items-end justify-end lg:w-1/6 xl:w-2/6 w-3/6">
                 <BlurredText
                     text={"©2023 Daniel Petho"}
                     tailwindClasses="font-base items-end justify-end"
                     delay={0.9}
-                    once={true}
+                    once={false}
                 />
             </div>
         </motion.div>

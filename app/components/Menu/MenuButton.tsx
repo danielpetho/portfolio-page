@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import BlurredText from "../Text/BlurredText";
 import RandomStaggeredText from "../Text/RandomStaggeredText";
 
 interface MenuButtonProps {
