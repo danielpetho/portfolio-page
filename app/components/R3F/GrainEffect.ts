@@ -15,7 +15,7 @@ const fragmentShader = /* glsl */ `
 `;
 
 export default class GrainEffect extends Effect {
-  constructor({ strength = 8., blendFunction = BlendFunction.SOFT_LIGHT }) {
+  constructor({ strength = 30., blendFunction = BlendFunction.SOFT_LIGHT }) {
     super("GrainEffect", fragmentShader, {
       blendFunction,
       uniforms: new Map([

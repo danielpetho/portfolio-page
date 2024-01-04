@@ -55,7 +55,7 @@ const MobileMenu = ({
     <>
         <motion.div
           layout
-          className={` ${"top-0 left-0 right-0 absolute sm:hidden w-screen h-screen bg-pale-white"}`}
+          className={` ${"top-0 left-0 right-0 absolute sm:hidden w-screen h-screen bg-pale-white z-100"}`}
           variants={menuVariants}
           animate={showMenu ? "open" : "closed"}
           initial="closed"

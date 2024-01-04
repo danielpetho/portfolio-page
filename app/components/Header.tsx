@@ -12,11 +12,14 @@ import MenuButton from "./Menu/MenuButton";
 import MobileMenu from "./Menu/MobileMenu";
 import { useMyStore } from "../../src/store/store";
 import RandomStaggeredText from "./Text/RandomStaggeredText";
+import useDimension from "@/src/hooks/useDimension";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isMenuTransitioning, setIsMenuTransitioning] = useState(false);
   const [linkHovered, setLinkHovered] = useState("");
+
+  const { viewportWidth } = useDimension();
 
   const {
     globalLenis,
@@ -25,6 +28,7 @@ const Header = () => {
     setIsClientBrowser,
     setIsClientMobile,
   } = useMyStore();
+
 
 
   const handleButtonClick = () => {
@@ -53,7 +57,9 @@ const Header = () => {
 
   useEffect(() => {
     setIsClientBrowser(isBrowser);
+
     setIsClientMobile(isMobile);
+    console.log("isMobileView", isMobileView);
   }, [isMobile, isBrowser]);
 
 
