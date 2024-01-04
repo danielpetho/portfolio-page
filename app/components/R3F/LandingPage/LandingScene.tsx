@@ -27,7 +27,7 @@ const LandingScene = () => {
     const grainEffectRef = useRef();
 
     return (
-        <View className="w-full h-full">
+        <View className="w-full h-full" orbit>
             <FloatingPlane />
             <ArcballControls makeDefault />
             <Environment preset="dawn" />
