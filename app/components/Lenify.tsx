@@ -18,7 +18,7 @@ export default function Lenify({ children }: { children: React.ReactNode }) {
   const { setLenis } = useMyStore();
 
   useLayoutEffect(() => {
-    const lenis = new Lenis();
+    const lenis = new Lenis({smoothTouch: true});
     lenisRef.current = lenis;
 
     setLenis(lenis);

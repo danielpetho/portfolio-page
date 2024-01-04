@@ -2,7 +2,6 @@ import Image from "next/image";
 import svg from "@/public/Subtract.svg";
 
 const SVGArc = ({ ...props }) => {
-
     return (
         <div {...props}>
             <Image

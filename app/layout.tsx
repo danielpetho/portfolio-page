@@ -44,14 +44,15 @@ export default function RootLayout({
       <body >
 
         <Lenify>
-          <div className="w-screen h-screen fixed top-0 left-0">
-            <Scene />
-          </div>
+          
           <div id="__next" />
           <Header />
           {children}
+          <div className="w-screen h-screen fixed top-0 left-0">
+            <Scene />
+          </div>
           <Footer />
-
+         
         </Lenify>
         {/*<OldScene mousePosition={{x: 0, y: 0}} />*/}
 

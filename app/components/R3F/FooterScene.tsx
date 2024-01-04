@@ -29,7 +29,7 @@ const FooterScene = () => {
     const grainEffectRef = useRef();
 
     return (
-        <View className="w-[99.5%] h-[99.5%] absolute top-[1px] left-[1px] contact-r3f" orbit={true}>
+        <View className="w-[99.5%] h-[99.5%] absolute top-[0.25%] left-[0.25%] contact-r3f" orbit={true}>
             <GradientShaderObject mousePosition={{ x: 0, y: 0 }} />
             {/*<EffectComposer disableNormalPass>
                 <Grain ref={grainEffectRef} />
