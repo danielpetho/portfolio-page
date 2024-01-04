@@ -12,10 +12,9 @@ const FloatingPlane = () => {
     return (
         <>
             <mesh ref={mesh} position={[0, 0, 0]}>
-                <sphereGeometry args={[2, 16, 16]} />
 
-                {/*<planeGeometry args={[100, 100, 50, 50]} />*/}
-                <meshBasicMaterial color="hotpink" side={THREE.DoubleSide} />
+                <planeGeometry args={[100, 100, 50, 50]}  />
+                <meshBasicMaterial color="hotpink" side={THREE.DoubleSide} wireframe />
             </mesh>
         </>
     )

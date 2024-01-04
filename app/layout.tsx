@@ -8,6 +8,7 @@ import Lenify from "@/app/components/Lenify";
 import { Layout } from "@/src/utils/r3f/Layout";
 import dynamic from "next/dynamic";
 import OldScene from "./components/R3F/OldScene";
+import R3F from "./components/R3F/R3F";
 
 const Scene = dynamic(() => import('@/app/components/R3F/Scene'), { ssr: false })
 
@@ -48,11 +49,9 @@ export default function RootLayout({
           <div id="__next" />
           <Header />
           {children}
-          <div className="w-screen h-screen fixed top-0 left-0">
-            <Scene />
-          </div>
+          
           <Footer />
-         
+          <R3F />
         </Lenify>
         {/*<OldScene mousePosition={{x: 0, y: 0}} />*/}
 

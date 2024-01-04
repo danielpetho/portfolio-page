@@ -31,11 +31,12 @@ const LetsTalkButton: React.FC<LetsTalkButtonProps> = ({
     };
 
     return (
-        <motion.span whileInView="visible"
-        variants={viewVariants}
-        initial="hidden"
-        viewport={{ once: once }}
-        className={`${tailwindClasses}`}
+        <motion.span 
+            whileInView="visible"
+            variants={viewVariants}
+            initial="hidden"
+            viewport={{ once: once }}
+            className={`${tailwindClasses}`}
         >
             <StarIcon delay={0.6} text="✦" once={false} tailwindClasses=" z-0 pr-5" />
             <CalendlyDynamic />

@@ -1,12 +1,10 @@
 'use client'
 
+import { ArcballControls, Environment } from '@react-three/drei';
 import dynamic from 'next/dynamic'
-import GradientShaderObject from './GradientShaderObject'
-import { EffectComposer } from '@react-three/postprocessing'
-import Grain from './Grain'
 import { useRef } from 'react'
-import { OrbitControls } from '@react-three/drei'
 
+const FloatingPlane = dynamic(() => import('@/app/components/R3F/LandingPage/FloatingPlane'), { ssr: false });
 const Common = dynamic(() => import('@/src/utils/r3f/View').then((mod) => mod.Common), { ssr: false })
 
 const View = dynamic(() => import('@/src/utils/r3f/View').then((mod) => mod.View), {
@@ -25,16 +23,18 @@ const View = dynamic(() => import('@/src/utils/r3f/View').then((mod) => mod.View
     ),
 })
 
-const FooterScene = () => {
+const LandingScene = () => {
     const grainEffectRef = useRef();
 
     return (
-        <View className="w-[99.5%] h-[99.5%] absolute top-[0.25%] left-[0.25%] contact-r3f" orbit={true}>
-            <GradientShaderObject mousePosition={{ x: 0, y: 0 }} />
-            {/**/}
+        <View className="w-full h-full">
+            <FloatingPlane />
+            <ArcballControls makeDefault />
+            <Environment preset="dawn" />
+
             <Common />
         </View>
     )
 }
 
-export default FooterScene;
+export default LandingScene;

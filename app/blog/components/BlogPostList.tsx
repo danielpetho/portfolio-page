@@ -13,7 +13,6 @@ type BlogPostListProps = {
 const BlogPostList: React.FC<BlogPostListProps> = (props) => {
   const blogPosts = props.blogPosts;
 
-
   const containerRef = React.useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -22,7 +21,6 @@ const BlogPostList: React.FC<BlogPostListProps> = (props) => {
   });
 
   const y = useTransform(scrollYProgress, [0.3, 1], [0, 200]);
-
 
   if (blogPosts && blogPosts.length === 0) {
     return (

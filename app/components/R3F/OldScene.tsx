@@ -5,11 +5,11 @@ import { Suspense, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { View, OrbitControls, Environment } from "@react-three/drei";
 import { Perf } from "r3f-perf";
-import GradientShaderObject from "./GradientShaderObject";
+import GradientShaderObject from "./Footer/GradientShaderObject";
 import { EffectComposer } from "@react-three/postprocessing";
-import Grain from "./Grain";
+import Grain from "./PostPro/Grain";
 import { useMyStore } from "@/src/store/store";
-import FloatingPlane from "./Float";
+import FloatingPlane from "./LandingPage/FloatingPlane";
 
 interface SceneProps {
   mousePosition: { x: number; y: number };

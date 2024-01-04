@@ -143,8 +143,9 @@ const GradientShaderObject: React.FC<GradientShaderObjectProps> = ({mousePositio
   );
 
   useFrame((state, delta) => {
-    const newMouse = [mousePosition.x, 1. - mousePosition.y]; 
-    //[state.pointer.x, state.pointer.y];
+    //console.log(state.pointer.x, state.pointer.y)
+    const newMouse = [mousePosition.x * 1.3, 1. - mousePosition.y * 1.3]; 
+    //const mouse = [state.pointer.x, state.pointer.y];
     //const newMouse = [(mouse[0] + 1) / 2, (mouse[1] + 1) / 2];
 
     setLastMouse(newMouse);
@@ -155,6 +156,8 @@ const GradientShaderObject: React.FC<GradientShaderObjectProps> = ({mousePositio
       targetMouse[0] + (newMouse[0] - targetMouse[0]) * easing,
       targetMouse[1] + (newMouse[1] - targetMouse[1]) * easing,
     ]);
+
+   // console.log(mouse);
 
     if (mesh.current && "uniforms" in mesh.current.material) {
       (mesh.current.material as THREE.ShaderMaterial).uniforms.time.value +=

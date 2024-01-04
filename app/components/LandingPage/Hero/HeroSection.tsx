@@ -1,4 +1,4 @@
-import LandingScene from "../../R3F/LandingScene";
+import LandingScene from "../../R3F/LandingPage/LandingScene";
 import RandomStaggeredText from "../../Text/RandomStaggeredText";
 import RevealText from "../../Text/RevealText";
 

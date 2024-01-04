@@ -4,7 +4,7 @@
 import { SelectedWorkType } from "@/typings";
 import ParallaxText from "./ParallaxText";
 import { motion } from "framer-motion";
-import React, { useState, useEffect, MouseEvent } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useMyStore } from "@/src/store/store";
@@ -28,20 +28,6 @@ const SelectedWorkComponent = ({ id, work }: SelectedWorkProps) => {
         setShowSelectedWorkImage(false);
     }
 
-
-
-    const imgVariants = {
-        hover: {
-            opacity: 1,
-            display: "block",
-            y: 0,
-            transition: {
-                duration: 0.0,
-                ease: "easeInOut"
-            }
-        }
-    }
-
     useEffect(() => {
         // Generate a random number between -1 and -3
         const randomVelocity = -1. * (1 + Math.random() * 1.);
@@ -63,22 +49,6 @@ const SelectedWorkComponent = ({ id, work }: SelectedWorkProps) => {
                     tailwindClasses={"gap-x-[8vw] flex flex-row font text-[6vw] sm:text-[4vw]"}
                 />
             </div>
-            {/*showImage &&
-                <motion.div
-                    className="fixed opacity-1 w-[300px] h-[150px] z-50"
-                    animate={{ y: 0, opacity: 1 }}
-                    initial={{ y: 0, opacity: 0 }}
-                    transition={{ duration: .33, ease: "easeOut" }}
-                    style={{ x: imagePosition.x, y: imagePosition.y, left: "0", top: imagePosition.y }}
-                >
-                    <div className="relative h-full overflow-hidden rounded-[5%] "  >
-                        <Image src={work.imgUrl} alt={work.title} fill className="overflow-hidden object-cover absolute top-0 left-0" blurDataURL={work.imgUrl} placeholder="blur" />
-                    </div>
-                </motion.div>
-    */}
-
-
-
         </motion.div>
     )
 }
@@ -94,7 +64,7 @@ const SelectedWorkMobileComponent = ({ id, work }: SelectedWorkProps) => {
                     {work.contractor && <h3 className="text-xs text-pale-black">({work.contractor})</h3>}
                 </div>
                 <div className="w-1/2 p-4 flex h-full">
-                    <div className="relative h-full w-full overflow-hidden rounded-[5%] "  >
+                    <div className="relative h-full w-full overflow-hidden rounded-xl">
                         <Image src={work.imgUrl} alt={work.title} fill className="overflow-hidden object-cover absolute top-0 left-0" />
                     </div>
                 </div>

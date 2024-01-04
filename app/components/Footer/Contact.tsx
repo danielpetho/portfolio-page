@@ -1,19 +1,16 @@
-"use client"
-
-import React, { useEffect } from "react";
+import React from "react";
 import RandomStaggeredText from "../Text/RandomStaggeredText";
 import BlurredText from "../Text/BlurredText";
-import Scene from "../R3F/OldScene";
-import { MotionValue, motion } from "framer-motion";
 import LetsTalkButton from "./LetsTalkButton";
-import { useMyStore } from "@/src/store/store";
-import FooterScene from "../R3F/FooterScene";
-import LandingScene from "../R3F/LandingScene";
+import FooterScene from "../R3F/Footer/FooterScene";
 import SVGArc from "./SVGArc";
 
-type ContactProps = {
-    mousePosition: { x: number; y: number };
-};
+interface ContactProps {
+    mousePosition: {
+        x: number;
+        y: number;
+    }
+}
 
 const Contact: React.FC<ContactProps> = ({ mousePosition }) => {
 
@@ -32,13 +29,13 @@ const Contact: React.FC<ContactProps> = ({ mousePosition }) => {
                     </div>
                 </div>
             </div>
-            <FooterScene />
+            <FooterScene mousePosition={mousePosition} />
 
             <div className="flex justify-center items-center text-center md:text-left w-full h-full z-[2]" >
 
-                <div className="flex flex-col sm:p-[10vh] h-full w-full flex-grow md:justify-between justify-center text-white">
+                <div className="flex flex-col sm:p-[10vmin] h-full w-full flex-grow lg:justify-between justify-center text-white">
                     <div>
-                        <div className="text-2xl text-center sm:text-left flex flex-col justify-center items-center md:items-start sm:text-5xl md:text-5xl lg:text-7xl xl:text-7xl 2xl:text-8xl font ">
+                        <div className="text-2xl text-center sm:text-left flex flex-col justify-center items-center lg:items-start sm:text-5xl md:text-5xl lg:text-7xl xl:text-7xl 2xl:text-8xl font ">
                             <span className="flex flex-row">
                                 <BlurredText delay={0.4} tailwindClasses="" text="Wanna create" once={false} />
                             </span>
@@ -52,7 +49,7 @@ const Contact: React.FC<ContactProps> = ({ mousePosition }) => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col gap-4 w-full text-center justify-center mt-16 mt:mt-0 items-center md:text-right md:justify-end md:items-end">
+                    <div className="flex flex-col gap-4 w-full text-center justify-center mt-16 mt:mt-0 items-center lg:text-right lg:justify-end lg:items-end">
                         <LetsTalkButton tailwindClasses="flex flex-row hover:bg-pale-white hover:text-black transform duration-200 ease-in cursor-pointer text-lg sm:text-2xl md:text-3xl xl:text-5xl 2xl:text-6xl font-medium rounded-full border-2 border-white  px-5 py-2.5 sm:px-10 sm:py-5" text="Let's talk" delay={0.7} once={false} />
 
                         <span className="flex flex-row text-[3vw] sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl  font-medium">

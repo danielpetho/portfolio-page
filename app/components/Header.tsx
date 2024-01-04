@@ -57,7 +57,6 @@ const Header = () => {
 
   useEffect(() => {
     setIsClientBrowser(isBrowser);
-
     setIsClientMobile(isMobile);
     console.log("isMobileView", isMobileView);
   }, [isMobile, isBrowser]);
@@ -89,7 +88,7 @@ const Header = () => {
             </Link>
           </div>
 
-          {isMobileView ? (
+          {(isMobileView || isClientMobile) ? (
             <MobileMenu
               showMenu={showMenu}
               setIsMenuTransitioning={setIsMenuTransitioning}

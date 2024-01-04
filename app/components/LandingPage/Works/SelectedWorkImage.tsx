@@ -28,17 +28,15 @@ const SelectedWorkImage = () => {
         setImgAlt(selectedWorks.works[selectedWorkImageIndex].title);
     }, [selectedWorkImageIndex]);
 
-    // Set up an effect to add and remove the mousemove event listener.
     useEffect(() => {
         window.addEventListener("mousemove", handleMouseMove);
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
         };
-    }, []); // The empty dependency array ensures that this effect runs
+    }, []);
 
     return (
-        <div className="hidden sm:block z-100 absolute top-0 left-0 "
-        >
+        <div className="hidden sm:block z-100 absolute top-0 left-0 ">
             {showSelectedWorkImage &&
                 <motion.div
                     className="fixed opacity-1 w-[20vw] min-w-[360px] min-h-[200px] h-[11vw] z-[25]"
@@ -47,7 +45,7 @@ const SelectedWorkImage = () => {
                     transition={{ duration: .33, ease: "easeOut" }}
                     style={{ x: imagePosition.x + 50, y: imagePosition.y + 50, top: imagePosition.y, left: "0" }}
                 >
-                    <div className="relative h-full overflow-hidden rounded-3xl "  >
+                    <div className="relative h-full overflow-hidden rounded-3xl"  >
                         <Image src={imgURL} alt={imgAlt} fill className="overflow-hidden object-cover absolute top-0 left-0" />
                     </div>
                 </motion.div>

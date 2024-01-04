@@ -1,9 +1,12 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useRef } from 'react'
+import GradientShaderObject from './GradientShaderObject'
+import { EffectComposer } from '@react-three/postprocessing'
+import Grain from '../PostPro/Grain'
+import React, { useRef } from 'react'
+import { OrbitControls } from '@react-three/drei'
 
-const FloatingPlane = dynamic(() => import('@/app/components/R3F/Float'), { ssr: false });
 const Common = dynamic(() => import('@/src/utils/r3f/View').then((mod) => mod.Common), { ssr: false })
 
 const View = dynamic(() => import('@/src/utils/r3f/View').then((mod) => mod.View), {
@@ -22,15 +25,21 @@ const View = dynamic(() => import('@/src/utils/r3f/View').then((mod) => mod.View
     ),
 })
 
-const LandingScene = () => {
+type FooterSceneProps = {
+    mousePosition: {
+        x: number;
+        y: number;
+    };
+}
+
+const FooterScene: React.FC<FooterSceneProps> = ({mousePosition}) => {
     const grainEffectRef = useRef();
 
     return (
-        <View className="w-full h-full" id="laci">
-            <FloatingPlane />
-            <Common />
+        <View className="w-[99.5%] h-[99.5%] absolute top-[0.25%] left-[0.25%] contact-r3f" orbit={true}>
+            <GradientShaderObject mousePosition={mousePosition} />
         </View>
     )
 }
 
-export default LandingScene;
+export default FooterScene;
