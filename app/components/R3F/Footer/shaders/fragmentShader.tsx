@@ -85,7 +85,7 @@ void main() {
   vec3 accentColor2 = mix(pink, green, sin(time * 0.1 + 0.312) * 0.5 + 0.5);
 
   float n = noise(vPosition * 0.9 + time * 0.1 + 30.);
-  vec2 baseUv = rotate2D(n)  * rotate2D(mouseSphere(uv, mouse, 0.3, strength) * n) * (vPosition.xy + vec2(0., sin(time * 0.1) * 1.));
+  vec2 baseUv = rotate2D(n)  * rotate2D(mouseSphere(uv, mouse, 0.4, strength) * n) * (vPosition.xy + vec2(0., sin(time * 0.1) * 1.));
   float basePattern = lines( baseUv, 0.5 );
   float secondPattern = lines(rotate2D(n + 100.) * baseUv, 0.3  + sin(time * 0.1) * 0.2);
   float thirdPattern = lines(rotate2D(n) * baseUv, 0.1);

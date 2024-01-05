@@ -21,9 +21,9 @@ const About = () => {
             </div>
             <div className="w-1/2 justify-end flex mb-[5vw]">
 
-                <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
+                {/*<video className="w-full h-full object-cover" autoPlay loop muted playsInline>
                     <source src="/videos/about.mp4" type="video/mp4" />
-                </video>
+    </video>*/}
                 
       
             </div>

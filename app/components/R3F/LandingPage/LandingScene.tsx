@@ -1,6 +1,6 @@
 'use client'
 
-import { ArcballControls, Environment } from '@react-three/drei';
+import { ArcballControls, Environment, Stage } from '@react-three/drei';
 import dynamic from 'next/dynamic'
 import { useRef } from 'react'
 
@@ -28,10 +28,12 @@ const LandingScene = () => {
 
     return (
         <View className="w-full h-full" orbit>
-            <FloatingPlane />
-            <ArcballControls makeDefault />
-            <Environment preset="dawn" />
+            <Stage adjustCamera intensity={0.5} shadows="contact" environment="dawn">
 
+            <FloatingPlane />
+            </Stage>
+
+            
             <Common />
         </View>
     )
