@@ -34,8 +34,8 @@ float noise(vec3 p){
 void main()	{
   vUv = uv;
   vec3 p = position;
-  p.z += noise(p * 0.25 + time * 0.343) * 4.;
-  p.z += noise(p * 0.5 + time * 0.5) * 1.;
+  p.z -= noise(p * 0.125 + time * 0.343) * 8.;
+  p.z -= noise(p * 0.25 + time * 0.5) * 4.;
   vPosition = p;
   gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.);
 }`;

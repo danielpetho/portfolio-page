@@ -1,8 +1,8 @@
 'use client'
 
-import { ArcballControls, Environment, Stage } from '@react-three/drei';
+import { AccumulativeShadows, ArcballControls, Backdrop, Environment, Float, MeshTransmissionMaterial, OrbitControls, PerspectiveCamera, RandomizedLight, Stage } from '@react-three/drei';
 import dynamic from 'next/dynamic'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 const FloatingPlane = dynamic(() => import('@/app/components/R3F/LandingPage/FloatingPlane'), { ssr: false });
 const Common = dynamic(() => import('@/src/utils/r3f/View').then((mod) => mod.Common), { ssr: false })
@@ -27,14 +27,26 @@ const LandingScene = () => {
     const grainEffectRef = useRef();
 
     return (
-        <View className="w-full h-full" orbit>
-            <Stage adjustCamera intensity={0.5} shadows="contact" environment="dawn">
+        <View className="w-full h-full ">
+            <PerspectiveCamera makeDefault fov={45} position={[-10, 10, 18]} />
 
-            <FloatingPlane />
-            </Stage>
+            <color attach="background" args={['#f8f8f8']} />
+            <ambientLight intensity={0.5} />
+            <spotLight position={[5, 5, -10]} angle={0.15} penumbra={1} />
+            <pointLight position={[-10, -10, -10]} />
+            <group position={[-5, -5, 0]} >
+                <mesh castShadow receiveShadow position={[0, 10., 0]} scale={0.5}>
+                    <sphereGeometry args={[1, 64, 64]} />
+                    <MeshTransmissionMaterial resolution={1024} distortion={0.25} color="#F8F8F8" thickness={0.6} anisotropy={1} />
+                </mesh>
+                <FloatingPlane />
+            </group>
 
-            
-            <Common />
+            <Environment preset="studio" />
+
+            <OrbitControls makeDefault autoRotate autoRotateSpeed={0.1} minPolarAngle={0} maxPolarAngle={Math.PI / 2} enableZoom={false} />
+
+
         </View>
     )
 }

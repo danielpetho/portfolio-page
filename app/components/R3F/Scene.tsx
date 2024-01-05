@@ -11,7 +11,7 @@ export default function Scene({ ...props }) {
   const grainEffectRef = useRef();
 
   return (
-    <Canvas {...props}>
+    <Canvas {...props} shadows>
       {/* @ts-ignore */}
       <r3f.Out />
       <EffectComposer disableNormalPass>

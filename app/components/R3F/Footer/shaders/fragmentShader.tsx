@@ -82,11 +82,11 @@ void main() {
 
   vec3 mainColor = mix(blue, darkBlue, sin(time * 0.1 + 0.5) * 0.5 + 0.5);
   vec3 accentColor = mix(orange, pink, sin(time * 0.1 - 0.5) * 0.5 + 0.5);
-  vec3 accentColor2 = mix(pink, green, sin(time * 0.1 + 0.312) * 0.5 + 0.5);
+  vec3 accentColor2 = mix(pink, green, sin(time * 0.1 + 32.5) * 0.1 + 0.2);
 
   float n = noise(vPosition * 0.9 + time * 0.1 + 30.);
   vec2 baseUv = rotate2D(n)  * rotate2D(mouseSphere(uv, mouse, 0.4, strength) * n) * (vPosition.xy + vec2(0., sin(time * 0.1) * 1.));
-  float basePattern = lines( baseUv, 0.5 );
+  float basePattern = lines( baseUv, 0.4 );
   float secondPattern = lines(rotate2D(n + 100.) * baseUv, 0.3  + sin(time * 0.1) * 0.2);
   float thirdPattern = lines(rotate2D(n) * baseUv, 0.1);
 
@@ -95,7 +95,7 @@ void main() {
   vec3 thirdColor = mix(secondColor, accentColor2, thirdPattern);
 
 
-	gl_FragColor = vec4(thirdColor, 1.);
+	gl_FragColor = vec4(thirdColor - vec3(0.05), 1.);
 }`;
 
 export default fragmentShader;

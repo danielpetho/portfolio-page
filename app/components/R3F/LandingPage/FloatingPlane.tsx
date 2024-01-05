@@ -3,7 +3,7 @@
 import * as THREE from "three";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
-import { useGLTF, Detailed, Environment } from "@react-three/drei";
+import { useGLTF, Detailed, Environment, Float } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import fragmentShader from "../Footer/shaders/fragmentShader";
 import vertexShader from "./shaders/vertexShader";
@@ -17,6 +17,7 @@ const amplitude = 10.
 
 const FloatingPlane = () => {
   const mesh = useRef<THREE.Mesh>(null!);
+  const groupRef = useRef<THREE.Group>(null!);
 
   const { size } = useThree();
 
@@ -47,29 +48,32 @@ const FloatingPlane = () => {
 
     if (mesh.current && "uniforms" in mesh.current.material) {
       (mesh.current.material as THREE.ShaderMaterial).uniforms.time.value +=
-        delta * 1.;
+        delta * 0.5;
     }
+
+    //mesh.current.position.y = 1. + (Math.sin(state.clock.elapsedTime * 0.5) + 1. / 2.) * 2.; 
+
   });
 
   useEffect(() => {
     mesh.current.rotateX(Math.PI / 2)
+
   }, [])
 
   return (
-    <>
-      <mesh ref={mesh} position={[0, 0, 10]} >
+    <group ref={groupRef} position={[0, 0, 0]} >
+        <mesh ref={mesh} position={[0, 0, 0]} >
 
-        <planeGeometry args={[12, 12, 64, 64]} />
-        {/* <meshBasicMaterial color="red" wireframe side={THREE.DoubleSide} />*/}
-        <shaderMaterial
-          fragmentShader={fragmentShader}
-          vertexShader={vertexShader}
-          uniforms={uniforms}
-          side={THREE.DoubleSide}
-          wireframe={true}
-        />
-      </mesh>
-    </>
+          <planeGeometry args={[12, 12, 64, 64]} />
+          {/* <meshBasicMaterial color="red" wireframe side={THREE.DoubleSide} />*/}
+          <shaderMaterial
+            fragmentShader={fragmentShader}
+            vertexShader={vertexShader}
+            uniforms={uniforms}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+    </group>
   )
 }
 
