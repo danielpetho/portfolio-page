@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
 
 const FloatingPlane = dynamic(() => import('@/app/components/R3F/LandingPage/FloatingPlane'), { ssr: false });
-const Common = dynamic(() => import('@/src/utils/r3f/View').then((mod) => mod.Common), { ssr: false })
 
 const View = dynamic(() => import('@/src/utils/r3f/View').then((mod) => mod.View), {
     ssr: false,
@@ -37,6 +36,8 @@ const LandingScene = () => {
             <group position={[-5, -5, 0]} >
                 <mesh castShadow receiveShadow position={[0, 10., 0]} scale={0.5}>
                     <sphereGeometry args={[1, 64, 64]} />
+
+                    {/* @ts-ignore */}
                     <MeshTransmissionMaterial resolution={1024} distortion={0.25} color="#F8F8F8" thickness={0.6} anisotropy={1} />
                 </mesh>
                 <FloatingPlane />
