@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import { useGLTF, Detailed, Environment, Float } from "@react-three/drei";
 import { Perf } from "r3f-perf";
-import fragmentShader from "../Footer/shaders/fragmentShader";
+import fragmentShader from "./shaders/fragmentShader";
 import vertexShader from "./shaders/vertexShader";
 
 function* enumerate(count: number) {

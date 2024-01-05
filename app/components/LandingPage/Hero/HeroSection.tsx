@@ -9,7 +9,7 @@ const HeroSection = () => {
 
         <LandingScene />
       </div>
-      <div className="h-1/3 w-full flex-col justify-end flex items-end  leading-[6vw] xl:leading-[4vw]">
+      <div className="h-1/3 w-full flex-col justify-end flex items-end  leading-[6vw] xl:leading-[4vw] text-black">
         <h1 className="xl:text-[3vw] xl:font-light"><RevealText text="Hi Friend. Nice to meet you!" delay={0} once={true} y={300} /></h1>
         <h1 className="xl:text-[3vw] xl:font-light">My name is Daniel.</h1>
       </div>
