@@ -27,19 +27,12 @@ const LandingScene = () => {
 
     return (
         <View className="w-full h-full ">
-            <PerspectiveCamera makeDefault fov={45} position={[-10, 10, 18]} />
+            <PerspectiveCamera makeDefault fov={45} position={[-10, 10, 20]} />
 
-            <color attach="background" args={['#f8f8f8']} />
             <ambientLight intensity={0.5} />
             <spotLight position={[5, 5, -10]} angle={0.15} penumbra={1} />
             <pointLight position={[-10, -10, -10]} />
-            <group position={[-5, -5, 0]} >
-                <mesh castShadow receiveShadow position={[0, 10., 0]} scale={0.5}>
-                    <sphereGeometry args={[1, 64, 64]} />
-
-                    {/* @ts-ignore */}
-                    <MeshTransmissionMaterial resolution={1024} distortion={0.25} color="#F8F8F8" thickness={0.6} anisotropy={1} />
-                </mesh>
+            <group position={[-8, -2, 0]} >
                 <FloatingPlane />
             </group>
 

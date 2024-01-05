@@ -2,12 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import GradientShaderObject from './GradientShaderObject'
-import { EffectComposer } from '@react-three/postprocessing'
-import Grain from '../PostPro/Grain'
-import React, { useRef } from 'react'
-import { OrbitControls } from '@react-three/drei'
-
-const Common = dynamic(() => import('@/src/utils/r3f/View').then((mod) => mod.Common), { ssr: false })
+import React from 'react'
 
 const View = dynamic(() => import('@/src/utils/r3f/View').then((mod) => mod.View), {
     ssr: false,
@@ -33,8 +28,6 @@ type FooterSceneProps = {
 }
 
 const FooterScene: React.FC<FooterSceneProps> = ({mousePosition}) => {
-    const grainEffectRef = useRef();
-
     return (
         <View className="w-[99.5%] h-[99.5%] absolute top-[0.25%] left-[0.25%] contact-r3f" orbit={true}>
             <GradientShaderObject mousePosition={mousePosition} />
