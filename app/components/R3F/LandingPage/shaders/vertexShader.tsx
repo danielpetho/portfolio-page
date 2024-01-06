@@ -1,9 +1,7 @@
 const vertexShader = /* glsl */ `
 
-uniform float time;
 
-varying vec2 vUv;
-varying vec3 vPosition;
+uniform float uTime;
 
 float mod289(float x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
 vec4 mod289(vec4 x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
@@ -31,13 +29,44 @@ float noise(vec3 p){
     return o4.y * d.y + o4.x * (1.0 - d.y);
 }
 
+vec3 orthogonal(vec3 v) {
+  return normalize(abs(v.x) > abs(v.z) ? vec3(-v.y, v.x, 0.0)
+  : vec3(0.0, -v.z, v.y));
+}
+
+
+vec3 displace(vec3 p) {
+  vec3 pp = p;
+  pp.z -= noise(p * 0.125 + uTime * 0.343) * 8.;
+  pp.z -= noise(p * 0.3 + uTime * 0.5) * 3.;
+
+  return pp;
+}
+
+vec3 recalcNormals(vec3 newPos) {
+  float offset = 0.001;
+  vec3 tangent = orthogonal(normal);
+  vec3 bitangent = normalize(cross(normal, tangent));
+  vec3 neighbour1 = position + tangent * offset;
+  vec3 neighbour2 = position + bitangent * offset;
+
+  vec3 displacedNeighbour1 = displace(neighbour1);
+  vec3 displacedNeighbour2 = displace(neighbour2);
+
+  vec3 displacedTangent = displacedNeighbour1 - newPos;
+  vec3 displacedBitangent = displacedNeighbour2 - newPos;
+
+  return normalize(cross(displacedTangent, displacedBitangent));
+}
+
 void main()	{
-  vUv = uv;
+
   vec3 p = position;
-  p.z -= noise(p * 0.125 + time * 0.343) * 8.;
-  p.z -= noise(p * 0.25 + time * 0.5) * 4.;
-  vPosition = p;
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.);
+  p = displace(position);
+
+  csm_Position = p;
+  csm_Normal = recalcNormals(csm_Position);
+
 }`;
 
 export default vertexShader;

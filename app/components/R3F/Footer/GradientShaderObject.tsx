@@ -70,7 +70,7 @@ const GradientShaderObject: React.FC<GradientShaderObjectProps> = ({mousePositio
         fragmentShader={fragmentShader}
         vertexShader={vertexShader}
         uniforms={uniforms}
-        side={THREE.DoubleSide}
+        side={THREE.BackSide}
       />
     </mesh>
   );

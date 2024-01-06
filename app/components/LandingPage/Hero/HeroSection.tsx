@@ -24,7 +24,7 @@ const HeroSection = () => {
             hoverDelay={0.}
             hoverDuration={0.5}
             hoverStagger={0.005}
-            tailwindClasses="font-bold mb-[8vh] text-[4vw]"
+            tailwindClasses="font-bold mb-[8vh] text-[4vw] "
           />
         </span>
       </div>

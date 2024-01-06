@@ -1,8 +1,12 @@
 'use client'
 
-import { AccumulativeShadows, ArcballControls, Backdrop, Environment, Float, MeshTransmissionMaterial, OrbitControls, PerspectiveCamera, RandomizedLight, Stage } from '@react-three/drei';
+import { AccumulativeShadows, ArcballControls, Backdrop, Environment, Float, MeshTransmissionMaterial, OrbitControls, PerspectiveCamera, RandomizedLight, RenderCubeTexture, RenderCubeTextureApi, Stage } from '@react-three/drei';
 import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
+import GradientShaderObject from '../Footer/GradientShaderObject';
+import { LayerMaterial, Base, Depth, Noise } from 'lamina'
+import * as THREE from "three";
+
 
 const FloatingPlane = dynamic(() => import('@/app/components/R3F/LandingPage/FloatingPlane'), { ssr: false });
 
@@ -23,20 +27,31 @@ const View = dynamic(() => import('@/src/utils/r3f/View').then((mod) => mod.View
 })
 
 const LandingScene = () => {
-    const grainEffectRef = useRef();
-
     return (
         <View className="w-full h-full ">
+            
             <PerspectiveCamera makeDefault fov={45} position={[-10, 10, 20]} />
 
-            <ambientLight intensity={0.5} />
-            <spotLight position={[5, 5, -10]} angle={0.15} penumbra={1} />
-            <pointLight position={[-10, -10, -10]} />
+            <ambientLight intensity={1.4} />
+
+            {/*<ambientLight intensity={10.} color={"#f85408"} />}*/}
             <group position={[-8, -2, 0]} >
                 <FloatingPlane />
             </group>
 
-            <Environment preset="studio" />
+            <Environment background resolution={64}>
+            <Striplight position={[10, 2, 0]} scale={[1, 3, 10]} />
+        <Striplight position={[-10, 2, 0]} scale={[1, 3, 10]} />
+        <mesh scale={100}>
+          <sphereGeometry args={[1, 64, 64]} />
+          <LayerMaterial side={THREE.BackSide}>
+            <Base color="blue" alpha={1} mode="normal" />
+            <Depth colorA="#00ffff" colorB="#ff8f00" alpha={0.5} mode="normal" near={0} far={300} origin={[100, 100, 100]} />
+            <Noise mapping="local" type="cell" scale={0.5} mode="softlight" />
+          </LayerMaterial>
+        </mesh>
+      </Environment>
+            {/*<Environment preset="sunset" />*/}
 
             <OrbitControls makeDefault autoRotate autoRotateSpeed={0.1} minPolarAngle={0} maxPolarAngle={Math.PI / 2} enableZoom={false} />
 
@@ -44,5 +59,14 @@ const LandingScene = () => {
         </View>
     )
 }
+
+function Striplight(props) {
+    return (
+      <mesh {...props}>
+        <boxGeometry />
+        <meshBasicMaterial color="white" />
+      </mesh>
+    )
+  }
 
 export default LandingScene;

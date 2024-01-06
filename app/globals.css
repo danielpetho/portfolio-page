@@ -27,23 +27,23 @@ body {
 
 /* Scrollbar */
 
-/* width */
-::-webkit-scrollbar {
+/* width
+/*::-webkit-scrollbar {
   width: 0px;
 }
 
-/* Track */
+// Track 
 ::-webkit-scrollbar-track {
   background: #f8f6f8;
 }
 
-/* Handle */
+// Handle 
 ::-webkit-scrollbar-thumb {
   background-clip: padding-box;
 
   border-right: 0px #f8f6f8 solid;
   border-radius: 0px;
-}
+}*/
 
 /*.contact-r3f {
   background-color: #f8f6f8;
