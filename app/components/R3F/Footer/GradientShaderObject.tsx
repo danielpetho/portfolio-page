@@ -8,10 +8,22 @@ import fragmentShader from "./shaders/fragmentShader";
 import vertexShader from "./shaders/vertexShader";
 
 interface GradientShaderObjectProps {
-  mousePosition: { x: number; y: number };
+  scale?: number;
+  position?: [number, number, number];
+  useMouse?: boolean;
+  noiseScale?: number;
+  darken?: number;
+  mousePosition?: { x: number; y: number };
 }
 
-const GradientShaderObject: React.FC<GradientShaderObjectProps> = ({mousePosition}) => {
+const GradientShaderObject: React.FC<GradientShaderObjectProps> = ({
+  scale = 1,
+  position = [0, 0, 5],
+  useMouse = false,
+  noiseScale = 0.9,
+  darken = 0,
+  mousePosition = { x: 0, y: 0 },
+}) => {
   const [targetMouse, setTargetMouse] = useState([0, 0]);
   const [lastMouse, setLastMouse] = useState([0, 0]);
 
@@ -25,47 +37,53 @@ const GradientShaderObject: React.FC<GradientShaderObjectProps> = ({mousePositio
 
   const uniforms = useMemo(
     () => ({
-      time: { value: 0 },
-      resolution: { value: [size.width, size.height, 1] },
-      mouse: { value: [0, 0] },
-      strength: { value: 0. },
+      uTime: { value: 0 },
+      uResolution: { value: [size.width, size.height, 1] },
+      uMouse: { value: [0, 0] },
+      uMouseStrength: { value: isClientMobile ? 0. : 1. },
+      uDarkenStrength: { value: darken },
+      uNoiseScale: { value: noiseScale },
     }),
     []
   );
 
   useFrame((state, delta) => {
     //console.log(state.pointer.x, state.pointer.y)
-    const newMouse = [mousePosition.x * 1.3, 1. - mousePosition.y * 1.3]; 
-    //const mouse = [state.pointer.x, state.pointer.y];
-    //const newMouse = [(mouse[0] + 1) / 2, (mouse[1] + 1) / 2];
 
-    setLastMouse(newMouse);
+    if (useMouse) {
+      const newMouse = [mousePosition.x * 1.3, 1. - mousePosition.y * 1.3];
+      //const mouse = [state.pointer.x, state.pointer.y];
+      //const newMouse = [(mouse[0] + 1) / 2, (mouse[1] + 1) / 2];
 
-    const easing = 0.025;
+      setLastMouse(newMouse);
 
-    setTargetMouse([
-      targetMouse[0] + (newMouse[0] - targetMouse[0]) * easing,
-      targetMouse[1] + (newMouse[1] - targetMouse[1]) * easing,
-    ]);
+      const easing = 0.025;
 
-   // console.log(mouse);
+      setTargetMouse([
+        targetMouse[0] + (newMouse[0] - targetMouse[0]) * easing,
+        targetMouse[1] + (newMouse[1] - targetMouse[1]) * easing,
+      ]);
+    }
+
 
     if (mesh.current && "uniforms" in mesh.current.material) {
-      (mesh.current.material as THREE.ShaderMaterial).uniforms.time.value +=
+      (mesh.current.material as THREE.ShaderMaterial).uniforms.uTime.value +=
         delta;
-      (mesh.current.material as THREE.ShaderMaterial).uniforms.mouse.value =
-        targetMouse;
-      (mesh.current.material as THREE.ShaderMaterial).uniforms.strength.value = isClientMobile ? 0. : 1.
+
+      if (useMouse) {
+        (mesh.current.material as THREE.ShaderMaterial).uniforms.uMouse.value =
+          targetMouse;
+      }
     }
   });
 
   return (
     <mesh
       ref={mesh}
-      position={[0, 0, 5]}
+      position={position}
+      scale={scale}
     >
       <sphereGeometry args={[2, 32, 32]} />
-      {/*<meshNormalMaterial wireframe={true}/>*/}
       <shaderMaterial
         fragmentShader={fragmentShader}
         vertexShader={vertexShader}

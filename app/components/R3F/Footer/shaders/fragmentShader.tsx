@@ -1,10 +1,12 @@
 const fragmentShader = /* glsl */ `varying vec2 vUv;
 varying vec3 vPosition;
 
-uniform vec3 resolution;
-uniform float time;
-uniform vec2 mouse;
-uniform float strength;
+uniform vec3 uResolution;
+uniform float uTime;
+uniform vec2 uMouse;
+uniform float uMouseStrength;
+uniform float uDarkenStrength;
+uniform float uNoiseScale;
 
 float mod289(float x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
 vec4 mod289(vec4 x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
@@ -66,28 +68,26 @@ float mouseSphere(vec2 uv, vec2 mouse, float radius, float strength) {
 
 void main() {
   vec2 fragCoord = gl_FragCoord.xy;
-  vec2 uv = fragCoord.xy / resolution.xy;
-  vec2 aspectCorrect = vec2(1., resolution.y / resolution.x);
+  vec2 uv = fragCoord.xy / uResolution.xy;
+  vec2 aspectCorrect = vec2(1., uResolution.y / uResolution.x);
   uv *= aspectCorrect;
 
   vec3 blue = vec3(0. / 255., 0. / 255., 255. / 255.);
   vec3 darkBlue = vec3(0. / 255., 0. / 255., 132. / 255.);
 
   vec3 orange = vec3(248. / 255., 84. / 255., 8. / 255.);
-  vec3 black = vec3(0. / 255., 0. / 255., 0. / 255.);
 
   vec3 pink = vec3(1., 158. / 255., 197. / 255.);
-  vec3 yellow = vec3(243. / 255., 202. / 255., 78. / 255.);
   vec3 green = vec3(73. / 255., 190. / 255., 170. / 255.);
 
-  vec3 mainColor = mix(blue, darkBlue, sin(time * 0.1 + 0.5) * 0.5 + 0.5);
-  vec3 accentColor = mix(orange, pink, sin(time * 0.1 - 0.5) * 0.5 + 0.5);
-  vec3 accentColor2 = mix(pink, green, sin(time * 0.1 + 32.5) * 0.1 + 0.2);
+  vec3 mainColor = mix(blue, darkBlue, sin(uTime * 0.1 + 0.5) * 0.5 + 0.5);
+  vec3 accentColor = mix(orange, pink, sin(uTime * 0.1 - 0.5) * 0.5 + 0.5);
+  vec3 accentColor2 = mix(pink, green, sin(uTime * 0.1 + 32.5) * 0.1 + 0.2);
 
-  float n = noise(vPosition * 0.9 + time * 0.1 + 30.);
-  vec2 baseUv = rotate2D(n)  * rotate2D(mouseSphere(uv, mouse, 0.4, strength) * n) * (vPosition.xy + vec2(0., sin(time * 0.1) * 1.));
+  float n = noise(vPosition * uNoiseScale + uTime * 0.1 + 30.);
+  vec2 baseUv = rotate2D(n)  * rotate2D(mouseSphere(uv, uMouse, 0.4, uMouseStrength) * n) * (vPosition.xy + vec2(0., sin(uTime * 0.1) * 1.));
   float basePattern = lines( baseUv, 0.4 );
-  float secondPattern = lines(rotate2D(n + 100.) * baseUv, 0.3  + sin(time * 0.1) * 0.2);
+  float secondPattern = lines(rotate2D(n + 100.) * baseUv, 0.3  + sin(uTime * 0.1) * 0.2);
   float thirdPattern = lines(rotate2D(n) * baseUv, 0.1);
 
   vec3 baseColor = mix(mainColor, pink, basePattern);
@@ -95,7 +95,7 @@ void main() {
   vec3 thirdColor = mix(secondColor, accentColor2, thirdPattern);
 
 
-	gl_FragColor = vec4(thirdColor - vec3(0.05), 1.);
+	gl_FragColor = vec4(thirdColor - vec3(uDarkenStrength), 1.);
 }`;
 
 export default fragmentShader;

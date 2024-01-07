@@ -5,7 +5,7 @@ import RevealText from "../../Text/RevealText";
 const HeroSection = () => {
   return (
     <section className="h-[76vh] sm:h-[82vh] w-screen flex text-[4vw] 2xl:text[4vw] flex-col px-[5vw] mt-[4vh] sm:mt-[18vh] font ">
-      <div className="w-full h-[150vh] absolute top-0 left-0">
+      <div className="w-full h-[200vh] absolute top-0 left-0 backdrop-blur-[1px] z-[-1]">
 
         <LandingScene />
       </div>
