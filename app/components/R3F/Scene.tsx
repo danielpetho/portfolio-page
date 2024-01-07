@@ -11,7 +11,7 @@ export default function Scene({ ...props }) {
     <Canvas {...props} shadows>
       {/* @ts-ignore */}
       <r3f.Out />
-
+    <Perf openByDefault trackGPU={true} position={'bottom-right'} />
     </Canvas>
   )
 }
