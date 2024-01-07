@@ -19,7 +19,7 @@ const Contact: React.FC<ContactProps> = ({ mousePosition }) => {
 
             <div className="absolute flex w-full h-full top-0 left-0 ">
                 <div className="flex flex-row justify-between w-full h-full">
-                    <div className="flex flex-col justify-between ">
+                    <div className="flex flex-col  justify-between ">
                         <SVGArc className="" />
                         <SVGArc className="-rotate-90" />
                     </div>
@@ -31,11 +31,11 @@ const Contact: React.FC<ContactProps> = ({ mousePosition }) => {
             </div>
             <FooterScene mousePosition={mousePosition} />
 
-            <div className="flex justify-center items-center text-center md:text-left w-full h-full z-[2]" >
+            <div className="flex w-full h-full justify-center items-center text-center md:text-left z-[2]" >
 
                 <div className="flex flex-col sm:p-[10vmin] h-full w-full flex-grow lg:justify-between justify-center text-white">
                     <div>
-                        <div className="text-2xl text-center sm:text-left flex flex-col justify-center items-center lg:items-start sm:text-5xl md:text-5xl lg:text-7xl xl:text-7xl 2xl:text-8xl font ">
+                        <div className="text-2xl text-center sm:text-left flex flex-col justify-center items-center lg:items-start sm:text-5xl md:text-5xl lg:text-7xl xl:text-7xl 2xl:text-8xl 3xl:text-[10vmin] font ">
                             <span className="flex flex-row">
                                 <BlurredText delay={0.4} tailwindClasses="" text="Wanna create" once={false} />
                             </span>
@@ -49,10 +49,10 @@ const Contact: React.FC<ContactProps> = ({ mousePosition }) => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col gap-4 w-full text-center justify-center mt-16 mt:mt-0 items-center lg:text-right lg:justify-end lg:items-end">
-                        <LetsTalkButton tailwindClasses="flex flex-row hover:bg-pale-white hover:text-black transform duration-200 ease-in cursor-pointer text-lg sm:text-2xl md:text-3xl xl:text-5xl 2xl:text-6xl font-medium rounded-full border-2 border-white  px-5 py-2.5 sm:px-10 sm:py-5" text="Let's talk" delay={0.7} once={false} />
+                    <div className="flex flex-col gap-4 lg:gap-8 w-full text-center justify-center mt-16 mt:mt-0 items-center lg:text-right lg:justify-end lg:items-end">
+                        <LetsTalkButton tailwindClasses="flex flex-row hover:bg-pale-white hover:text-black transform duration-200 ease-in cursor-pointer text-lg sm:text-2xl max-w-[300px] md:max-w-max md:text-[2.5vw] font-medium rounded-full border-2 border-white  px-5 py-2.5 sm:px-6 sm:py-3 md:px-[2vw] md:py-[1.5vmax]" text="Let's talk" delay={0.7} once={false} />
 
-                        <span className="flex flex-row text-[3vw] sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl  font-medium">
+                        <span className="flex flex-row text-[3vw] sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-[1vw]  font-medium">
                             <BlurredText delay={0.7} tailwindClasses="font-thin " text={"or drop a line at\u2009\u2009"} once={false} />
                             <a href="mailto:hello@danielpetho.com" className="cursor">
                                 <RandomStaggeredText

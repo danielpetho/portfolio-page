@@ -29,15 +29,15 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <motion.footer id="contact" className="text-white text-[1vw]  flex w-screen items-center flex-col h-full min-h-screen justify-center"
+    <motion.footer id="contact" className="text-white text-[1vw]  flex w-screen items-center flex-col h-screen justify-center"
       onMouseMove={handleMouseMove}
       ref={footerRef}
     >
 
-      <div className="w-full px-[5vw] h-full mt-[9vh] sm:mt-[10vh] md:h-[76vh] md:mt-[14vh]">
+      <div className="w-full px-[5vw] h-[84vh] mt-[8vh] sm:mt-[10vh] md:h-[76vh] md:mt-[14vh] min-h-[500px] ">
         <Contact mousePosition={mousePosition} />
       </div>
-      <div className="w-full" ref={bottomRef}>
+      <div className="w-full lg:h-[10vh]" ref={bottomRef}>
         <Bottom />
       </div>
     </motion.footer>

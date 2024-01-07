@@ -8,8 +8,8 @@ const Bottom: React.FC = () => {
     return (
 
         <motion.div
-            className="flex sm:flex-row h-full w-full px-[5vw] bg-pale-white text-black pb-6 md:pb-12 lg:pb-8 pt-8  justify-start sm:justify-between ">
-            <div className="flex text-sm sm:text-lg md:text-xl lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-6xl flex-col lg:flex-row w-3/6 lg:w-5/6 xl:w-4/6 2xl:w-3/6">
+            className="flex sm:flex-row h-full px-[5vw] bg-pale-white text-black pb-6 lg:pb-0 pt-6 lg:pt-0 justify-start items-end lg:items-center sm:justify-between">
+            <div className="flex text-sm sm:text-lg md:text-xl lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-[1.5vw] flex-col lg:flex-row w-3/6 lg:w-5/6 xl:w-4/6 2xl:w-3/6">
                 <MaskedExternalLink
                     text={"Instagram"}
                     link="https://instagram.com/nonzeroexitcode"

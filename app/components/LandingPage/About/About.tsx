@@ -32,8 +32,8 @@ const About = () => {
                     
                 </div>
                 <div className="flex flex-col w-full justify-center items-center mt-14">
-                    <p className="text-[10px] mb-1">{"Sounds like I could help?"}</p>
-                    <LetsTalkButton tailwindClasses="flex border-black flex-row hover:bg-pale-white hover:text-black transform duration-200 ease-in cursor-pointer text-sm sm:text-lg max-w-[300px] md:text-xl xl:text-xl 2xl:text-xl font rounded-full border text-black border-black w-full justify-center items-center  px-5 py-2.5 sm:px-6 sm:py-3" text="Let's talk" delay={0.7} once={true} />
+                    <p className="text-[10px] md:text-[1vw] mb-1">{"Sounds like I could help?"}</p>
+                    <LetsTalkButton tailwindClasses="flex border-black flex-row hover:bg-pale-white hover:text-black transform duration-200 ease-in cursor-pointer text-sm sm:text-lg max-w-[300px] md:max-w-max md:text-[2.5vw] font rounded-full border text-black border-black w-full justify-center items-center  px-5 py-2.5 sm:px-6 sm:py-3 md:px-[2vw] md:py-[1.5vmax]" text="Let's talk" delay={0.7} once={true} />
 
                 </div>
             </div>

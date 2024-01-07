@@ -58,7 +58,7 @@ const SelectedWorkMobileComponent = ({ id, work }: SelectedWorkProps) => {
         <div className="flex flex-col w-full h-full">
             <hr className="mx-[5vw] bg-pale-black text-pale-black" />
 
-            <div className="flex flex-row flex-grow w-full h-[16vh] ">
+            <div className="flex flex-row flex-grow w-full h-[16vh] min-h-[150px]">
                 <div className="flex flex-col w-1/2 justify-start items-start text-left mx-[5vw] py-4">
                     <h2 className="text-md font-medium">{work.title}</h2>
                     {work.contractor && <h3 className="text-xs text-pale-black">({work.contractor})</h3>}
