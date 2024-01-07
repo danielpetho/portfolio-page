@@ -1,31 +1,41 @@
 import LetsTalkButton from "../../Footer/LetsTalkButton"
 
+const services = [
+    "Web development",
+    "Interaction design",
+    "Creative coding with WebGL",
+    "Augmented Reality",
+    "Real-time experiences"
+]
+
 const About = () => {
     return (
-        <section className="h-screen flex flex-row mx-[5vw] ">
-            <div className="w-1/2 justify-start items-start flex flex-col text-[2vw] leading-[2.5vw] mt-[10vw]">
-                <p>Blending the art of visual storytelling with cutting-edge technology, I specialize in creating immersive digital experiences.</p>
-                <div className="text-2xl flex flex-col items-start ml-24 flex-wrap w-full  gap-3 text-[1vw] my-[8vh] leading-[0.5vw]">
-                    <span className="flex flex-row items-center gap-6"><p className="text-lg">✦</p><p className="">Web development</p></span>
-                    <span className="flex flex-row items-center gap-6"><p className="text-lg">✦</p><p className="">Interaction design</p></span>
-
-                    <span className="flex flex-row items-center gap-6"><p className="text-lg">✦</p><p className="">Creative coding with WebGL</p></span>
-                    <span className="flex flex-row items-center gap-6"><p className="text-lg">✦</p><p className="">Augmented Reality</p></span>
-                    <span className="flex flex-row items-center gap-6"><p className="text-lg">✦</p><p className="">Real-time experiences</p></span>
-                </div>
-                <div className="flex flex-row justify-center items-center flex-wrap mt-[10vh] ">
-                    <p className="text-xl">{/*"Sounds like I could help?"*/}</p>
-                    <LetsTalkButton tailwindClasses="flex border-black flex-row hover:bg-pale-white hover:text-black transform duration-200 ease-in cursor-pointer text-lg sm:text-2xl md:text-xl xl:text-xl 2xl:text-xl font rounded-full bg-black text-white border-2 border-black  px-5 py-2.5 sm:px-8 sm:py-4" text="Let's talk" delay={0.7} once={true} />
-
-                </div>
-            </div>
-            <div className="w-1/2 justify-end flex mb-[5vw]">
-
+        <section className="min-h-screen h-full flex justify-around md:flex-row flex-col my-[5vh] mb-[15vh] mx-[5vw] ">
+        
+            <div className="w-full h-2/4 md:w-1/2 md:justify-start justify-start flex mb-[5vw]">
+                <p>Lacka</p>
                 {/*<video className="w-full h-full object-cover" autoPlay loop muted playsInline>
                     <source src="/videos/about.mp4" type="video/mp4" />
-    </video>*/}
+                </video>*/}
                 
       
+            </div>
+            <div className="w-full h-2/4 md:w-1/2 justify-between items-start flex flex-col sm:text-xl md:text-2xl lg:text-3xl xl:text-[2vw] xl:leading-[3vw]  md:mt-[10vh] mt-[5vh] text-lg">
+                <p>Blending the art of visual storytelling with cutting-edge technology, I specialize in creating immersive digital experiences.</p>
+
+                <div className="text-xs flex flex-col items-start ml-4 mt-8 md:ml-[5vw] gap-y-1 md:gap-y-[1.5vw] flex-wrap w-full md:text-[1.5vw] md:my-[4vmax] xl:my-[4vmax]">
+                    {services.map((service, index) => {
+                        return (
+                            <span key={index} className="flex flex-row items-center gap-2 md:gap-[1vw] "><p className="text-xs md:text-[1vw] ">✦</p><p className="">{service}</p></span>
+                        )
+                    })}
+                    
+                </div>
+                <div className="flex flex-col w-full justify-center items-center mt-14">
+                    <p className="text-[10px] mb-1">{"Sounds like I could help?"}</p>
+                    <LetsTalkButton tailwindClasses="flex border-black flex-row hover:bg-pale-white hover:text-black transform duration-200 ease-in cursor-pointer text-sm sm:text-lg max-w-[300px] md:text-xl xl:text-xl 2xl:text-xl font rounded-full border text-black border-black w-full justify-center items-center  px-5 py-2.5 sm:px-6 sm:py-3" text="Let's talk" delay={0.7} once={true} />
+
+                </div>
             </div>
         </section>
 

@@ -32,7 +32,7 @@ const FilterModal = ({ filter }: { filter: Filter }) => {
           onClick={handleModalClose}
         ></div>
         <motion.div
-          className="flex fjustify-center items-center z-30 w-full sm:w-[80vw] lg:w-[65vw] xl:w-[55vw] 2xl:w-[40vw] 3xl:w-[30vw]"
+          className="flex justify-center items-center z-30 w-full sm:w-[80vw] lg:w-[65vw] xl:w-[55vw] 2xl:w-[40vw] 3xl:w-[30vw]"
           animate={{ opacity: 1, y: 0, scaleX: 1, scaleY: 1 }}
           initial={{ opacity: 0, y: 100, scaleX: 0.5, scaleY: 0.5 }}
           transition={{ duration: 0.33, ease: [0.76, 0, 0.24, 1] }}

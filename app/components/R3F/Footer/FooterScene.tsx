@@ -30,7 +30,7 @@ type FooterSceneProps = {
 const FooterScene: React.FC<FooterSceneProps> = ({mousePosition}) => {
     return (
         <View className="w-[99.5%] h-[99.5%] absolute top-[0.25%] left-[0.25%] contact-r3f">
-            <GradientShaderObject mousePosition={mousePosition} />
+            <GradientShaderObject mousePosition={mousePosition} useMouse={true} />
         </View>
     )
 }

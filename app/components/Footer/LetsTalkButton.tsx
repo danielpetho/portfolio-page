@@ -38,9 +38,9 @@ const LetsTalkButton: React.FC<LetsTalkButtonProps> = ({
             viewport={{ once: once }}
             className={`${tailwindClasses}`}
         >
-            <StarIcon delay={0.6} text="✦" once={false} tailwindClasses=" z-0 pr-5" />
+            <StarIcon  text="✦" tailwindClasses=" z-0 pr-5" />
             <CalendlyDynamic />
-            <StarIcon delay={0.6} text="✦" once={false} tailwindClasses=" z-0 pl-5" />
+            <StarIcon  text="✦" tailwindClasses=" z-0 pl-5" />
         </motion.span>
     )
 }

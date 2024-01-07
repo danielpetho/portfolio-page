@@ -12,9 +12,9 @@ async function Filter({ params: { slug } }: PageProps) {
   const filter = await fetchFilterBySlug(filterBySlugQuery, slug);
 
   return (
-    <>
+    <div className="min-h-screen h-full">
       <FilterModal filter={filter} />
-    </>
+    </div>
   );
 }
 

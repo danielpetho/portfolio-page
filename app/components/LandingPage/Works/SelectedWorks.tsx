@@ -4,7 +4,7 @@ import SelectedWork from './SelectedWork'
 
 const SelectedWorks = () => {
     return (
-        <section className="overflow-x-hidden">
+        <section className="overflow-x-hidden h-full min-h-screen mb-[10vmax]">
             <h1 className="text-[8vw] font-bold mx-[5vw] overflow-x-hidden">Selected Works [6]</h1>
 
             <div className="flex flex-col pt-[0vh] sm:pt-[0vh]">

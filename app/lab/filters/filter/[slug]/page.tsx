@@ -14,7 +14,7 @@ async function Filter({ params: { slug } }: PageProps) {
   const filter = await fetchFilterBySlug(filterBySlugQuery, slug);
 
   return (
-    <div className="sm:h-screen w-screen flex flex-col sm:my-12 my-24 justify-center items-center">
+    <div className="min-h-screen w-screen flex flex-col sm:my-12 my-24 justify-center items-center">
       <div className="sm:max-w-7xl flex flex-col text-left items-start justify-center">
         <div className="text-slate-500 mx-6 sm:mx-0 md:mx-0">
           <IoMdArrowForward className="inline-block mr-2 rotate-180 mb-0.5" />
