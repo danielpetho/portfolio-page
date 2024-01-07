@@ -22,7 +22,6 @@
     "framer-motion": "^10.16.5",
     "graphql": "^16.6.0",
     "graphql-request": "^5.2.0",
-    "lamina": "1.0.6",
     "motion": "^10.16.4",
     "next": "14.0.2",
     "plaiceholder": "^3.0.0",
