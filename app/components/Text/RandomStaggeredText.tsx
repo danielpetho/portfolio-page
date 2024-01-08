@@ -75,7 +75,7 @@ const RandomStaggeredText: React.FC<RandomStaggeredTextProps> = ({
                     const index = shuffledIndices[i];
                     return (
                         <motion.div key={i} className="relative" variants={hoverVariant} custom={index} >
-                            <span className="flex top-0 w-full  justify-center items-center" >
+                            <span className="flex top-0 w-full  justify-center items-center align-bottom" >
                                 {char}
                             </span>
                             <span className={`${menuButton ? "xl:-mt-1 2xl:-mt-2" : ""} absolute top-100 flex justify-center items-center`}>

@@ -4,30 +4,40 @@ import RevealText from "../../Text/RevealText";
 
 const HeroSection = () => {
   return (
-    <section className="h-screen sm:h-[82vh] w-screen flex flex-col px-[5vw] mt-[4vh] sm:mt-[18vh] font ">
-      <div className="w-full h-[200vh] absolute top-0 left-0 backdrop-blur-[1px] z-[-1]">
+    <section className="h-screen w-screen min-w-[250px] justify-between flex flex-col px-[5vw] ">
+      <div className="w-full h-full min-h-[250px]">
 
-        <LandingScene />
-      </div>
-      <div className="h-1/3 w-full flex-col justify-end md:gap-[2vw] flex items-end  text-black">
-        <h1 className="text-lg md:text-[3vw] xl:text-[2.5vw] xl:font-light"><RevealText text="Hi Friend. Nice to meet you!" delay={0} once={true} y={300} /></h1>
-        <h1 className="text-lg md:text-[3vw] xl:text-[2.5vw] xl:font-light"><RevealText text="My name is Daniel." delay={0} once={true} y={300} /></h1>
-      </div>
-      <div className="h-2/3 flex flex-col justify-end items-start mb-[10vh] md:mb-[6vh] ">
-        <div className="flex flex-row">
-          <h2 className="md:text-[2vw] md:mt-[4vw] text mt-[2vw] xs:mt-[4vw] sm:mt-[4vw]">{"I'm a\u2009\u2009"}</h2>
-          <RandomStaggeredText
-            once={true}
-            revealDelay={0.}
-            text={"Creative\u2009\u2009Developer"}
-            hoverDelay={0.}
-            hoverDuration={0.5}
-            hoverStagger={0.005}
-            tailwindClasses="font-bold text-[6vw] "
-          />
+        <div className="w-full h-[200vh] absolute top-0 left-0 backdrop-blur-[1px] z-[-1]">
+          <LandingScene />
+        </div>
+
+        <div className="h-[8vh] sm:h-[10vh] md:h-[14vh] min-h-[50px]" />
+
+        <div className="h-1/3 w-full flex-col justify-end gap-y-[0.5vw] md:gap-y-[2vw] flex items-end  text-black pt-[4vh] sm:pt-[18vh]">
+          <h1 className="text-lg md:text-[3vw] xl:text-[2.5vw] xl:font-light text-right"><RevealText text="Hi Friend. Nice to meet&nbsp;you!" delay={0} once={true} y={300} /></h1>
+          <h1 className="text-lg md:text-[3vw] xl:text-[2.5vw] xl:font-light text-right"><RevealText text="My name is&nbsp;Daniel." delay={0} once={true} y={300} /></h1>
+        </div>
+
+        <div className="h-2/3 flex flex-col justify-end items-start  pb-[32vh] sm:pb-[28vh] md:pb-[24vh] lg:pb-[20vh]">
+
+          <div className="flex flex-row flex-nowrap ">
+
+            <div className="flex flex-row ">
+            <h2 className="md:text-[2vw] sm:mt-[4vw] md:mt-[4vw] lg:mt-[5vw] text-base">{"I'm a\u2009\u2009\u2009"}</h2>
+
+            <RandomStaggeredText
+              once={true}
+              revealDelay={0.}
+              text={"Creative\u2009\u2009Developer"}
+              hoverDelay={0.}
+              hoverDuration={0.5}
+              hoverStagger={0.005}
+              tailwindClasses="font-bold sm:text-[6vw]"
+            />
+          </div>
+          </div>
         </div>
       </div>
-
     </section>
   );
 };

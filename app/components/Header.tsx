@@ -67,7 +67,7 @@ const Header = () => {
       className="fixed top-0 left-0 w-full bg-pale-white text-black z-10"
     >
       <div className="flex justify-center items-center ">
-        <div className="px-[5vw] flex w-full items-center justify-between h-[8vh] sm:h-[10vh] md:h-[14vh] ">
+        <div className="px-[5vw] flex w-full items-center justify-between h-[8vh] sm:h-[10vh] md:h-[14vh] min-h-[50px] min-w-[240px]">
           <div className="py-2 ">
             <Link
               href="/"
