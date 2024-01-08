@@ -27,7 +27,6 @@ const FilterList: React.FC<FilterListProps> = (props) => {
 
   const y = useTransform(scrollYProgress, [0.3, 1], [0, 200]);
 
-
   if (filters && filters.length === 0) {
     return (
       <div>
@@ -37,7 +36,7 @@ const FilterList: React.FC<FilterListProps> = (props) => {
   }
 
   return (
-    <motion.div className="my-12 mx-[5vw] flex" ref={containerRef} style={{ y }}>
+    <motion.div className="my-12 mx-[5vw] flex" ref={containerRef}>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-8 gap-y-14">
         {filters &&
           filters.length > 0 &&

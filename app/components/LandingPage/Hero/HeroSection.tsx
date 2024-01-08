@@ -11,7 +11,7 @@ const HeroSection = () => {
           <LandingScene />
         </div>
 
-        <div className="h-[8vh] sm:h-[10vh] md:h-[14vh] min-h-[50px]" />
+        <div className="h-[8vh] sm:h-[10vh] md:h-[14vh] min-h-[50px] bg-pale-white" />
 
         <div className="h-1/3 w-full flex-col justify-end gap-y-[0.5vw] md:gap-y-[2vw] flex items-end  text-black pt-[4vh] sm:pt-[18vh]">
           <h1 className="text-base md:text-[3vw] xl:text-[2.5vw] xl:font-light text-right"><RevealText text="Hi Friend. Nice to meet&nbsp;you!" delay={0} once={true} y={50} /></h1>

@@ -1,6 +1,7 @@
 "use client"
 
 import {
+    MotionValue,
     motion,
     useAnimationFrame,
     useMotionValue,
@@ -18,13 +19,13 @@ interface ParallaxProps {
     baseVelocity: number;
     tailwindClasses: string;
     idx: number;
+    scrollY: MotionValue<number>;
 }
-function ParallaxText({ idx, text, complementaryText, baseVelocity = 100, tailwindClasses }: ParallaxProps) {
+function ParallaxText({ idx, text, complementaryText, baseVelocity = 100, tailwindClasses, scrollY }: ParallaxProps) {
     const baseX = useMotionValue(0);
     const [textWidth, setTextWidth] = useState(4); // Default to 4 repeats
 
 
-    const { scrollY } = useScroll();
     const scrollVelocity = useVelocity(scrollY);
     const smoothVelocity = useSpring(scrollVelocity, {
         damping: 50,
@@ -68,7 +69,7 @@ function ParallaxText({ idx, text, complementaryText, baseVelocity = 100, tailwi
             directionFactor.current = 1;
         }
 
-        moveBy += /*directionFactor.current * moveBy **/ velocityFactor.get() * 0.025;
+        moveBy += /*directionFactor.current * moveBy **/ velocityFactor.get() * 0.065;
 
         baseX.set(baseX.get() + moveBy);
     });

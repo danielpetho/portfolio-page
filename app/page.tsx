@@ -6,7 +6,7 @@ import Scene from "./components/R3F/Scene";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="flex flex-col w-full">
       <HeroSection />
       <About />
       <SelectedWorkImage />

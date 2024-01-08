@@ -3,8 +3,8 @@
 
 import { SelectedWorkType } from "@/typings";
 import ParallaxText from "./ParallaxText";
-import { motion } from "framer-motion";
-import React, { useState, useEffect } from "react";
+import { MotionValue, motion, useScroll } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useMyStore } from "@/src/store/store";
@@ -12,10 +12,11 @@ import { useMyStore } from "@/src/store/store";
 type SelectedWorkProps = {
     id: number,
     work: SelectedWorkType;
+    scrollY: MotionValue<number>;
 }
 
 
-const SelectedWorkComponent = ({ id, work }: SelectedWorkProps) => {
+const SelectedWorkComponent = ({ id, work, scrollY }: SelectedWorkProps) => {
     const [baseVelocity, setBaseVelocity] = useState(0);
     const { setSelectedWorkImageIndex, setShowSelectedWorkImage } = useMyStore();
 
@@ -47,6 +48,7 @@ const SelectedWorkComponent = ({ id, work }: SelectedWorkProps) => {
                     text={work.title}
                     complementaryText={work.contractor}
                     tailwindClasses={"gap-x-[8vw] flex flex-row font text-[6vw] sm:text-[4vw]"}
+                    scrollY={scrollY!}
                 />
             </div>
         </motion.div>
@@ -74,28 +76,28 @@ const SelectedWorkMobileComponent = ({ id, work }: SelectedWorkProps) => {
     )
 }
 
-const SelectedWork = ({ id, work }: SelectedWorkProps) => {
+const SelectedWork = ({ id, work, scrollY }: SelectedWorkProps) => {
     return (
-        <div className="w-full h-full">
+        <div className="w-full h-full" >
             {work.internalLink ? (
                 <Link href={work.link}>
                     <div className="hidden md:block cursor-pointer text-pale-black hover:text-black duration-500 transform ease-in-out ">
-                        <SelectedWorkComponent id={id} work={work} />
-                        {id !== 5 &&<hr className="mx-[5vw] h-[1px] bg-black" />}
+                        <SelectedWorkComponent id={id} work={work} scrollY={scrollY} />
+                        {id !== 5 && <hr className="mx-[5vw] h-[1px] bg-black" />}
 
                     </div>
                     <div className="md:hidden flex w-full">
-                        <SelectedWorkMobileComponent id={id} work={work} />
+                        <SelectedWorkMobileComponent id={id} work={work} scrollY={scrollY} />
                     </div>
                 </Link>
             ) : (
                 <a href={work.link} target="_blank">
                     <div className="hidden md:block cursor-pointer text-pale-black hover:text-black duration-500 transform ease-in-out ">
-                        <SelectedWorkComponent id={id} work={work} />
-                        {id !== 5 && <hr className="mx-[5vw] h-[1px] bg-black" /> }
+                        <SelectedWorkComponent id={id} work={work} scrollY={scrollY} />
+                        {id !== 5 && <hr className="mx-[5vw] h-[1px] bg-black" />}
                     </div>
                     <div className="md:hidden flex w-full">
-                        <SelectedWorkMobileComponent id={id} work={work} />
+                        <SelectedWorkMobileComponent id={id} work={work} scrollY={scrollY} />
                     </div>
                 </a>
             )}
