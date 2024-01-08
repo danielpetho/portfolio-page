@@ -11,6 +11,7 @@ type RandomStaggeredTextProps = {
     revealDelay: number;
     hoverDelay: number;
     once: boolean;
+    y?: number;
     menuButton?: boolean;
 }
 
@@ -30,6 +31,7 @@ const RandomStaggeredText: React.FC<RandomStaggeredTextProps> = ({
     revealDelay,
     hoverDelay,
     once = true,
+    y,
     menuButton = false,
 }) => {
     const body = useRef(null);
@@ -63,9 +65,9 @@ const RandomStaggeredText: React.FC<RandomStaggeredTextProps> = ({
             <span className="sr-only">{text}</span>
 
             <motion.span
-                initial={{ opacity: 0, filter: "blur(5px)" }}
+                initial={{ opacity: 0, filter: "blur(5px)", y: y }}
                 transition={{ duration: 0.5, ease: "easeInOut", delay: revealDelay }}
-                whileInView={{ opacity: 1, filter: "blur(0px)" }}
+                whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                 viewport={{ once: once }}
                 className="flex w-full h-full relative overflow-hidden justify-center items-center"
                 whileHover={"hover"}
@@ -75,7 +77,7 @@ const RandomStaggeredText: React.FC<RandomStaggeredTextProps> = ({
                     const index = shuffledIndices[i];
                     return (
                         <motion.div key={i} className="relative" variants={hoverVariant} custom={index} >
-                            <span className="flex top-0 w-full  justify-center items-center align-bottom" >
+                            <span className="flex top-0 w-full  justify-center items-center" >
                                 {char}
                             </span>
                             <span className={`${menuButton ? "xl:-mt-1 2xl:-mt-2" : ""} absolute top-100 flex justify-center items-center`}>
